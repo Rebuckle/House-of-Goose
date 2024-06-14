@@ -16,15 +16,12 @@ public class BudgetCalculation : MonoBehaviour
         bool peakSeason = false; //element multiplier of 1.5
         bool lowSeason = false; //element multiplier of 0.7
         bool regularSeason = false; //element multiplier of 1
-        bool groupCoverage = false; //is one person covering entire cost of the group or is it split
         double groupSize = 0; //how many are in the group
 
         //lodging variable (affected by tripDuration, groupSize, and inputSeason)
         double lodgingCost = 0;
 
         double lodgingRate = 0;
-        double groupLodgingTotal = 0;
-        //rates set to 1/2 bed with assumption of couple. maximum of 2 beds coverage, 3-4 people possible, makes coverage for split beds group later easier
 
         //dining variables (affected by tripDuration and groupSize)
         double diningCost = 0;
@@ -55,9 +52,8 @@ public class BudgetCalculation : MonoBehaviour
         //setting test values
 
         tripDuration = 7;
-        groupSize = 1;
-        groupCoverage = false;
-        lowSeason = true;
+        groupSize = 2;
+        peakSeason = true;
         
         lodgingRate = 200;
 
@@ -78,31 +74,15 @@ public class BudgetCalculation : MonoBehaviour
         // ----------------------------------------------------------------------------------------------------------------------------
 
         //lodging calculation
-        if (groupSize == 1) //solo traveller covers both 1/2s of bed, original lodgingRate is set to 1/2 bed
+        //assuming these are Queen beds or Doubles for splitting, if 2 peeps don't want to sleep in the same bed, we'll just say they downgraded to smaller beds
+        
+        if (groupSize == 1 || groupSize == 2) //solo traveller covers full bed
+        {
+            lodgingRate = lodgingRate;
+        }
+        else if (groupSize == 3 || groupSize == 4) 
         {
             lodgingRate = lodgingRate * 2;
-        }
-        else if (groupSize == 2) //partner travellers split the bed, value stays the same unless groupCoverage
-        {
-            if (groupCoverage == false)
-            {
-                lodgingRate = lodgingRate;
-            }
-            else if (groupCoverage == true)
-            {
-                lodgingRate = lodgingRate * 2;
-            }
-        }
-        else if (groupSize == 3 || groupSize == 4) //group travellers add an extra bed, so 4 halves are now there
-        {
-            if (groupCoverage == false)
-            {
-                lodgingRate = lodgingRate;
-            }
-            else if (groupCoverage == true)
-            {
-                lodgingRate = lodgingRate * 4;
-            }
         }
 
         lodgingCost = lodgingRate * tripDuration;
@@ -114,14 +94,7 @@ public class BudgetCalculation : MonoBehaviour
         {
             if (fullDining == true) //if client is opting in for full daily dining
             {
-                if (groupCoverage == false) //if the client isn't covering for an entire group
-                {
-                    diningCost = diningRate * tripDuration;
-                }
-                else if (groupCoverage == true) //if the client is covering for an entire group
-                {
-                    diningCost = (diningRate * groupSize) * tripDuration;
-                }
+                diningCost = diningRate * groupSize * tripDuration;
             }
             else if (fullDining == false) //if opting for limited / specific dining coverage
             {
@@ -130,15 +103,8 @@ public class BudgetCalculation : MonoBehaviour
                 {
                     diningSum = collectDining[i];
                 }
-
-                if (groupCoverage == false) //if the client isn't covering for an entire group
-                {
-                    diningCost = diningSum;
-                }
-                else if (groupCoverage == true) //if the client is covering for an entire group
-                {
-                    diningCost = diningSum * groupSize;
-                }
+                
+                diningCost = diningSum * groupSize;
             }
         }
         else if (optOutDining == true) //if client is opting out of dining coverage
@@ -156,14 +122,9 @@ public class BudgetCalculation : MonoBehaviour
             {
                 activitySum += collectActivity[i];
             }
-            if (groupCoverage == false) //if the client isn't covering for an entire group
-            {
-                activityCost = activitySum;
-            }
-            else if (groupCoverage == true) //if the client is covering for an entire group
-            {
-                activityCost = activitySum * groupSize;
-            }
+
+            activityCost = activitySum * groupSize;
+            
         }
         else if (optOutActivity == true)
         {
@@ -175,14 +136,7 @@ public class BudgetCalculation : MonoBehaviour
         //transit calculation
         if (optOutTransit == false) //if client is opting in for transit coverage
         {
-            if (groupCoverage == false) //if the client isn't covering for an entire group
-            {
-                transitCost = (toFromAirportCost / groupSize) + (tripDuration * (((carRentalCost + personalDriverCost) / groupSize) + transitPassCost)); //split between group members
-            }
-            else if (groupCoverage == true) //if the client is covering for an entire group
-            {
-                transitCost = toFromAirportCost + (tripDuration * (carRentalCost + personalDriverCost + (groupSize * transitPassCost))); //cover group members
-            }
+            transitCost = toFromAirportCost + (tripDuration * (carRentalCost + personalDriverCost + (transitPassCost * groupSize)));
         }
         else if (optOutTransit == true) //if client is opting out of transit coverage
         {
