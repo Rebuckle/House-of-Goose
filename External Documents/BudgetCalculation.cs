@@ -3,47 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+//--Itinerary
 public class BudgetCalculation : MonoBehaviour
 {
 
     void Start()
     {
         //general cost variable
+        //--Itinerary
         double tripCost = 0;
 
         //general client provided information variables
+        //--Client Book
         double tripDuration = 0;
+        //--Itinerary
         bool peakSeason = false; //element multiplier of 1.5
+        //--Itinerary
         bool lowSeason = false; //element multiplier of 0.7
+        //--Itinerary
         bool regularSeason = false; //element multiplier of 1
+        //--Client Book
         double groupSize = 0; //how many are in the group
 
         //lodging variable (affected by tripDuration, groupSize, and inputSeason)
+
+        //--Itinerary
         double lodgingCost = 0;
 
+        //--Organizer
         double lodgingRate = 0;
 
         //dining variables (affected by tripDuration and groupSize)
+        //--Itinerary
         double diningCost = 0;
 
+        //--Client Book
         bool fullDining = false; //reservation meal daily
+        //--Organizer
         double diningRate = 0;
+        //--Itinerary
         double[] collectDining = new double[5] { 0, 0, 0, 0, 0}; //specified amount of dining
+        //--Client Book
         bool optOutDining = false; //client opted out of dining
 
         //activity variables (affected by groupSize)
+        //--Itinerary
         double activityCost = 0;
 
+        //--Itinerary
         double[] collectActivity = new double[5] {0, 0, 0, 0, 0}; //agent adds activities based off of client prompts
+        //--Client Book
         bool optOutActivity = false; //client opted out of activities
 
         //transit variables (affected by tripDuration and groupSize)
+        //--Itinerary
         double transitCost = 0;
 
+        //--Itinerary
         double toFromAirportCost = 0; //transit cost to and from airport
+        //--Organizer
         double carRentalCost = 0; //transit cost to rent a car
+        //--Organizer
         double personalDriverCost = 0;//transit cost to employ a personal driver
+        //--Organizer
         double transitPassCost = 0; //transit cost to buy daily pass
+        //--Client Book
         bool optOutTransit = false; //client opted out of transit
 
         // ----------------------------------------------------------------------------------------------------------------------------
@@ -51,23 +75,37 @@ public class BudgetCalculation : MonoBehaviour
 
         //setting test values
 
+        //--Client Book
         tripDuration = 7;
+        //--Client Book
         groupSize = 2;
+        //--Itinerary
         peakSeason = true;
-        
+
+        //--Organizer
         lodgingRate = 200;
 
+        //--Client Book
         optOutDining = false;
+        //--Client Book
         fullDining = true;
+        //--Organizer
         diningRate = 70;
 
+        //--Client Book
         optOutActivity = false;
-        collectActivity[0] = 100; collectActivity[1] = 50; collectActivity[2] = 60; 
+        //--Itinerary
+        collectActivity[0] = 100; collectActivity[1] = 50; collectActivity[2] = 60;
 
+        //--Client Book
         optOutTransit = false;
+        //--Itinerary
         toFromAirportCost = 40;
-        carRentalCost = 0; 
+        //--Organizer
+        carRentalCost = 0;
+        //--Organizer
         personalDriverCost = 0;
+        //--Organizer
         transitPassCost = 16;
 
 
