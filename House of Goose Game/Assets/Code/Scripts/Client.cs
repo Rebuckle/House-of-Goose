@@ -36,6 +36,9 @@ public class Client : ScriptableObject
     [SerializeField]
     bool _fullDining;
     [SerializeField]
+    [Range(1, 60)]
+    int _diningAmount;
+    [SerializeField]
     [Range(0, 3)]
     int[] _diningQuality; //How many $ is the dining worth from 0 (free) to 3 ($$$)
 
@@ -56,7 +59,7 @@ public class Client : ScriptableObject
     [SerializeField]
     bool _optOutActivity;
     [SerializeField]
-    [Range(1,10)]
+    [Range(1,60)]
     int _activityAmount;
     [SerializeField]
     ActivityTags[] _likedActivityTags;
@@ -88,4 +91,5 @@ public class Client : ScriptableObject
     public Locations[] PreferredLocations { get => _preferredLocations; set => _preferredLocations = value; }
     public Locations[] UnpreferredLocations { get => _unpreferredLocations; set => _unpreferredLocations = value; }
     public HoG.Transit[] UnpreferredTransit { get => _unpreferredTransit; set => _unpreferredTransit = value; }
+    public int DiningAmount { get => _diningAmount; set => _diningAmount = value; }
 }
