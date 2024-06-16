@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 229e516d5e794a4459986f4c46ad4b9d
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 249962
+  packageName: Node Based Dialog System
+  packageVersion: 1.1.3
+  assetPath: Assets/DialogNodeBasedSystem/DemoScenes/New Scene.unity
+  uploadId: 646670
