@@ -2129,11 +2129,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5357050393981017139, guid: ddbeee70ceb73fa4188af8a08881a56c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 261.24
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5357050393981017139, guid: ddbeee70ceb73fa4188af8a08881a56c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 31.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5357050393981017139, guid: ddbeee70ceb73fa4188af8a08881a56c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3767,7 +3767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4758548709324667697, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4758548709324667697, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3775,11 +3775,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4758548709324667697, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4758548709324667697, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 224.06
       objectReference: {fileID: 0}
     - target: {fileID: 4758548709324667697, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3815,11 +3815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4758548709324667697, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 141.97
       objectReference: {fileID: 0}
     - target: {fileID: 4758548709324667697, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -28.315
       objectReference: {fileID: 0}
     - target: {fileID: 4758548709324667697, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4087,7 +4087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5768654385885948484, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -70.58
+      value: -74.78
       objectReference: {fileID: 0}
     - target: {fileID: 5832883970042465726, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4475,7 +4475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7721966894793789515, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_Size
-      value: 0.7752657
+      value: 0.77097446
       objectReference: {fileID: 0}
     - target: {fileID: 7742560268375227522, guid: 74734a74577c1d14fa477aefb025ada7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4881,7 +4881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581264998240532209, guid: cd5cd3b4b3542bd4184f0fa84f48afb1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -579.245
+      value: -574.495
       objectReference: {fileID: 0}
     - target: {fileID: 4073495975143598527, guid: cd5cd3b4b3542bd4184f0fa84f48afb1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4949,11 +4949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7196280248532038154, guid: cd5cd3b4b3542bd4184f0fa84f48afb1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 225.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7196280248532038154, guid: cd5cd3b4b3542bd4184f0fa84f48afb1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 31.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7196280248532038154, guid: cd5cd3b4b3542bd4184f0fa84f48afb1, type: 3}
       propertyPath: m_LocalPosition.x

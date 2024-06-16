@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Add New
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6d4e56bb66c8da44d8ae0a0781e0768a, type: 2}
+  m_sharedMaterial: {fileID: 1905155635018380912, guid: 6d4e56bb66c8da44d8ae0a0781e0768a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -579,7 +579,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 348693242950603750, guid: 190ace1a39cb8434ba481c8f7b500174, type: 3}
       propertyPath: m_text
-      value: Remove...
+      value: Option A
       objectReference: {fileID: 0}
     - target: {fileID: 1908657188307123144, guid: 190ace1a39cb8434ba481c8f7b500174, type: 3}
       propertyPath: m_Name
