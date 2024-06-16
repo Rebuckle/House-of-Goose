@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632ce7c4bd359a046a768d4773d085e8, type: 3}
+  m_Name: TestClient01
+  m_EditorClassIdentifier: 
+  _clientName: Tutorial
+  _clientStory: This client exemplifies typical customers who approach the travel
+    agency. This profile serves as a tutorial to familiarize agents with building
+    itineraries based on provided information. This will not affect the final score.
+  _budget: 1200
+  _tripDuration: 7
+  _groupSize: 1
+  _callLimit: 3
+  _startingRegion: 5
+  _preferredSeasons: 0100000002000000
+  _unpreferredSeasons: 
+  _preferredLocations: 00000000
+  _unpreferredLocations: 04000000
+  _optOutDining: 0
+  _fullDining: 0
+  _diningQuality: 01000000
+  _optOutTransit: 0
+  _preferredTransit: 00000000
+  _unpreferredTransit: 02000000
+  _lodgingQuality: 0000000001000000
+  _optOutActivity: 0
+  _activityAmount: 3
+  _likedActivityTags: 000000000100000002000000030000000400000005000000
+  _dislikedActivityTags: 0f0000001000000008000000

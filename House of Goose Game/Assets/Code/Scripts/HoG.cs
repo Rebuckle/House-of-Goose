@@ -18,4 +18,8 @@ public class HoG : MonoBehaviour
     public enum Attributes { old, modern, open, beach, dense };
 
     public enum Locations { Edinburgh, Paris, Busan, Tokyo, Delhi, Bali, Portland, Santorini };
+
+    public enum Transit { None, PrivateDriver, CarRental, TransitPass};
+
+    public enum ActivityTags { Food, Thrills, Active, Scary, Experience, Adventure, Mature, Quiet, Luxury, Relax, Lively, sightseeing, Drinks, Children, Nature, Static, Romantic, Animals, Messy, Water };
 }
