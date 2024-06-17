@@ -26,15 +26,15 @@ public class Client : ScriptableObject
     [SerializeField]
     Seasons[] _unpreferredSeasons;
     [SerializeField]
-    HoG.Locations[] _preferredLocations;
+    HoG.Attributes[] _preferredLocationAttributes;
     [SerializeField]
-    HoG.Locations[] _unpreferredLocations;
+    HoG.Attributes[] _unpreferredLocationAttributes;
 
     [Header("Dining")]
     [SerializeField]
     bool _optOutDining;
-    [SerializeField]
-    bool _fullDining;
+    //[SerializeField]
+    //bool _fullDining;
     [SerializeField]
     [Range(1, 60)]
     int _diningAmount;
@@ -45,6 +45,8 @@ public class Client : ScriptableObject
     [Header("Transit")]
     [SerializeField]
     bool _optOutTransit;
+    [SerializeField]
+    AirplaneClasses _airplaneClass;
     [SerializeField]
     HoG.Transit[] _preferredTransit;
     [SerializeField]
@@ -78,7 +80,7 @@ public class Client : ScriptableObject
     public Regions StartingRegion { get => _startingRegion; set => _startingRegion = value; }
     public Seasons[] PreferredSeasons { get => _preferredSeasons; set => _preferredSeasons = value; }
     public bool OptOutDining { get => _optOutDining; set => _optOutDining = value; }
-    public bool FullDining { get => _fullDining; set => _fullDining = value; }
+    //public bool FullDining { get => _fullDining; set => _fullDining = value; }
     public int[] DiningQuality { get => _diningQuality; set => _diningQuality = value; }
     public bool OptOutTransit { get => _optOutTransit; set => _optOutTransit = value; }
     public HoG.Transit[] PreferredTransit { get => _preferredTransit; set => _preferredTransit = value; }
@@ -88,8 +90,8 @@ public class Client : ScriptableObject
     public ActivityTags[] DislikedActivityTags { get => _dislikedActivityTags; set => _dislikedActivityTags = value; }
     public int ActivityAmount { get => _activityAmount; set => _activityAmount = value; }
     public Seasons[] UnpreferredSeasons { get => _unpreferredSeasons; set => _unpreferredSeasons = value; }
-    public Locations[] PreferredLocations { get => _preferredLocations; set => _preferredLocations = value; }
-    public Locations[] UnpreferredLocations { get => _unpreferredLocations; set => _unpreferredLocations = value; }
+    public Attributes[] PreferredLocations { get => _preferredLocationAttributes; set => _preferredLocationAttributes = value; }
+    public Attributes[] UnpreferredLocations { get => _unpreferredLocationAttributes; set => _unpreferredLocationAttributes = value; }
     public HoG.Transit[] UnpreferredTransit { get => _unpreferredTransit; set => _unpreferredTransit = value; }
     public int DiningAmount { get => _diningAmount; set => _diningAmount = value; }
 }
