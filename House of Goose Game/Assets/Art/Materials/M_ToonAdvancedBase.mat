@@ -24,7 +24,8 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 83b2304374792d84a84b21af2fb17121, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _AXIS_VERTICAL
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -123,6 +124,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AXIS: 0
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaCutoffEnable: 0
@@ -132,6 +134,7 @@ Material:
     - _Blend: 0
     - _BlendMode: 0
     - _BlendModePreserveSpecular: 1
+    - _Blur_Amount: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -164,12 +167,14 @@ Material:
     - _Overlay_Blending: 1
     - _Overlay_Intensity: 1.78
     - _Overlay_Size: 1.73
+    - _Overlay_Tiling: 1
     - _Parallax: 0.005
     - _PerPixelSorting: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RenderQueueType: 1
     - _Rim_Clamp: 3.8
+    - _Shading_Depth: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -199,6 +204,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - _Albedo_Tint: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color_A: {r: 0.9221513, g: 0.72342825, b: 0, a: 1}
