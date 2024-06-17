@@ -1,0 +1,30 @@
+General Name,Tutorial,College Graduates,Rich Man + Father,Young Family,Couple Honeymoon,Retired Couple
+Client Summary,This client exemplifies typical customers who approach the travel agency. This profile serves as a tutorial to familiarize agents with building itineraries based on provided information. This will not affect the final score.,"A recent college graduate and her friends want to celebrate their graduation and create lasting memories together. They are eager to explore new destinations, indulge in local cuisines, and embark on adventures that mark the beginning of their post-graduate journey.",A succesful Belgian businessman wants to plan a heartfelt trip to express gratitude to his hardworking single father for raising and caring for him. This journey aims to create lasting memories and honor the bond between father and son through meaningful experiences together.,The father of a humble family is eager to book their first family trip and bring his young children on unforgettable adventures. They are excited to explore new places together and make cherished memories as a family.,"The wife of a newlywed couple is excitedly planning their honeymoon, envisioning a romantic getaway to celebrate their union and embark on the next chapter of their lives together. They seek a destination that promises relaxation and adventure as they begin their story as a married couple.","A mature couple is celebrating their retirement by revisiting places they explored in their youth, reliving cherished memories and creating new ones together. They are eager to reconnect with familiar destinations, savoring the nostalgia and reflecting on their lifelong journey."
+Client,Chidi Zwane,Lily Mitchell,Octavio Fallas,Andrew Charron,Suyin Teo,Inês Madeira
+Group Quantity,1,3,2,4,2,2
+Starting Region,South Africa,Australia,Costa Rica,Canada,Singapore,Portugal
+Air Transit,yes,yes,yes,yes,yes,yes
+Airplane Class,Economy,Economy,First,Economy,Business,First
+Budget,2100,5500,30000,7000,6500,5000
+Trip Duration (Days),7,21,10,4,14,12
+Ideal Seasons,spring,autumn,winter,spring,summer,spring
+,summer,winter,autumn,autumn,autumn,summer
+Transit Type,none,public transit pass,private driver,car rental,private driver,car rental
+Dining Type,2,-1,3,1,2,2
+Dining Amount,2,x,Daily,3,Daily,6
+Lodging Type,2,1,5,2,4,3
+Location Type,open,modern,modern,open,old,old
+,beach,dense,beach,beach,beach,open
+Activity Amount,3,10,4,4,8,2
+Activity Tags Like,Food,Active,Mature,Active,Mature,Mature
+,Thrills,Scary,Static,Children ,Romantic,Romantic
+,Active,Lively,Quiet ,Lively,Active,Static
+,Quiet,Thrills,Food,Experience ,Luxury,Quiet 
+,Experience ,Sightseeing,Luxury,Adventure,Animals,Experience 
+,Adventure,Drinks,Relax,Nature ,Experience ,Relax
+Activity Tags Hates,Static,Static,Children,Static,Static,Children
+,Lively,Romantic,Active,Mature,Children,Scary
+,Luxury,Quiet,Lively,Quiet,Scary,Active
+,Children,n/a,Messy,Thrills,n/a,Lively
+,n/a,n/a,Animals,n/a,n/a,Water
+Call Limit,3,3,3,3,3,3
