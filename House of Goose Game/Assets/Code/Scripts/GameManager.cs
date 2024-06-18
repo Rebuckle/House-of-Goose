@@ -19,11 +19,6 @@ public class GameManager : HoG
         {
             gm = this;
         }
-
-        if(notebookBehavior && locationBehavior)
-        {
-            notebookBehavior.locationBehavior = locationBehavior;
-        }
     }//end Awake
 
 

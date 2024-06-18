@@ -21,7 +21,8 @@ public class HoG : MonoBehaviour
 
     public enum Transit { None, PrivateDriver, CarRental, TransitPass};
 
-    public enum ActivityTags { Null, Food, Thrills, Active, Scary, Experience, Adventure, Mature, Quiet, Luxury, Relax, Lively, sightseeing, Drinks, Children, Nature, Static, Romantic, Animals, Messy, Water };
+    public enum ActivityTags { Null, Food, Thrills, Active, Scary, Experience, Adventure, Mature, Quiet, Luxury, Relax, Lively, Sightseeing, Drinks, Children, Nature, Static, Romantic, Animals, Messy, Water };
 
     public enum AirplaneClasses { None, First, Business, Economy };
+
 }
