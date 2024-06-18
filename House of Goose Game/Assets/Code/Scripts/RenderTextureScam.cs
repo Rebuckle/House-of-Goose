@@ -5,22 +5,22 @@ public class RenderTextureScam : MonoBehaviour
 {
     private RenderTexture target;
     private RenderTexture temporaryRT;
-    private Camera mainCamera;
+    private Camera cam;
 
-    private Camera MainCamera
+    private Camera Cam
     {
         get
         {
-            if (mainCamera == null)
+            if (cam == null)
             {
-                mainCamera = GetComponent<Camera>();
-                if (mainCamera == null)
+                cam = GetComponent<Camera>();
+                if (cam == null)
                 {
                     Debug.LogError("No Camera component found. Do better.");
                     return null;
                 }
             }
-            return mainCamera;
+            return cam;
         }
     }
 
@@ -28,13 +28,13 @@ public class RenderTextureScam : MonoBehaviour
     private void OnPreRender()
     {
         temporaryRT = RenderTexture.GetTemporary(Screen.width, Screen.height);
-        mainCamera.targetTexture = temporaryRT;
+        Cam.targetTexture = temporaryRT;
     }
 
     private void OnPostRender()
     {
         Graphics.Blit(temporaryRT, target);
-        mainCamera.targetTexture = null;
+        Cam.targetTexture = null;
 
         RenderTexture.ReleaseTemporary(temporaryRT);
     }
