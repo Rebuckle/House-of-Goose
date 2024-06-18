@@ -23,12 +23,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Computer
+  m_Name: M_deskChair
   m_Shader: {fileID: -6465566751694194690, guid: 83b2304374792d84a84b21af2fb17121, type: 3}
   m_Parent: {fileID: 2100000, guid: e3e6be16ca0ff904b8b5784570c6c336, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AXIS_VERTICAL
+  - _AXIS_HORIZONTAL
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -46,7 +46,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: c35f6a65f5db92f4f959460b8e781218, type: 3}
+        m_Texture: {fileID: 2800000, guid: b8f32c5dc8ab7be4086f3e6765f6ec84, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Overlay_Texture:
@@ -54,25 +54,21 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shading_Ramp:
-        m_Texture: {fileID: 2800000, guid: 0c3351c4afaf6d44d998ab33a84279f4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3028025b65564ab4faed6c6860bab0f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AXIS: 0
-    - _Blur_Amount: 0.36
-    - _Offset: -0.12
-    - _Overlay_Blending: 6.38
-    - _Overlay_Intensity: 0.345
-    - _Overlay_Tiling: 2.86
-    - _Rim_Clamp: 8.19
+    - _AXIS: 1
+    - _Blur_Amount: 0.27
+    - _Overlay_Blending: 1.08
+    - _Overlay_Intensity: 0.459
+    - _Overlay_Tiling: 2.45
+    - _Rim_Clamp: 8.41
     - _Shading_Depth: 0.876
     m_Colors:
-    - _Albedo_Tint: {r: 0.9716981, g: 0.93601406, b: 0.86627805, a: 1}
-    - _Color_A: {r: 0, g: 0.103292756, b: 0.5188679, a: 0.5529412}
-    - _Color_B: {r: 0.5471698, g: 0.4538502, b: 0.29165182, a: 0.79607844}
-    - _Emissive_Tint: {r: 1, g: 1, b: 1, a: 0}
-    - _Overlay_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Shadow_Color: {r: 0.008591628, g: 0, b: 0.05660379, a: 0}
+    - _Color_A: {r: 0.8113207, g: 0.7087286, b: 0.41714132, a: 0}
+    - _Color_B: {r: 0.056603767, g: 0.02670479, b: 0.022160916, a: 0}
+    - _Shadow_Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

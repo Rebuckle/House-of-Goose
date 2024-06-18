@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8624023799888429355}
   - component: {fileID: 4356934929596858264}
   - component: {fileID: 454689703602928667}
+  - component: {fileID: 5851118739393797311}
   m_Layer: 0
   m_Name: PP_MainCamera
   m_TagString: MainCamera
@@ -292,3 +293,20 @@ MonoBehaviour:
         stencilFailOperation: 0
         stencilDepthFailOperation: 0
         shaderPass: 0
+--- !u!114 &5851118739393797311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7348492574932434615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 98ce5dc5cb1c0a4449c45812ec21fd72, type: 2}

@@ -23,17 +23,18 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Computer
+  m_Name: M_Floor
   m_Shader: {fileID: -6465566751694194690, guid: 83b2304374792d84a84b21af2fb17121, type: 3}
   m_Parent: {fileID: 2100000, guid: e3e6be16ca0ff904b8b5784570c6c336, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 2
   m_ValidKeywords:
   - _AXIS_VERTICAL
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_InvalidKeywords:
+  - _EMISSION
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     MotionVector: User
   disabledShaderPasses:
@@ -46,11 +47,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: c35f6a65f5db92f4f959460b8e781218, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4767c7ced1cdc5d44a7995ab97aa5e3d, type: 3}
+        m_Scale: {x: 30, y: 30}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Overlay_Texture:
-        m_Texture: {fileID: 2800000, guid: 771ca7edac9cc494ca679682539cc181, type: 3}
+    - _Normal:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shading_Ramp:
@@ -60,19 +65,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _AXIS: 0
-    - _Blur_Amount: 0.36
-    - _Offset: -0.12
     - _Overlay_Blending: 6.38
-    - _Overlay_Intensity: 0.345
-    - _Overlay_Tiling: 2.86
+    - _Overlay_Intensity: 0.715
+    - _Overlay_Tiling: 1.3
     - _Rim_Clamp: 8.19
-    - _Shading_Depth: 0.876
+    - _Shading_Depth: 0
     m_Colors:
-    - _Albedo_Tint: {r: 0.9716981, g: 0.93601406, b: 0.86627805, a: 1}
-    - _Color_A: {r: 0, g: 0.103292756, b: 0.5188679, a: 0.5529412}
-    - _Color_B: {r: 0.5471698, g: 0.4538502, b: 0.29165182, a: 0.79607844}
-    - _Emissive_Tint: {r: 1, g: 1, b: 1, a: 0}
-    - _Overlay_Color: {r: 0, g: 0, b: 0, a: 0}
-    - _Shadow_Color: {r: 0.008591628, g: 0, b: 0.05660379, a: 0}
+    - _Albedo_Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Emissive_Tint: {r: 0, g: 0, b: 0, a: 1}
+    - _Shadow_Color: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

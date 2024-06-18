@@ -28,7 +28,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: e3e6be16ca0ff904b8b5784570c6c336, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AXIS_HORIZONTAL
+  - _AXIS_VERTICAL
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -46,7 +46,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Overlay_Texture:
-        m_Texture: {fileID: 2800000, guid: 9bdfdc11828d26143b40527e9a40a649, type: 3}
+        m_Texture: {fileID: 2800000, guid: dc4d6608b50219b44ba7cbedd6462064, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shading_Ramp:
@@ -55,14 +55,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AXIS: 1
-    - _Blur_Amount: 0.27
-    - _Overlay_Blending: 1.26
-    - _Overlay_Intensity: 0.527
-    - _Overlay_Tiling: 2.01
+    - _AXIS: 0
+    - _Blur_Amount: 0.32
+    - _Offset: 0.13
+    - _Overlay_Blending: 1.9
+    - _Overlay_Intensity: 0.184
+    - _Overlay_Tiling: 1.37
     - _Rim_Clamp: 8.41
     - _Shading_Depth: 0.876
     m_Colors:
+    - _Albedo_Tint: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+    - _Color_A: {r: 0.24109998, g: 0.35341635, b: 0.8113207, a: 0.57254905}
+    - _Color_B: {r: 0.8746035, g: 0.6961997, b: 0.99056596, a: 0.18431373}
+    - _Overlay_Color: {r: 0, g: 0.01413948, b: 0.21698111, a: 0}
     - _Shadow_Color: {r: 0.03773582, g: 0.01655392, b: 0.01655392, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
