@@ -53,10 +53,6 @@ Material:
         m_Texture: {fileID: 2800000, guid: 771ca7edac9cc494ca679682539cc181, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Shading_Ramp:
-        m_Texture: {fileID: 2800000, guid: 3028025b65564ab4faed6c6860bab0f7, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _AXIS: 1
@@ -65,10 +61,10 @@ Material:
     - _Overlay_Intensity: 0.459
     - _Overlay_Tiling: 2.45
     - _Rim_Clamp: 8.41
-    - _Shading_Depth: 0.876
+    - _Shading_Depth: 0.537
     m_Colors:
     - _Color_A: {r: 0.8113207, g: 0.7087286, b: 0.41714132, a: 0}
     - _Color_B: {r: 0.056603767, g: 0.02670479, b: 0.022160916, a: 0}
-    - _Shadow_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Shadow_Color: {r: 0.1981132, g: 0.030838378, b: 0.030838378, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
