@@ -50,8 +50,8 @@ public class DialogueManager : HoG
         Debug.Log("Starting section " + section);   
         for (int i = 0; i < dialogueTree.sections[section].dialogue.Length; i++)
         {
+            if (dialogueTree.sections[section].dialogue[i].line == "") break;
             dialogueBox.SetActive(true);
-
 
             string line = dialogueTree.sections[section].dialogue[i].line;
 
@@ -101,7 +101,7 @@ public class DialogueManager : HoG
         {
             yield return null;
         }
-        answerBox.SetActive(false);
+        //answerBox.SetActive(false);
         answerTriggered = false;
 
         StartCoroutine(RunDialogue(dialogueTree, dialogueTree.sections[section].branchPoint.answers[answerIndex].nextElement));

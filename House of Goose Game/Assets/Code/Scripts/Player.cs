@@ -97,6 +97,19 @@ public class Player : HoG
         computerZoom = !computerZoom;
     }
 
+    void SetPhoneZoom(bool value)
+    {
+        if (!value)
+        {
+            phoneReciever.DOMove(phoneAnchorBase.position, 0.5f);
+            phoneReciever.DORotate(phoneAnchorBase.eulerAngles, 0.5f);
+        }
+        else
+        {
+            phoneReciever.DOMove(phoneAnchorCall.position, 0.5f);
+            phoneReciever.DORotate(phoneAnchorCall.eulerAngles, 0.5f);
+        }
+    }
     void SetNotebookZoom(bool value)
     {
         if (!value)
@@ -130,6 +143,12 @@ public class Player : HoG
     }
 
     
+    void EndPhoneCallCallback()
+    {
+        inPhoneCall = false;
+        SetPhoneZoom(false);
+        DialogueManager.OnDialogueEnded -= EndPhoneCallCallback;
+    }
     void Interact()
     {
         if (inPhoneCall)
@@ -162,14 +181,21 @@ public class Player : HoG
                     //IF CLIENT WAITING, PICK UP THE PHONE
                     if (!firstCallFinished)
                     {
+                        SetPhoneZoom(true);
                         Debug.Log ("Entering call dialogue with " + GameManager.gm.currentClient.name + "...");
                         DialogueManager.instance.StartDialogue(GameManager.gm.currentClient.MainDialogue);
+                        inPhoneCall = true;
+                        DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
                     }
                     //ELSE CALL CLIENT BACK
                     else
                     {
+                        SetPhoneZoom(true);
                         Debug.Log ("Entering callback dialogue with " + GameManager.gm.currentClient.name + "...");
                         DialogueManager.instance.StartDialogue(GameManager.gm.currentClient.RepeatDialogue);
+                        inPhoneCall = true;
+                        DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
+
                     }
                 }
                 else if (hit.collider.transform == notebook)
