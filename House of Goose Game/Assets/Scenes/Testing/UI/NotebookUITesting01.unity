@@ -1864,7 +1864,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -238.5, y: 196682.75}
+  m_AnchoredPosition: {x: -238.5, y: 235724.8}
   m_SizeDelta: {x: 467, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &37515001406567457
@@ -2766,7 +2766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1536, y: 540}
+  m_AnchoredPosition: {x: 260, y: 0}
   m_SizeDelta: {x: 508, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &201419545726537405
@@ -6157,7 +6157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 960, y: 540}
+  m_AnchoredPosition: {x: -260, y: 0}
   m_SizeDelta: {x: 508, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107839747544210614
@@ -6830,8 +6830,8 @@ Transform:
   m_GameObject: {fileID: 2524947434343812902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1250, y: -540, z: 650}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 650}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1106705032198738134}
@@ -12045,6 +12045,20 @@ MonoBehaviour:
   _setDislikedActivityDropdowns: []
   _removalLikedActivityDropdown: {fileID: 0}
   _removalDislikedActivityDropdown: {fileID: 0}
+  _availableTransitList: []
+  _likedTransitPanel: {fileID: 0}
+  _dislikedTransitPanel: {fileID: 0}
+  _setLikedTransitDropdowns: []
+  _setDislikedTransitDropdowns: []
+  _removalLikedTransitDropdown: {fileID: 0}
+  _removalDislikedTransitDropdown: {fileID: 0}
+  _availableAirplaneClassList: []
+  _likedAirplaneClassPanel: {fileID: 0}
+  _dislikedAirplaneClassPanel: {fileID: 0}
+  _setLikedAirplaneClassDropdowns: []
+  _setDislikedAirplaneClassDropdowns: []
+  _removalLikedAirplaneClassDropdown: {fileID: 0}
+  _removalDislikedAirplaneClassDropdown: {fileID: 0}
 --- !u!114 &2531825864541113695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25658,7 +25672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -238.5, y: -23346.357}
+  m_AnchoredPosition: {x: -238.5, y: -28297.549}
   m_SizeDelta: {x: 467, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &5671811351618216409
@@ -27680,7 +27694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -238.5, y: -307752.25}
+  m_AnchoredPosition: {x: -238.5, y: -308337.25}
   m_SizeDelta: {x: 467, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6131010885929825742
@@ -28631,7 +28645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -238.5, y: -301990.6}
+  m_AnchoredPosition: {x: -238.5, y: -302575.6}
   m_SizeDelta: {x: 467, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &6383750426409992780

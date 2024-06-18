@@ -62,18 +62,20 @@ public class Client : ScriptableObject
     [SerializeField]
     bool _optOutTransit;
     [SerializeField]
-    AirplaneClasses _airplaneClass;
+    AirplaneClass _airplaneClass;
     [SerializeField]
     HoG.Transit[] _preferredTransit;
     [SerializeField]
     HoG.Transit[] _unpreferredTransit;
 
     [SerializeField]
-    HoG.Transit[] _knownPreferredTransit;
+    List <HoG.Transit> _knownPreferredTransit;
     [SerializeField]
-    HoG.Transit[] _knownUnpreferredTransit;
+    List <HoG.Transit> _knownUnpreferredTransit;
     [SerializeField]
-    AirplaneClasses _knownAirplaneClass;
+    List<AirplaneClass> _knownPreferredAirplaneClass;
+    [SerializeField]
+    List<AirplaneClass> _knownUnpreferredAirplaneClass;
 
     [Header("Lodging")]
     [SerializeField]
@@ -135,13 +137,14 @@ public class Client : ScriptableObject
     public List<Seasons> KnownUnpreferredSeasons { get => _knownUnpreferredSeasons; set => _knownUnpreferredSeasons = value; }
     public List<Attributes> KnownPreferredLocationAttributes { get => _knownPreferredLocationAttributes; set => _knownPreferredLocationAttributes = value; }
     public List<Attributes> KnownUnpreferredLocationAttributes { get => _knownUnpreferredLocationAttributes; set => _knownUnpreferredLocationAttributes = value; }
-    public HoG.Transit[] KnownPreferredTransit { get => _knownPreferredTransit; set => _knownPreferredTransit = value; }
-    public HoG.Transit[] KnownUnpreferredTransit { get => _knownUnpreferredTransit; set => _knownUnpreferredTransit = value; }
+    public List<HoG.Transit> KnownPreferredTransit { get => _knownPreferredTransit; set => _knownPreferredTransit = value; }
+    public List<HoG.Transit> KnownUnpreferredTransit { get => _knownUnpreferredTransit; set => _knownUnpreferredTransit = value; }
     public List<ActivityTags> KnownLikedActivityTags { get => _knownLikedActivityTags; set => _knownLikedActivityTags = value; }
     public List<ActivityTags> KnownDislikedActivityTags { get => _knownDislikedActivityTags; set => _knownDislikedActivityTags = value; }
     public List<int> KnownDiningQualityPreference { get => _knownDiningQualityPreference; set => _knownDiningQualityPreference = value; }
-    public AirplaneClasses KnownAirplaneClass { get => _knownAirplaneClass; set => _knownAirplaneClass = value; }
     public List<int> KnownLodgingQuality { get => _knownLodgingQuality; set => _knownLodgingQuality = value; }
     public DialogueTree MainDialogue { get => _mainDialogue; set => _mainDialogue = value; }
     public DialogueTree RepeatDialogue { get => _repeatDialogue; set => _repeatDialogue = value; }
+    public List<AirplaneClass> KnownPreferredAirplaneClass { get => _knownPreferredAirplaneClass; set => _knownPreferredAirplaneClass = value; }
+    public List<AirplaneClass> KnownUnpreferredAirplaneClass { get => _knownUnpreferredAirplaneClass; set => _knownUnpreferredAirplaneClass = value; }
 }

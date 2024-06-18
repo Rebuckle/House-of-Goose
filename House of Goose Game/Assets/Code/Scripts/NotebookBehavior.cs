@@ -422,11 +422,17 @@ public class NotebookBehavior : HoG
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedSeasonPanel.transform);
                 addAttribute.GetComponent<TextMeshProUGUI>().text = _season.ToString();
+
+                //Add to retrievable dictionary
+                _likedSeasonDictionary.Add(_season.ToString(), (int)_season);
             }
             else if (currentClient.KnownUnpreferredSeasons.Contains(_season))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedSeasonPanel.transform);
                 addAttribute.GetComponent<TextMeshProUGUI>().text = _season.ToString();
+
+                //Add to retrievable dictionary
+                _dislikedSeasonDictionary.Add(_season.ToString(), (int)_season);
             }
             else
             {
@@ -638,6 +644,9 @@ public class NotebookBehavior : HoG
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedDiningPanel.transform);
                 addAttribute.GetComponent<TextMeshProUGUI>().text = TransformDiningQuality(_qualityAmount);
+
+                //Add to retrievable dictionary
+                _likedDiningDictionary.Add(_qualityAmount.ToString(), (int)_qualityAmount);
             }
             else
             {
@@ -876,6 +885,9 @@ public class NotebookBehavior : HoG
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedLodgingPanel.transform);
                 addAttribute.GetComponent<TextMeshProUGUI>().text = TransformLodgingQuality(_qualityAmount);
+
+                //Add to retrievable dictionary
+                _likedLodgingDictionary.Add(_qualityAmount.ToString(), (int)_qualityAmount);
             }
             else
             {
@@ -1142,11 +1154,17 @@ public class NotebookBehavior : HoG
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedActivityPanel.transform);
                 addAttribute.GetComponent<TextMeshProUGUI>().text = _activities.ToString();
+
+                //Add to retrievable dictionary
+                _likedLocationDictionary.Add(_activities.ToString(), (int)_activities);
             }
             else if (currentClient.KnownLikedActivityTags.Contains(_activities))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedActivityPanel.transform);
                 addAttribute.GetComponent<TextMeshProUGUI>().text = _activities.ToString();
+
+                //Add to retrievable dictionary
+                _dislikedLocationDictionary.Add(_activities.ToString(), (int)_activities);
             }
             else
             {
@@ -1498,6 +1516,455 @@ public class NotebookBehavior : HoG
 
         return _returnList;
     }//end ReturnDislikedActivity
+
+    #endregion
+
+    #region Transit
+
+    [Header("Transit")]
+    [SerializeField]
+    List<string> _availableTransitList;
+    [SerializeField]
+    GameObject _likedTransitPanel;
+    [SerializeField]
+    GameObject _dislikedTransitPanel;
+    [SerializeField]
+    Dictionary<string, int> _likedTransitDictionary;
+    [SerializeField]
+    Dictionary<string, int> _dislikedTransitDictionary;
+    [SerializeField]
+    List<GameObject> _setLikedTransitDropdowns;
+    [SerializeField]
+    List<GameObject> _setDislikedTransitDropdowns;
+    [SerializeField]
+    Dropdown _removalLikedTransitDropdown;
+    [SerializeField]
+    Dropdown _removalDislikedTransitDropdown;
+
+    public void LoadAvailableTransit(Client currentClient)
+    {
+        foreach (Transit _transit in System.Enum.GetValues(typeof(HoG.Transit)))
+        {
+            if (currentClient.KnownPreferredTransit.Contains(_transit))
+            {
+                GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedTransitPanel.transform);
+                addAttribute.GetComponent<TextMeshProUGUI>().text = _transit.ToString();
+
+                //Add to retrievable dictionary
+                _likedTransitDictionary.Add(_transit.ToString(), (int)_transit);
+            }
+            else if (currentClient.KnownUnpreferredTransit.Contains(_transit))
+            {
+                GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedTransitPanel.transform);
+                addAttribute.GetComponent<TextMeshProUGUI>().text = _transit.ToString();
+
+                //Add to retrievable dictionary
+                _dislikedTransitDictionary.Add(_transit.ToString(), (int)_transit);
+            }
+            else
+            {
+                _availableTransitList.Add(_transit.ToString());
+            }
+        }
+
+        GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedTransitPanel.transform);
+        newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableTransitList);
+        _setLikedTransitDropdowns.Add(newDropdown);
+
+        newDropdown = Instantiate(_activityDropdownPrefab, _dislikedTransitPanel.transform);
+        newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableTransitList);
+        _setDislikedTransitDropdowns.Add(newDropdown);
+    }//end load available transit
+
+    //Liked
+
+    /// <summary>
+    /// Remove a dropdown from the list of added dropdowns based on selection.
+    /// </summary>
+    public void RemoveLikedTransitDropdown(TMP_Dropdown change)
+    {
+        foreach (GameObject _dropdown in _setLikedTransitDropdowns)
+        {
+            if (_dropdown.GetComponent<TMP_Dropdown>().options.Contains(change.options[change.value]))
+            {
+                _likedTransitDictionary.Remove(change.options[change.value].text);
+                _removalLikedTransitDropdown.options.RemoveAt(change.value);
+                Destroy(_dropdown);
+                return;
+            }
+        }
+    }//end RemoveLikedTransitDropdown
+
+    /// <summary>
+    /// Add a new dropdown of Transit attributes to Liked Seasons Panel.
+    /// </summary>
+    public void AddLikedTransitDropdown()
+    {
+        GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedTransitPanel.transform);
+        newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableTransitList);
+        _setLikedTransitDropdowns.Add(newDropdown);
+    }//end AddLikedTransitDropdown
+
+    /// <summary>
+    /// Update the dictionary of liked Transit by comparing the text component of the options to valid Attributes.
+    /// </summary>
+    /// <param name="change"></param>
+    public void UpdateLikedTransit(TMP_Dropdown change)
+    {
+        switch (change.options[change.value].text)
+        {
+            case "None":
+                {
+                    _likedTransitDictionary.Add(Transit.None.ToString(), (int)Transit.None);
+                    break;
+                }
+            case "PrivateDriver":
+                {
+                    _likedTransitDictionary.Add(Transit.PrivateDriver.ToString(), (int)Transit.PrivateDriver);
+                    break;
+                }
+            case "CarRental":
+                {
+                    _likedTransitDictionary.Add(Transit.CarRental.ToString(), (int)Transit.CarRental);
+                    break;
+                }
+            case "TransitPass":
+                {
+                    _likedTransitDictionary.Add(Transit.TransitPass.ToString(), (int)Transit.TransitPass);
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("Invalid Transit Attribute!!");
+                    break;
+                }
+        }//end switch
+
+    }//end UpdateLikedTransit
+
+    /// <summary>
+    /// Provide a list of Liked Transit for the Itinerary Budget Calculator.
+    /// </summary>
+    /// <returns></returns>
+    public List<Transit> ReturnLikedTransit()
+    {
+        List<Transit> _returnList = new List<Transit>();
+
+        foreach (var _transit in _likedTransitDictionary)
+        {
+            _returnList.Add((Transit)_transit.Value);
+        }
+
+        return _returnList;
+    }//end ReturnLikedTransit
+
+    //Disliked
+
+    /// <summary>
+    /// Remove a dropdown from the list of added dropdowns based on selection.
+    /// </summary>
+    public void RemoveDislikedTransitDropdown(TMP_Dropdown change)
+    {
+        foreach (GameObject _dropdown in _setDislikedTransitDropdowns)
+        {
+            if (_dropdown.GetComponent<TMP_Dropdown>().options.Contains(change.options[change.value]))
+            {
+                _dislikedTransitDictionary.Remove(change.options[change.value].text);
+                _removalDislikedTransitDropdown.options.RemoveAt(change.value);
+                Destroy(_dropdown);
+                return;
+            }
+        }
+    }//end RemoveDislikedTransitDropdown
+
+    /// <summary>
+    /// Add a new dropdown of location attributes to Disliked Seasons Panel.
+    /// </summary>
+    public void AddDislikedTransitDropdown()
+    {
+        GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedTransitPanel.transform);
+        newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableTransitList);
+        _setDislikedTransitDropdowns.Add(newDropdown);
+    }//end AddDislikedTransitDropdown
+
+    /// <summary>
+    /// Update the dictionary of disliked Transit by comparing the text component of the options to valid Attributes.
+    /// </summary>
+    /// <param name="change"></param>
+    public void UpdateDislikedTransit(TMP_Dropdown change)
+    {
+        switch (change.options[change.value].text)
+        {
+            case "None":
+                {
+                    _dislikedTransitDictionary.Add(Transit.None.ToString(), (int)Transit.None);
+                    break;
+                }
+            case "PrivateDriver":
+                {
+                    _dislikedTransitDictionary.Add(Transit.PrivateDriver.ToString(), (int)Transit.PrivateDriver);
+                    break;
+                }
+            case "CarRental":
+                {
+                    _dislikedTransitDictionary.Add(Transit.CarRental.ToString(), (int)Transit.CarRental);
+                    break;
+                }
+            case "TransitPass":
+                {
+                    _dislikedTransitDictionary.Add(Transit.TransitPass.ToString(), (int)Transit.TransitPass);
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("Invalid Transit Attribute!!");
+                    break;
+                }
+        }//end switch
+
+    }//end UpdateDislikedTransit
+
+    /// <summary>
+    /// Provide a list of Disliked Seasons for the Itinerary Budget Calculator.
+    /// </summary>
+    /// <returns></returns>
+    public List<Transit> ReturnDislikedTransit()
+    {
+        List<Transit> _returnList = new List<Transit>();
+
+        foreach (var _transit in _dislikedTransitDictionary)
+        {
+            _returnList.Add((Transit)_transit.Value);
+        }
+
+        return _returnList;
+    }//end ReturnDislikedTransit
+
+
+    #endregion
+
+    #region Airplane Class
+
+
+    [Header("Airplane Class")]
+    [SerializeField]
+    List<string> _availableAirplaneClassList;
+    [SerializeField]
+    GameObject _likedAirplaneClassPanel;
+    [SerializeField]
+    GameObject _dislikedAirplaneClassPanel;
+    [SerializeField]
+    Dictionary<string, int> _likedAirplaneClassDictionary;
+    [SerializeField]
+    Dictionary<string, int> _dislikedAirplaneClassDictionary;
+    [SerializeField]
+    List<GameObject> _setLikedAirplaneClassDropdowns;
+    [SerializeField]
+    List<GameObject> _setDislikedAirplaneClassDropdowns;
+    [SerializeField]
+    Dropdown _removalLikedAirplaneClassDropdown;
+    [SerializeField]
+    Dropdown _removalDislikedAirplaneClassDropdown;
+
+    public void LoadAvailableAirplaneClass(Client currentClient)
+    {
+        foreach (AirplaneClass _airplaneClass in System.Enum.GetValues(typeof(HoG.AirplaneClass)))
+        {
+            if (currentClient.KnownPreferredAirplaneClass.Contains(_airplaneClass))
+            {
+                GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedAirplaneClassPanel.transform);
+                addAttribute.GetComponent<TextMeshProUGUI>().text = _airplaneClass.ToString();
+
+                //Add to retrievable dictionary
+                _likedAirplaneClassDictionary.Add(_airplaneClass.ToString(), (int)_airplaneClass);
+            }
+            else if (currentClient.KnownUnpreferredAirplaneClass.Contains(_airplaneClass))
+            {
+                GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedAirplaneClassPanel.transform);
+                addAttribute.GetComponent<TextMeshProUGUI>().text = _airplaneClass.ToString();
+
+                //Add to retrievable dictionary
+                _dislikedAirplaneClassDictionary.Add(_airplaneClass.ToString(), (int)_airplaneClass);
+            }
+            else
+            {
+                _availableAirplaneClassList.Add(_airplaneClass.ToString());
+            }
+        }
+
+        GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedAirplaneClassPanel.transform);
+        newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableAirplaneClassList);
+        _setLikedAirplaneClassDropdowns.Add(newDropdown);
+
+        newDropdown = Instantiate(_activityDropdownPrefab, _dislikedAirplaneClassPanel.transform);
+        newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableAirplaneClassList);
+        _setDislikedAirplaneClassDropdowns.Add(newDropdown);
+    }//end load available Airplane Class
+
+    //Liked
+
+    /// <summary>
+    /// Remove a dropdown from the list of added dropdowns based on selection.
+    /// </summary>
+    public void RemoveLikedAirplaneClassDropdown(TMP_Dropdown change)
+    {
+        foreach (GameObject _dropdown in _setLikedAirplaneClassDropdowns)
+        {
+            if (_dropdown.GetComponent<TMP_Dropdown>().options.Contains(change.options[change.value]))
+            {
+                _likedAirplaneClassDictionary.Remove(change.options[change.value].text);
+                _removalLikedAirplaneClassDropdown.options.RemoveAt(change.value);
+                Destroy(_dropdown);
+                return;
+            }
+        }
+    }//end RemoveLikedAirplaneClassDropdown
+
+    /// <summary>
+    /// Add a new dropdown of AirplaneClass attributes to Liked Seasons Panel.
+    /// </summary>
+    public void AddLikedAirplaneClassDropdown()
+    {
+        GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedAirplaneClassPanel.transform);
+        newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableAirplaneClassList);
+        _setLikedAirplaneClassDropdowns.Add(newDropdown);
+    }//end AddLikedAirplaneClassDropdown
+
+    /// <summary>
+    /// Update the dictionary of liked AirplaneClass by comparing the text component of the options to valid Attributes.
+    /// </summary>
+    /// <param name="change"></param>
+    public void UpdateLikedAirplaneClass(TMP_Dropdown change)
+    {
+        switch (change.options[change.value].text)
+        {
+            case "None":
+                {
+                    _likedAirplaneClassDictionary.Add(AirplaneClass.None.ToString(), (int)AirplaneClass.None);
+                    break;
+                }
+            case "First":
+                {
+                    _likedAirplaneClassDictionary.Add(AirplaneClass.First.ToString(), (int)AirplaneClass.First);
+                    break;
+                }
+            case "Business":
+                {
+                    _likedAirplaneClassDictionary.Add(AirplaneClass.Business.ToString(), (int)AirplaneClass.Business);
+                    break;
+                }
+            case "Economy":
+                {
+                    _likedAirplaneClassDictionary.Add(AirplaneClass.Economy.ToString(), (int)AirplaneClass.Economy);
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("Invalid Airplane Class Attribute!!");
+                    break;
+                }
+        }//end switch
+
+    }//end UpdateLikedAirplaneClass
+
+    /// <summary>
+    /// Provide a list of Liked AirplaneClass for the Itinerary Budget Calculator.
+    /// </summary>
+    /// <returns></returns>
+    public List<AirplaneClass> ReturnLikedAirplaneClass()
+    {
+        List<AirplaneClass> _returnList = new List<AirplaneClass>();
+
+        foreach (var _airplaneClass in _likedAirplaneClassDictionary)
+        {
+            _returnList.Add((AirplaneClass)_airplaneClass.Value);
+        }
+
+        return _returnList;
+    }//end ReturnLikedAirplaneClass
+
+    //Disliked
+
+    /// <summary>
+    /// Remove a dropdown from the list of added dropdowns based on selection.
+    /// </summary>
+    public void RemoveDislikedAirplaneClassDropdown(TMP_Dropdown change)
+    {
+        foreach (GameObject _dropdown in _setDislikedAirplaneClassDropdowns)
+        {
+            if (_dropdown.GetComponent<TMP_Dropdown>().options.Contains(change.options[change.value]))
+            {
+                _dislikedAirplaneClassDictionary.Remove(change.options[change.value].text);
+                _removalDislikedAirplaneClassDropdown.options.RemoveAt(change.value);
+                Destroy(_dropdown);
+                return;
+            }
+        }
+    }//end RemoveDislikedAirplaneClassDropdown
+
+    /// <summary>
+    /// Add a new dropdown of AirplaneClass attributes to Disliked Seasons Panel.
+    /// </summary>
+    public void AddDislikedAirplaneClassDropdown()
+    {
+        GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedAirplaneClassPanel.transform);
+        newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableAirplaneClassList);
+        _setDislikedAirplaneClassDropdowns.Add(newDropdown);
+    }//end AddDislikedAirplaneClassDropdown
+
+    /// <summary>
+    /// Update the dictionary of disliked AirplaneClass by comparing the text component of the options to valid Attributes.
+    /// </summary>
+    /// <param name="change"></param>
+    public void UpdateDislikedAirplaneClass(TMP_Dropdown change)
+    {
+        switch (change.options[change.value].text)
+        {
+            case "Spring":
+                {
+                    _dislikedLocationDictionary.Add(Seasons.Spring.ToString(), (int)Seasons.Spring);
+                    break;
+                }
+            case "Winter":
+                {
+                    _dislikedLocationDictionary.Add(Seasons.Winter.ToString(), (int)Seasons.Winter);
+                    break;
+                }
+            case "Summer":
+                {
+                    _dislikedLocationDictionary.Add(Seasons.Summer.ToString(), (int)Seasons.Summer);
+                    break;
+                }
+            case "Fall":
+                {
+                    _dislikedLocationDictionary.Add(Seasons.Fall.ToString(), (int)Seasons.Fall);
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("Invalid Season Attribute!!");
+                    break;
+                }
+        }//end switch
+
+    }//end UpdateDislikedAirplaneClass
+
+    /// <summary>
+    /// Provide a list of Disliked AirplaneClass for the Itinerary Budget Calculator.
+    /// </summary>
+    /// <returns></returns>
+    public List<AirplaneClass> ReturnDislikedAirplaneClass()
+    {
+        List<AirplaneClass> _returnList = new List<AirplaneClass>();
+
+        foreach (var _airplaneClass in _dislikedAirplaneClassDictionary)
+        {
+            _returnList.Add((AirplaneClass)_airplaneClass.Value);
+        }
+
+        return _returnList;
+    }//end ReturnDislikedAirplaneClass
+
 
     #endregion
 
