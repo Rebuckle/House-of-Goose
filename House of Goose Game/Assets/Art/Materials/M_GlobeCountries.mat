@@ -23,12 +23,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Globe
+  m_Name: M_GlobeCountries
   m_Shader: {fileID: -6465566751694194690, guid: 83b2304374792d84a84b21af2fb17121, type: 3}
   m_Parent: {fileID: 2100000, guid: e3e6be16ca0ff904b8b5784570c6c336, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AXIS_VERTICAL
+  - _AXIS_HORIZONTAL
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -46,23 +46,18 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 3bd519ac22c50f14c8e837bb18de29ee, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _CameraTexture:
-        m_Texture: {fileID: 2800000, guid: 55316f083dbdf5246b98cfa1161f9708, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AXIS: 0
-    - _Blur_Amount: 0.35
-    - _Offset: 0.31
+    - _AXIS: 1
+    - _Blur_Amount: 0.006
+    - _Offset: 0.006
     - _Rim_Clamp: 7.59
-    - _Shading_Depth: 1
     m_Colors:
     - _Albedo_Tint: {r: 1, g: 0.97822875, b: 0.9481132, a: 1}
-    - _Color_A: {r: 1, g: 0.77191246, b: 0, a: 1}
-    - _Color_B: {r: 1, g: 0.105143644, b: 0, a: 1}
+    - _Color_A: {r: 0.9716981, g: 0.64675295, b: 0.371262, a: 0.77254903}
+    - _Color_B: {r: 0.9245283, g: 0.501513, b: 0.6402205, a: 0.89411765}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
