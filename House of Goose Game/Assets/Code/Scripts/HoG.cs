@@ -23,6 +23,6 @@ public class HoG : MonoBehaviour
 
     public enum ActivityTags { Null, Food, Thrills, Active, Scary, Experience, Adventure, Mature, Quiet, Luxury, Relax, Lively, Sightseeing, Drinks, Children, Nature, Static, Romantic, Animals, Messy, Water };
 
-    public enum AirplaneClasses { None, First, Business, Economy };
+    public enum AirplaneClass { None, First, Business, Economy };
 
 }
