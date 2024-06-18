@@ -1,5 +1,6 @@
 using UnityEngine;
 using static HoG;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Client", menuName = "Scriptable Objects/Client")]
 public class Client : ScriptableObject
@@ -9,6 +10,8 @@ public class Client : ScriptableObject
     [SerializeField]
     [TextArea (3,10)]
     string _clientStory;
+    [SerializeField]
+    Sprite _clientImage;
     [SerializeField]
     double _budget;
     [SerializeField]
@@ -30,6 +33,15 @@ public class Client : ScriptableObject
     [SerializeField]
     HoG.Attributes[] _unpreferredLocationAttributes;
 
+    [SerializeField]
+    List<Seasons> _knownPreferredSeasons;
+    [SerializeField]
+    List<Seasons> _knownUnpreferredSeasons;
+    [SerializeField]
+    List<HoG.Attributes> _knownPreferredLocationAttributes;
+    [SerializeField]
+    List<Attributes> _knownUnpreferredLocationAttributes;
+
     [Header("Dining")]
     [SerializeField]
     bool _optOutDining;
@@ -42,6 +54,10 @@ public class Client : ScriptableObject
     [Range(0, 3)]
     int[] _diningQuality; //How many $ is the dining worth from 0 (free) to 3 ($$$)
 
+    [SerializeField]
+    [Range(0, 3)]
+    List<int> _knownDiningQualityPreference; //How many $ is the dining worth from 0 (free) to 3 ($$$)
+
     [Header("Transit")]
     [SerializeField]
     bool _optOutTransit;
@@ -52,10 +68,21 @@ public class Client : ScriptableObject
     [SerializeField]
     HoG.Transit[] _unpreferredTransit;
 
+    [SerializeField]
+    HoG.Transit[] _knownPreferredTransit;
+    [SerializeField]
+    HoG.Transit[] _knownUnpreferredTransit;
+    [SerializeField]
+    AirplaneClasses _knownAirplaneClass;
+
     [Header("Lodging")]
     [SerializeField]
     [Range(0, 5)]
     int[] _lodgingQuality; //How many $ is the lodging worth from 0 (free) to 5 ($$$$$)
+
+    [SerializeField]
+    [Range(0, 5)]
+    List<int> _knownLodgingQuality; //How many $ is the lodging worth from 0 (free) to 5 ($$$$$)
 
     [Header("Activity")]
     [SerializeField]
@@ -67,6 +94,11 @@ public class Client : ScriptableObject
     ActivityTags[] _likedActivityTags;
     [SerializeField]
     ActivityTags[] _dislikedActivityTags;
+
+    [SerializeField]
+    List<ActivityTags> _knownLikedActivityTags;
+    [SerializeField]
+    List<ActivityTags> _knownDislikedActivityTags;
 
     [Header("Dialogue")]
     [SerializeField]
@@ -97,4 +129,17 @@ public class Client : ScriptableObject
     public Attributes[] UnpreferredLocations { get => _unpreferredLocationAttributes; set => _unpreferredLocationAttributes = value; }
     public HoG.Transit[] UnpreferredTransit { get => _unpreferredTransit; set => _unpreferredTransit = value; }
     public int DiningAmount { get => _diningAmount; set => _diningAmount = value; }
+    public Sprite ClientImage { get => _clientImage; set => _clientImage = value; }
+
+    public List<Seasons> KnownPreferredSeasons { get => _knownPreferredSeasons; set => _knownPreferredSeasons = value; }
+    public List<Seasons> KnownUnpreferredSeasons { get => _knownUnpreferredSeasons; set => _knownUnpreferredSeasons = value; }
+    public List<Attributes> KnownPreferredLocationAttributes { get => _knownPreferredLocationAttributes; set => _knownPreferredLocationAttributes = value; }
+    public List<Attributes> KnownUnpreferredLocationAttributes { get => _knownUnpreferredLocationAttributes; set => _knownUnpreferredLocationAttributes = value; }
+    public HoG.Transit[] KnownPreferredTransit { get => _knownPreferredTransit; set => _knownPreferredTransit = value; }
+    public HoG.Transit[] KnownUnpreferredTransit { get => _knownUnpreferredTransit; set => _knownUnpreferredTransit = value; }
+    public List<ActivityTags> KnownLikedActivityTags { get => _knownLikedActivityTags; set => _knownLikedActivityTags = value; }
+    public List<ActivityTags> KnownDislikedActivityTags { get => _knownDislikedActivityTags; set => _knownDislikedActivityTags = value; }
+    public List<int> KnownDiningQualityPreference { get => _knownDiningQualityPreference; set => _knownDiningQualityPreference = value; }
+    public AirplaneClasses KnownAirplaneClass { get => _knownAirplaneClass; set => _knownAirplaneClass = value; }
+    public List<int> KnownLodgingQuality { get => _knownLodgingQuality; set => _knownLodgingQuality = value; }
 }
