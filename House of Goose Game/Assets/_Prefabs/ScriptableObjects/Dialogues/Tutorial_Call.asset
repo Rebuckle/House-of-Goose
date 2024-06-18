@@ -115,8 +115,12 @@ MonoBehaviour:
     branchPoint:
       question: "Hm\u2026 can you tell me more about what those entail?"
       answers:
-      - answerLabel: Totally understandable. I have a few places in mind already.
-          Do you have a preference for lodging accommodations?
+      - answerLabel: Of course, let me explain. We have a partnership with various
+          dining establishments across the globe, so we offer discounted coverage
+          for their locations. Either you can opt for a daily meal or possibly reserve
+          it on specific dates. As for transit, we can set you up with either a private
+          driver, a car rental, or even a public transit pass. Spare you the hassle
+          of doing the research on this later. Would you like any of these options?
         nextElement: 9
   - dialogue:
     - line: 
@@ -142,23 +146,10 @@ MonoBehaviour:
       question: "I\u2019m currently located just outside Cape Town, and my budget
         is R28000. That should be about $2100. Will that be enough for everything?"
       answers:
-      - answerLabel: Fantastic. Alright, I only have two more questions. Where are
-          you currently located? And what budget are you working with?
-        nextElement: 10
-  - dialogue:
-    - line: 
-      client: 0
-    endAfterDialogue: 0
-    branchPoint:
-      question: I'm comfortable with economy. But could you select an aisle seat?
-        My legs are a bit long.
-      answers:
-      - answerLabel: Sure, no problem. That's everything from my end. Do you have
-          any questions?
-        nextElement: 12
-  - dialogue:
-    - line: 
-      client: 0
+      - answerLabel: Absolutely, I am sure I can build you a fantastic trip based
+          on that. Do you have a preference on what class you're in for the flight?
+        nextElement: 11
+  - dialogue: []
     endAfterDialogue: 0
     branchPoint:
       question: I'm comfortable with economy. But could you select an aisle seat?
@@ -174,9 +165,14 @@ MonoBehaviour:
     branchPoint:
       question: What are the next steps for booking this trip?
       answers:
-      - answerLabel: Sure, no problem. That's everything from my end. Do you have
-          any questions?
-        nextElement: 12
+      - answerLabel: I will be selecting a place that fits what you are looking for
+          and will provide you with tickets for our partner airline. We have a reserved
+          section for surprise travellers so they will not discover their destination
+          until they land. You will receive the dates, the flight duration, and a
+          review of the weather so that you may pack appropriately. All of your information
+          will become available for viewing the moment you land. Does that sound
+          good?
+        nextElement: 13
   - dialogue:
     - line: 
       client: 0
@@ -187,7 +183,7 @@ MonoBehaviour:
       answers:
       - answerLabel: Sure, no problem. That's everything from my end. Do you have
           any questions?
-        nextElement: 12
+        nextElement: 14
   - dialogue:
     - line: 
       client: 0
@@ -198,15 +194,13 @@ MonoBehaviour:
       answers:
       - answerLabel: Of course! And thank you for choosing *inputAgencyName*. Have
           a good one. Bye for now.
-        nextElement: 16
+        nextElement: 15
   - dialogue:
     - line: Bye. *click*
       client: 1
     endAfterDialogue: 1
     branchPoint:
-      question: I look forward to hearing from you. Until then, take care and thank
-        you for all your help.
+      question: 
       answers:
-      - answerLabel: Of course! And thank you for choosing *inputAgencyName*. Have
-          a good one. Bye for now.
-        nextElement: 16
+      - answerLabel: 
+        nextElement: 0
