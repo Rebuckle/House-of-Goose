@@ -16,6 +16,7 @@ MonoBehaviour:
   _clientStory: This client exemplifies typical customers who approach the travel
     agency. This profile serves as a tutorial to familiarize agents with building
     itineraries based on provided information. This will not affect the final score.
+  _clientImage: {fileID: 0}
   _budget: 2100
   _tripDuration: 7
   _groupSize: 1
@@ -25,15 +26,28 @@ MonoBehaviour:
   _unpreferredSeasons: 
   _preferredLocationAttributes: 
   _unpreferredLocationAttributes: 0000000003000000
+  _knownPreferredSeasons: 
+  _knownUnpreferredSeasons: 
+  _knownPreferredLocationAttributes: 
+  _knownUnpreferredLocationAttributes: 
   _optOutDining: 0
   _diningAmount: 2
   _diningQuality: 02000000
+  _knownDiningQualityPreference: 
   _optOutTransit: 1
   _airplaneClass: 0
   _preferredTransit: 
   _unpreferredTransit: 
+  _knownPreferredTransit: 
+  _knownUnpreferredTransit: 
+  _knownAirplaneClass: 0
   _lodgingQuality: 02000000
+  _knownLodgingQuality: 
   _optOutActivity: 0
   _activityAmount: 3
   _likedActivityTags: 010000000200000003000000040000000500000006000000
   _dislikedActivityTags: 100000000b000000090000000e00000000000000
+  _knownLikedActivityTags: 
+  _knownDislikedActivityTags: 
+  _mainDialogue: {fileID: 11400000, guid: aeb0b016b18a5794eb8d8f0c6e3d8c2d, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: aeb0b016b18a5794eb8d8f0c6e3d8c2d, type: 2}

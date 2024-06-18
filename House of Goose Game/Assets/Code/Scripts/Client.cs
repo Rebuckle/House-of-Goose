@@ -142,4 +142,6 @@ public class Client : ScriptableObject
     public List<int> KnownDiningQualityPreference { get => _knownDiningQualityPreference; set => _knownDiningQualityPreference = value; }
     public AirplaneClasses KnownAirplaneClass { get => _knownAirplaneClass; set => _knownAirplaneClass = value; }
     public List<int> KnownLodgingQuality { get => _knownLodgingQuality; set => _knownLodgingQuality = value; }
+    public DialogueTree MainDialogue { get => _mainDialogue; set => _mainDialogue = value; }
+    public DialogueTree RepeatDialogue { get => _repeatDialogue; set => _repeatDialogue = value; }
 }

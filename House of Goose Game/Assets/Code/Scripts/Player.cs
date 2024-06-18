@@ -19,7 +19,7 @@ public class Player : HoG
     public float maxVerticalLook = 10f;
     private Vector2 targetLookAngle;
 
-
+    private bool firstCallFinished = true;
 
     public Transform phoneBase;
     public Transform phoneReciever;
@@ -40,11 +40,13 @@ public class Player : HoG
     // Update is called once per frame
     void Update()
     {
-
+        //Camera look
         Vector2 mousePos = MousePosFromCenter();
         targetLookAngle = new Vector2 (mousePos.x * maxSideLook, mousePos.y * maxVerticalLook);
         transform.eulerAngles = new Vector3(-targetLookAngle.y, targetLookAngle.x, 0);
 
+
+        //Mouse click
         if (Input.GetMouseButtonDown(0))
         {
             Interact();
@@ -71,12 +73,12 @@ public class Player : HoG
     {
         if (!value)
         {
-            transform.DOMove(cameraAnchorComputer.position, 0.5f);
+            transform.DOMove(cameraAnchorChair.position, 0.5f);
             
         }
         else
         {
-            transform.DOMove(cameraAnchorChair.position, 0.5f);
+            transform.DOMove(cameraAnchorComputer.position, 0.5f);
         }
         computerZoom = value;
     }
@@ -86,6 +88,7 @@ public class Player : HoG
         if (!computerZoom)
         {
             transform.DOMove(cameraAnchorComputer.position, 0.5f);
+
             
         } else
         {
@@ -96,15 +99,34 @@ public class Player : HoG
 
     void SetNotebookZoom(bool value)
     {
+        if (!value)
+        {
+            notebook.DOMove(notebookAnchorDesk.position, 0.5f);
+            notebook.DORotate(notebookAnchorDesk.eulerAngles, 0.5f);
+        }
+        else 
+        {
+            notebook.DOMove(notebookAnchorCall.position, 0.5f);
+            notebook.DORotate(notebookAnchorCall.eulerAngles, 0.5f);
 
+        }
+        notebookZoom = value;
     }
 
     void ToggleNotebookZoom()
     {
         if (!notebookZoom)
         {
+            notebook.DOMove(notebookAnchorCall.position, 0.5f);
+            notebook.DORotate(notebookAnchorCall.eulerAngles, 0.5f);
+        }
+        else 
+        {
+            notebook.DOMove(notebookAnchorDesk.position, 0.5f);
+            notebook.DORotate(notebookAnchorDesk.eulerAngles, 0.5f);
 
         }
+        notebookZoom = !notebookZoom;
     }
 
     
@@ -113,7 +135,7 @@ public class Player : HoG
         if (inPhoneCall)
         {
             // Clicks on the notebook interact with it, otherwise dialogue skips ahead
-            if (Physics.Raycast(new Ray(transform.position, transform.forward), out RaycastHit hit))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay (Input.mousePosition), out RaycastHit hit))
             {
                 if (hit.collider.transform == computer)
                 {
@@ -132,16 +154,27 @@ public class Player : HoG
         }
         else
         {
-            if (Physics.Raycast(new Ray(transform.position, transform.forward), out RaycastHit hit))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay (Input.mousePosition), out RaycastHit hit))
             {
+                Debug.Log("Hit " + hit.collider.name);
                 if (hit.collider.transform == phoneBase || hit.collider.transform == phoneReciever)
                 {
                     //IF CLIENT WAITING, PICK UP THE PHONE
+                    if (!firstCallFinished)
+                    {
+                        Debug.Log ("Entering call dialogue with " + GameManager.gm.currentClient.name + "...");
+                        DialogueManager.instance.StartDialogue(GameManager.gm.currentClient.MainDialogue);
+                    }
                     //ELSE CALL CLIENT BACK
+                    else
+                    {
+                        Debug.Log ("Entering callback dialogue with " + GameManager.gm.currentClient.name + "...");
+                        DialogueManager.instance.StartDialogue(GameManager.gm.currentClient.RepeatDialogue);
+                    }
                 }
                 else if (hit.collider.transform == notebook)
                 {
-                    ToggleNotebookZoom();
+                    SetNotebookZoom(true);
                     SetComputerZoom(false);
                     SetNotebookZoom(false);
                 }
@@ -153,11 +186,17 @@ public class Player : HoG
                 }
                 else if (hit.collider.transform == computer)
                 {
-                    ToggleComputerZoom();
+                    SetComputerZoom(true);
                     SetManillaZoom(false);
                     SetNotebookZoom(false);
-
                 }
+
+            }
+            else
+            {
+                SetComputerZoom(false);
+                SetManillaZoom(false);
+                SetNotebookZoom(false);
             }
         }
     }

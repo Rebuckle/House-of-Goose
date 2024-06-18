@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: Tutorial_Call
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: '*bzzt...*'
+      answers:
+      - answerLabel: Hi, this is *inputPlayerName* from *inputAgencyName*. How can
+          I help you?
+        nextElement: 1
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Ah, yes, hello, it\u2019s nice to meet you. I want to plan a trip
+        to a place where I can capture the beauty of nature with my camera."
+      answers:
+      - answerLabel: Then you are in the right place! Just confirming, you are aware
+          that this is a surprise trip agency, right? We build trips based on your
+          desires so that you can enjoy a pleasant surprise that you may have never
+          even considered before.
+        nextElement: 2
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Yes I\u2019ve used similar services before and have always been
+        pleased with the results."
+      answers:
+      - answerLabel: Perfect, alright. I will begin with a few questions then. What
+          sort of place would you like to go to? And do you have a season preference?
+        nextElement: 3
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: Hmmm, I think somewhere with forestry and access to a large beach.
+        I would prefer to go during a warm and vibrant season such as the spring
+        or summer. I enjoy seeing how nature across the world comes to life after
+        the end of a long winter.
+      answers:
+      - answerLabel: Sounds good. Are you comfortable with being somewhere busy and
+          popular? Or would you prefer somewhere more isolated? Spring and summer
+          are usually the most popular, so you may have trouble finding quiet spaces
+          for your photography.
+        nextElement: 4
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: I can assure you that it will not be an issue. I always wake up before
+        the sun rises to get the best shots. Crowds will never be an issue.
+      answers:
+      - answerLabel: Great! How long are you thinking? And are you the only traveller
+          or do you have a partner or group coming with you?
+        nextElement: 5
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "I don\u2019t like distractions, so I will be travelling alone. I\u2019m
+        thinking about a week for this trip. It\u2019ll give me enough time to find
+        the best places to capture the perfect moment."
+      answers:
+      - answerLabel: Understood. Would you like me to bundle in any activities to
+          help you familiarize yourself with the area and the locals?
+        nextElement: 6
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Yes, that is a wonderful suggestion. My favourite travelling moments
+        have always revolved around the locals and familiarizing myself with their
+        culture. It helps me see the region through a different lens, and they may
+        also have suggestions for beautiful hidden gems. Three small activities should
+        suffice, I don\u2019t want to overwhelm myself with too much socializing."
+      answers:
+      - answerLabel: Okay, what should I look for while booking these activities?
+          Do you have anything you like? Anything you dislike?
+        nextElement: 7
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "I\u2019m not particularly picky. I just want somewhere that\u2019s
+        safe, comfortable, and gives me some privacy. I prefer not to waste money
+        on somewhere I will rarely be. I\u2019d rather put my money toward the activities
+        you suggest."
+      answers:
+      - answerLabel: Sure, I will make a note of that. Would you like me to bundle
+          in any coverage for dining or transit?
+        nextElement: 8
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Hm\u2026 can you tell me more about what those entail?"
+      answers:
+      - answerLabel: Totally understandable. I have a few places in mind already.
+          Do you have a preference for lodging accommodations?
+        nextElement: 9
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Ah, I see. Well, let\u2019s skip the transit coverage. I prefer
+        to wander around and get a little lost at times. It\u2019s part of the adventure.
+        If need be, I'll ask the locals about their transit. As for the dining, if
+        there are any partnerships with restaurants or food stalls run by the residents,
+        I\u2019d be interested in booking two meals. One at the start of the trip
+        to help me settle in and another at the end to celebrate the journey. I don\u2019t
+        mind spending a little more, as long as it supports the local community."
+      answers:
+      - answerLabel: Fantastic. Alright, I only have two more questions. Where are
+          you currently located? And what budget are you working with?
+        nextElement: 10
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "I\u2019m currently located just outside Cape Town, and my budget
+        is R28000. That should be about $2100. Will that be enough for everything?"
+      answers:
+      - answerLabel: Fantastic. Alright, I only have two more questions. Where are
+          you currently located? And what budget are you working with?
+        nextElement: 10
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: I'm comfortable with economy. But could you select an aisle seat?
+        My legs are a bit long.
+      answers:
+      - answerLabel: Sure, no problem. That's everything from my end. Do you have
+          any questions?
+        nextElement: 12
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: I'm comfortable with economy. But could you select an aisle seat?
+        My legs are a bit long.
+      answers:
+      - answerLabel: Sure, no problem. That's everything from my end. Do you have
+          any questions?
+        nextElement: 12
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: What are the next steps for booking this trip?
+      answers:
+      - answerLabel: Sure, no problem. That's everything from my end. Do you have
+          any questions?
+        nextElement: 12
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Yes, that sounds perfect to me. Thank you so much for your time
+        and assistance, you\u2019ve been most helpful."
+      answers:
+      - answerLabel: Sure, no problem. That's everything from my end. Do you have
+          any questions?
+        nextElement: 12
+  - dialogue:
+    - line: 
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: I look forward to hearing from you. Until then, take care and thank
+        you for all your help.
+      answers:
+      - answerLabel: Of course! And thank you for choosing *inputAgencyName*. Have
+          a good one. Bye for now.
+        nextElement: 16
+  - dialogue:
+    - line: Bye. *click*
+      client: 1
+    endAfterDialogue: 1
+    branchPoint:
+      question: I look forward to hearing from you. Until then, take care and thank
+        you for all your help.
+      answers:
+      - answerLabel: Of course! And thank you for choosing *inputAgencyName*. Have
+          a good one. Bye for now.
+        nextElement: 16

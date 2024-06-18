@@ -35,7 +35,11 @@ public class DialogueManager : HoG
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    private void Start()
+    {
+        dialogueBox.SetActive(false);
+        answerBox.SetActive(false);
+    }
     public void StartDialogue(DialogueTree dialogueTree)
     {
         StartCoroutine(RunDialogue(dialogueTree, 0));
@@ -43,8 +47,10 @@ public class DialogueManager : HoG
     
     IEnumerator RunDialogue(DialogueTree dialogueTree, int section)
     {
+        Debug.Log("Starting section " + section);   
         for (int i = 0; i < dialogueTree.sections[section].dialogue.Length; i++)
         {
+            dialogueBox.SetActive(true);
 
 
             string line = dialogueTree.sections[section].dialogue[i].line;
@@ -52,61 +58,44 @@ public class DialogueManager : HoG
 
 
 
-            if (dialogueTree.sections[section].dialogue[i].client)
+            for (int k = 0; k < answerButtons.Length; k++)
             {
-                
-                for (int k = 0; k < answerButtons.Length; k++)
-                {
-                    answerButtons[k].gameObject.SetActive(false);
-                }
-
-                //Typewriter effect
-                string textBuffer = null;
-                foreach(char c in line)
-                {
-                    textBuffer += c;
-                    dialogueText.text = textBuffer;
-                    if (skipLineTriggered)
-                    {
-                        skipLineTriggered = false;
-                        dialogueText.text = line;
-                        break;
-                    }
-                    yield return new WaitForSeconds(1 / charactersPerSecond);
-                }
-
-                //ADDED HACK: if next line of dialogue is a player line, skip and write it
-                if (dialogueTree.sections[section].dialogue.Length >= i-1 && dialogueTree.sections[section].dialogue[i+1].client == false)
-                {
-                    skipLineTriggered = true;
-                }
-
+                answerButtons[k].gameObject.SetActive(false);
             }
-            else
+
+            //Typewriter effect
+            string textBuffer = null;
+            foreach(char c in line)
             {
-                answerButtons[0].GetComponentInChildren<TextMeshProUGUI>().text = line;
-                answerButtons[0].gameObject.SetActive(true);
-                for (int k = 1; k < answerButtons.Length; k++)
+                textBuffer += c;
+                dialogueText.text = textBuffer;
+                if (skipLineTriggered)
                 {
-                    answerButtons[k].gameObject.SetActive(false);
+                    skipLineTriggered = false;
+                    dialogueText.text = line;
+                    break;
                 }
+                yield return new WaitForSeconds(1 / charactersPerSecond);
             }
+
             while (skipLineTriggered == false)
             {
                 yield return null;
             }
             skipLineTriggered = false;
         }
-
+        
         if (dialogueTree.sections[section].endAfterDialogue)
         {
+            Debug.Log("Ending dialogue");
             OnDialogueEnded?.Invoke();
             dialogueBox.SetActive(false);
+            answerBox.SetActive(false);
             yield break;
         }
 
-        dialogueText.text = dialogueTree.sections[section].branchPoint.question;
-        ShowAnswers(dialogueTree.sections[section].branchPoint);
+        //dialogueText.text = dialogueTree.sections[section].branchPoint.question;
+        StartCoroutine(ShowAnswers(dialogueTree.sections[section].branchPoint));
 
         while (answerTriggered == false)
         {
@@ -127,8 +116,31 @@ public class DialogueManager : HoG
         answerTriggered = false;
     }
 
-    void ShowAnswers(BranchPoint branchPoint)
-    {
+    IEnumerator ShowAnswers(BranchPoint branchPoint)
+    {       
+            Debug.Log("Showing answers...");
+            dialogueBox.SetActive(true);
+            answerBox.SetActive(true);
+            foreach (Button button in answerButtons)
+            {
+                button.gameObject.SetActive(false);
+            }
+            string line = branchPoint.question;
+            //Typewriter effect
+            string textBuffer = null;
+            foreach(char c in line)
+            {
+                textBuffer += c;
+                dialogueText.text = textBuffer;
+                if (skipLineTriggered)
+                {
+                    skipLineTriggered = false;
+                    dialogueText.text = line;
+                    break;
+                }
+                yield return new WaitForSeconds(1 / charactersPerSecond);
+            }
+
         // Reveals the aselectable answers and sets their text values
         answerBox.SetActive(true);
         for (int i = 0; i < answerButtons.Length; i++)
