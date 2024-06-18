@@ -103,7 +103,10 @@ public class Client : ScriptableObject
     List<ActivityTags> _knownDislikedActivityTags;
 
     [Header("Dialogue")]
-    //DialogueTree _dialogueTree;
+    [SerializeField]
+    DialogueTree _mainDialogue;
+    [SerializeField]
+    DialogueTree _repeatDialogue;
 
     public string ClientName { get => _clientName; set => _clientName = value; }
     public string ClientStory { get => _clientStory; set => _clientStory = value; }
@@ -140,6 +143,8 @@ public class Client : ScriptableObject
     public List<ActivityTags> KnownDislikedActivityTags { get => _knownDislikedActivityTags; set => _knownDislikedActivityTags = value; }
     public List<int> KnownDiningQualityPreference { get => _knownDiningQualityPreference; set => _knownDiningQualityPreference = value; }
     public List<int> KnownLodgingQuality { get => _knownLodgingQuality; set => _knownLodgingQuality = value; }
+    public DialogueTree MainDialogue { get => _mainDialogue; set => _mainDialogue = value; }
+    public DialogueTree RepeatDialogue { get => _repeatDialogue; set => _repeatDialogue = value; }
     public List<AirplaneClass> KnownPreferredAirplaneClass { get => _knownPreferredAirplaneClass; set => _knownPreferredAirplaneClass = value; }
     public List<AirplaneClass> KnownUnpreferredAirplaneClass { get => _knownUnpreferredAirplaneClass; set => _knownUnpreferredAirplaneClass = value; }
 }

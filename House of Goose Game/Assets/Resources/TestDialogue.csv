@@ -1,0 +1,47 @@
+DIALOGUE OPTIONS,PLAYER,CLIENT
+,Hi there! This is *inputPlayerName* from *inputAgencyName*. What can I do for you?,
+,,"Hello *inputPlayerName*. My husband and I are looking to celebrate our retirement by revisiting a country we’ve been to before. He and I used to travel when we were first dating, and, well, we haven’t had the chance to go out for a while now. Can you help us?"
+,"Sure. Just to let you know, this is a mystery travel agency, so we plan trips for our clients and surprise them when they land. Is this okay with you?",
+,,"Yes, as long as it’s one of the countries we’ve been to, I don’t mind the surprise."
+,Great! And where have you been before?,
+,,"We have been to every country across Europe, as well as Central and South America. Since we are a bit older now, we want somewhere that is easy for us to get around and still enjoy."
+,Of course. How long of a trip would you like?,
+,,Nothing too long. I think we’ll miss our cats if we’re gone for two weeks. Let’s go with twelve days for now.
+,Twelve days is perfect. Just enough time to relax without getting too homesick. What seasons would you like to travel?,
+,,"I love flowers, so whenever they are blooming and vibrant."
+,Not a problem! I will book something around then.,
+"TELL ME ABOUT THE LODGING, DINING, AND TRANSIT",And how would you like to get around,
+,,"Well, my husband loves driving, so we would like to rent a car if that’s possible."
+,"Now, what sort of lodging would you like?",
+,,Something comfy where they’ll take care of us. We don’t need anything fancy. A three-star is more than enough.
+,Great. And would you like dining coverage?,
+,,"Sorry, how does that work?"
+,"No worries, I’d love to explain. So essentially we can either provide you a reservation a day so you don’t need to go searching for dinner, or we can book them on specific days. Whatever you desire, we can do.",
+,,Oh okay. I understand. What would you recommend?
+,Hm… do you think you’ll be cooking at all?,
+,,"Oh yes. We love to cook together, but it does get overwhelming at times."
+,Then how about we give you six nights of coverage? Give you two a few breaks from the kitchen.,
+,,I think that sounds lovely. Let’s go with six. Nothing too expensive please.
+,No worries. I will write that down.,
+TELL ME ABOUT THE ACTIVITIES,Would you like me to book any activities? Maybe a relaxing spa day or a live show.,
+,,"Those do sound nice. We don’t really need many activities. We enjoy just walking around and going for coffee and chatting. You know, we’ve been married for nearly fifty years. He’s my best friend. We don’t need much else besides each other."
+,"That’s really nice. How about I set you up with two activities, and a few special memories to add to your trip?",
+,,I think he would like that.
+,Do you have anything you generally like or dislike?,
+,,Oh… I don’t know. I’ll let you decide.
+,"Sure, not a problem.",
+TELL ME ABOUT THE FLIGHT AND BUDGET,Can I ask what your budget is?,
+,,"My, well, I think we will try to stay around $5000 to cover the both of us. Is that okay?"
+,Yes! I can work with that. We are almost done now. Where are you flying from? And do you have a class that you prefer to fly with?,
+,,Both of our backs aren’t very good. I think we will try first class for once. We live in Coimbra but we will fly out from Lisbon. It’s not too terribly far.
+,You got it.,
+,"Alright, that concludes all of my questions. Do you have anything questions?",
+,,"Actually, Sweetie, I have one extra request."
+,"Of course, what is it?",
+,,"My husband has a fear of the water. We live along Rio Mondego, but he is terrified of boats and going in the water. Can you make sure we don’t do anything that might give him a scare?"
+,Not a problem. I will make that a priority.,
+,,Thank you. You’ve been so lovely to chat with.
+,You as well! I’m excited to plan everything for you! I’ll start working on your itinerary right away and make sure it’s perfect. I’ll be in touch if I need any further details.,
+,,Thank you *inputPlayerName*. I hope you have a splendid day.
+,And I hope yours is even more lovely. Thank you for calling and choosing *inputAgencyName*. Goodbye for now.,
+,,Goodbye.

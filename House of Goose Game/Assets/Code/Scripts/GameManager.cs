@@ -10,6 +10,8 @@ public class GameManager : HoG
     public NotebookBehavior notebookBehavior;
     public LocationBehavior locationBehavior;
 
+    public DialogueManager dialogueManager;
+
     private void Awake()
     {
         if(gm != null && gm != this)
