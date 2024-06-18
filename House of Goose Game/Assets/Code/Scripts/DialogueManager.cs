@@ -66,9 +66,16 @@ public class DialogueManager : HoG
                 {
                     textBuffer += c;
                     dialogueText.text = textBuffer;
+                    if (skipLineTriggered)
+                    {
+                        skipLineTriggered = false;
+                        dialogueText.text = line;
+                        break;
+                    }
                     yield return new WaitForSeconds(1 / charactersPerSecond);
                 }
 
+                //ADDED HACK: if next line of dialogue is a player line, skip and write it
                 if (dialogueTree.sections[section].dialogue.Length >= i-1 && dialogueTree.sections[section].dialogue[i+1].client == false)
                 {
                     skipLineTriggered = true;
