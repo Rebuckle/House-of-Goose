@@ -66,3 +66,5 @@ crashlytics-build.properties
 /House of Goose Game/UserSettings
 /House of Goose Game/Logs
 House of Goose Game/Temp/
+
+*.cache
