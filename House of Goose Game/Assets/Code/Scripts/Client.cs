@@ -69,7 +69,10 @@ public class Client : ScriptableObject
     ActivityTags[] _dislikedActivityTags;
 
     [Header("Dialogue")]
-    //DialogueTree _dialogueTree;
+    [SerializeField]
+    DialogueTree _mainDialogue;
+    [SerializeField]
+    DialogueTree _repeatDialogue;
 
     public string ClientName { get => _clientName; set => _clientName = value; }
     public string ClientStory { get => _clientStory; set => _clientStory = value; }

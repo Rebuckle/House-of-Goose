@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: TestDialogue01_Redial
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue:
+    - line: Hello?
+      client: 1
+    - line: Hi, is this Chidi?
+      client: 0
+    - line: Yes it is. Who is this?
+      client: 1
+    - line: It's *inputPlayerName* from *inputAgencyName*. I just need to confirm
+        a few things about the trip.
+      client: 0
+    - line: Sure, not a problem. What can I do for you?
+      client: 1
+    - line: I'm going to go over a few details before I proceed. I'll get right into
+        it. When do you want to go and what sort of location would you like?
+      client: 0
+    - line: I'm looking for somewhere with nature and a large waterfront. And I'd
+        prefer to go during the spring or summer.
+      client: 1
+    - line: Of course. And what were the plans for lodging, transit, and dining?
+      client: 0
+    - line: Just two meals somewhere owned and operated entirely locally. Lodging,
+        somewhere cheap but private. And I don't need any transit coverage.
+      client: 1
+    - line: Perfect, I will write that down. What am I planning for activities?
+      client: 0
+    - line: I believe we said three in total. Nothing luxurious, just something to
+        help me meet the locals and explore the area.
+      client: 1
+    - line: And what is the plan for the flight again?
+      client: 0
+    - line: I'll leave from Cape Town and will take economy.
+      client: 1
+    - line: Right, I remember now. Lastly, what is the budget?
+      client: 0
+    - line: $2100.
+      client: 1
+    - line: Great! That covers everything. I'll let you know when I have wrapped
+        everything up.
+      client: 0
+    - line: I'm looking forward to it. Thank you for your help.
+      client: 1
+    - line: No problem. Have a good day!
+      client: 0
+    - line: You too. Bye now.
+      client: 1
+    - line: Bye.
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0

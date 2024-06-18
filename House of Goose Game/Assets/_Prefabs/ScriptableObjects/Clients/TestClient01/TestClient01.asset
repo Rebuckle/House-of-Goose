@@ -23,12 +23,13 @@ MonoBehaviour:
   _startingRegion: 5
   _preferredSeasons: 0100000002000000
   _unpreferredSeasons: 
-  _preferredLocations: 00000000
-  _unpreferredLocations: 04000000
-  _optOutDining: 0
-  _fullDining: 0
+  _preferredLocationAttributes: 
+  _unpreferredLocationAttributes: 
+  _optOutDining: 1
+  _diningAmount: 1
   _diningQuality: 01000000
-  _optOutTransit: 0
+  _optOutTransit: 1
+  _airplaneClass: 0
   _preferredTransit: 00000000
   _unpreferredTransit: 02000000
   _lodgingQuality: 0000000001000000
@@ -36,3 +37,5 @@ MonoBehaviour:
   _activityAmount: 3
   _likedActivityTags: 000000000100000002000000030000000400000005000000
   _dislikedActivityTags: 0f0000001000000008000000
+  _mainDialogue: {fileID: 11400000, guid: 60a40183726bcc54e87737997bf323e1, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: 96097085acf93a140bfe8a424b899150, type: 2}
