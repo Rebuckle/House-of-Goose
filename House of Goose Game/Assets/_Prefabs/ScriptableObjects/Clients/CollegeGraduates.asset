@@ -21,7 +21,7 @@ MonoBehaviour:
   _budget: 5500
   _tripDuration: 21
   _groupSize: 3
-  _callLimit: 3
+  _callLimit: 2
   _startingRegion: 6
   _preferredSeasons: 0300000000000000
   _unpreferredSeasons: 0100000002000000

@@ -21,6 +21,8 @@ public class Player : HoG
     public AudioClip manilaPickUp_Audio;
     public AudioClip computerRejectQuack_Audio;
     public AudioClip computerClickOn_Audio;
+    public AudioClip phoneRing_Audio;
+    public AudioClip phoneBusy_Audio;
 
 
     private bool computerZoom = false;
@@ -59,6 +61,13 @@ public class Player : HoG
         gm.OnGameStarted += OnGameStarted;
         sFXHandler = GameObject.Find("sfxManager").GetComponent<SFXHandler>();
 
+        Invoke("CallSpawnDelay", 3); //ring phone
+
+    }
+
+    private void CallSpawnDelay()
+    {
+        sFXHandler.PlaySound(phoneRing_Audio);
     }
 
     private void OnGameStarted(object gm, GameStartArgs gsa)
