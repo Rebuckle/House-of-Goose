@@ -12,10 +12,10 @@ public class EventsManilla : ObjectEventSubscriber
     protected override void Awake()
     {
         base.Awake();
-        Material imgmat = locationImageGO.GetComponent<Material>();
-        imgmat.SetTexture("Base", locationImageImage);
-        Material datamat = locationDataGO.GetComponent<Material>();
-        datamat.SetTexture("Base", locationDataImage);
+        Renderer imgmat = locationImageGO.GetComponent<Renderer>();
+        imgmat.material.SetTexture("_MainTex", locationImageImage);
+        Renderer datamat = locationDataGO.GetComponent<Renderer>();
+        datamat.materials[1].SetTexture("_MainTex", locationDataImage);
 
     }
 

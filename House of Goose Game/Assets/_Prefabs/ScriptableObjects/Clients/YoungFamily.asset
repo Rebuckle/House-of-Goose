@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632ce7c4bd359a046a768d4773d085e8, type: 3}
+  m_Name: YoungFamily
+  m_EditorClassIdentifier: 
+  _clientName: Andrew Charron
+  _clientStory: The father of a humble family is eager to book their first family
+    trip and bring his young children on unforgettable adventures. They are excited
+    to explore new places together and make cherished memories as a family.
+  _clientImage: {fileID: 21300000, guid: 7c2b1b2c68a89564186899c52898caef, type: 3}
+  _budget: 7000
+  _tripDuration: 4
+  _groupSize: 4
+  _callLimit: 3
+  _startingRegion: 0
+  _preferredSeasons: 0100000003000000
+  _unpreferredSeasons: 0000000002000000
+  _preferredLocationAttributes: 0200000003000000
+  _unpreferredLocationAttributes: 000000000100000004000000
+  _knownPreferredSeasons: 03000000
+  _knownUnpreferredSeasons: 
+  _knownPreferredLocationAttributes: 03000000
+  _knownUnpreferredLocationAttributes: 
+  _optOutDining: 0
+  _diningAmount: 3
+  _diningQuality: 01000000
+  _knownDiningQualityPreference: 01000000
+  _optOutTransit: 0
+  _airplaneClass: 3
+  _preferredTransit: 02000000
+  _unpreferredTransit: 000000000100000003000000
+  _knownPreferredTransit: 
+  _knownUnpreferredTransit: 03000000
+  _knownPreferredAirplaneClass: 03000000
+  _knownUnpreferredAirplaneClass: 01000000
+  _lodgingQuality: 02000000
+  _knownLodgingQuality: 02000000
+  _optOutActivity: 0
+  _activityAmount: 4
+  _likedActivityTags: 030000000e0000000b00000005000000060000000f000000
+  _dislikedActivityTags: 10000000070000000800000002000000
+  _knownLikedActivityTags: 0e000000
+  _knownDislikedActivityTags: 0200000008000000
+  _mainDialogue: {fileID: 11400000, guid: 2ec9c7abe148f1d41bd6eff4fa309248, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: d39d892909f391c49a46048a3ebbdcbc, type: 2}

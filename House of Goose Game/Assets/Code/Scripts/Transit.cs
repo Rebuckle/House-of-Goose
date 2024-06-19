@@ -14,4 +14,5 @@ public class Transit : ScriptableObject, IExperience
     public string Name { get => _transitType.ToString(); set => Name = _transitType.ToString(); }
     public int Quality { get => _quality; set => _quality = value; }
     public double Cost { get => _cost; set => _cost = value; }
+    public HoG.Transit TransitType { get => _transitType; set => _transitType = value; }
 }

@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: WealthyMan_Redial
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Hi there. This is Mr. Fallas' assistant. What can I do for you?
+      answers:
+      - answerLabel: Hi, yes, this is inputPlayerName from inputAgencyName. I need
+          to confirm a few more details about the trip.
+        nextElement: 1
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Sure. I'll try to answer them to the best of my abilities.
+      answers:
+      - answerLabel: What kind of destination and time of year is he looking for?
+        nextElement: 2
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Did he not already go over this with you?
+      answers:
+      - answerLabel: Yes. I just need to confirm everything is correct before I proceed.
+        nextElement: 3
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Alright. He wants a city with a water front in the winter or autumn
+        seasons.
+      answers:
+      - answerLabel: Noted. And what about transit and dining?
+        nextElement: 4
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: He'll want the best dinners booked daily and a private driver at
+        his disposal.
+      answers:
+      - answerLabel: Lodging preferences?
+        nextElement: 5
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Presidential suite, ocean view.
+      answers:
+      - answerLabel: Activities he would enjoy?
+        nextElement: 6
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Uh, I don't know. Not many. Nothing crowded, loud, or messy. And
+        absolutely no animals nor strenuous physical activity.
+      answers:
+      - answerLabel: Understood. Trip duration?
+        nextElement: 7
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Ten days.
+      answers:
+      - answerLabel: Where is he flying from again.
+        nextElement: 8
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: San Juan on his private jet. Do you not remember forcing him to buy
+        additional tickets?
+      answers:
+      - answerLabel: Ah yes... I remember it now. Budget?
+        nextElement: 9
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Doesn't matter. Nothing is ever too much.
+      answers:
+      - answerLabel: Alright, great. That's everything I need to know. Thank you
+          for your time.
+        nextElement: 10
+  - dialogue:
+    - line: '*click!*'
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []

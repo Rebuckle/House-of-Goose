@@ -22,34 +22,34 @@ MonoBehaviour:
   _tripDuration: 10
   _groupSize: 2
   _callLimit: 3
-  _startingRegion: 2
-  _preferredSeasons: 
-  _unpreferredSeasons: 
-  _preferredLocationAttributes: 
-  _unpreferredLocationAttributes: 
-  _knownPreferredSeasons: 
+  _startingRegion: 1
+  _preferredSeasons: 0000000003000000
+  _unpreferredSeasons: 0100000002000000
+  _preferredLocationAttributes: 0100000003000000
+  _unpreferredLocationAttributes: 000000000200000004000000
+  _knownPreferredSeasons: 00000000
   _knownUnpreferredSeasons: 
-  _knownPreferredLocationAttributes: 
-  _knownUnpreferredLocationAttributes: 
+  _knownPreferredLocationAttributes: 01000000
+  _knownUnpreferredLocationAttributes: 04000000
   _optOutDining: 0
-  _diningAmount: 1
-  _diningQuality: 
+  _diningAmount: 10
+  _diningQuality: 03000000
   _knownDiningQualityPreference: 
   _optOutTransit: 0
-  _airplaneClass: 0
-  _preferredTransit: 
-  _unpreferredTransit: 
+  _airplaneClass: 1
+  _preferredTransit: 01000000
+  _unpreferredTransit: 000000000200000003000000
   _knownPreferredTransit: 
-  _knownUnpreferredTransit: 
+  _knownUnpreferredTransit: 02000000
   _knownPreferredAirplaneClass: 
-  _knownUnpreferredAirplaneClass: 
-  _lodgingQuality: 
+  _knownUnpreferredAirplaneClass: 02000000
+  _lodgingQuality: 05000000
   _knownLodgingQuality: 
   _optOutActivity: 0
-  _activityAmount: 1
-  _likedActivityTags: 
-  _dislikedActivityTags: 
-  _knownLikedActivityTags: 
-  _knownDislikedActivityTags: 
-  _mainDialogue: {fileID: 0}
-  _repeatDialogue: {fileID: 0}
+  _activityAmount: 4
+  _likedActivityTags: 07000000100000000800000001000000090000000a000000
+  _dislikedActivityTags: 0e000000030000000b0000001300000012000000
+  _knownLikedActivityTags: 0700000001000000
+  _knownDislikedActivityTags: 1300000012000000
+  _mainDialogue: {fileID: 11400000, guid: b284848e81ef5f348bf9380817c74dab, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: 63e11231146045e43af488d3c7229787, type: 2}
