@@ -2,32 +2,45 @@ using UnityEditor;
 using UnityEngine;
 using DG.Tweening;
 
+
 public class Player : HoG
 {
-    
-    bool inPhoneCall = false;
-    public Transform cameraAnchorChair;
-    public Transform cameraAnchorComputer;
-
-    private bool computerZoom = false;
-
-    public Transform notebookAnchorDesk;
-    public Transform notebookAnchorCall;
-    private bool notebookZoom = false;
-    private bool manillaZoom = false;
+    private const float TWEEN_SPEED = 0.5f;
     public float maxSideLook = 30f;
     public float maxVerticalLook = 10f;
+
+
+
+    bool inPhoneCall = false;
+
+
+    private bool computerZoom = false;
+    private bool notebookZoom = false;
+    private bool manillaZoom = false;
     private Vector2 targetLookAngle;
 
     private bool firstCallFinished = false;
+
+    public Transform cameraAnchorChair;
+    public Transform cameraAnchorComputer;
 
     public Transform phoneBase;
     public Transform phoneReciever;
 
     public Transform phoneAnchorBase;
     public Transform phoneAnchorCall;
+
+    public Transform notebookAnchorDesk;
+    public Transform notebookAnchorCall;
     public Transform notebook;
-    public Transform manilla;
+
+    public Transform manillaOpenRootAnchor;
+
+    public Transform manillaOpenCoverAnchor;
+    public Transform[] manillas;
+
+    private Transform[] manillaBaseAnchors;
+    private int selectedManillaIndex = -1;
     public Transform computer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,6 +48,21 @@ public class Player : HoG
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.lockState = CursorLockMode.None;
         DOTween.Init();
+        CreateManillaAnchors();
+    }
+
+    void CreateManillaAnchors()
+    {
+        manillaBaseAnchors = new Transform[manillas.Length];
+        Transform baseAnchor = new GameObject("Manilla Anchors").transform;
+        for  (int i = 0; i < manillas.Length; i++)   
+        {
+            Transform anchor = new GameObject("Anchor_" + manillas[i].name).transform;
+            anchor.position = manillas[i].position;
+            anchor.rotation = manillas[i].rotation;
+            anchor.parent = baseAnchor;
+            manillaBaseAnchors[i] = anchor;
+        }
     }
 
     // Update is called once per frame
@@ -53,32 +81,17 @@ public class Player : HoG
         }
     }
 
-    void SetManillaZoom(bool value)
-    {
-
-    }
-    void ToggleManillaZoom()
-    {
-        if (!manillaZoom)
-        {
-            
-        }
-        else
-        {
-
-        }
-    }
 
     void SetComputerZoom(bool value)
     {
         if (!value)
         {
-            transform.DOMove(cameraAnchorChair.position, 0.5f);
+            transform.DOMove(cameraAnchorChair.position, TWEEN_SPEED);
             
         }
         else
         {
-            transform.DOMove(cameraAnchorComputer.position, 0.5f);
+            transform.DOMove(cameraAnchorComputer.position, TWEEN_SPEED);
         }
         computerZoom = value;
     }
@@ -87,12 +100,12 @@ public class Player : HoG
     {
         if (!computerZoom)
         {
-            transform.DOMove(cameraAnchorComputer.position, 0.5f);
+            transform.DOMove(cameraAnchorComputer.position, TWEEN_SPEED);
 
             
         } else
         {
-            transform.DOMove(cameraAnchorChair.position, 0.5f);
+            transform.DOMove(cameraAnchorChair.position, TWEEN_SPEED);
         }
         computerZoom = !computerZoom;
     }
@@ -101,26 +114,26 @@ public class Player : HoG
     {
         if (!value)
         {
-            phoneReciever.DOMove(phoneAnchorBase.position, 0.5f);
-            phoneReciever.DORotate(phoneAnchorBase.eulerAngles, 0.5f);
+            phoneReciever.DOMove(phoneAnchorBase.position, TWEEN_SPEED);
+            phoneReciever.DORotate(phoneAnchorBase.eulerAngles, TWEEN_SPEED);
         }
         else
         {
-            phoneReciever.DOMove(phoneAnchorCall.position, 0.5f);
-            phoneReciever.DORotate(phoneAnchorCall.eulerAngles, 0.5f);
+            phoneReciever.DOMove(phoneAnchorCall.position, TWEEN_SPEED);
+            phoneReciever.DORotate(phoneAnchorCall.eulerAngles, TWEEN_SPEED);
         }
     }
     void SetNotebookZoom(bool value)
     {
         if (!value)
         {
-            notebook.DOMove(notebookAnchorDesk.position, 0.5f);
-            notebook.DORotate(notebookAnchorDesk.eulerAngles, 0.5f);
+            notebook.DOMove(notebookAnchorDesk.position, TWEEN_SPEED);
+            notebook.DORotate(notebookAnchorDesk.eulerAngles, TWEEN_SPEED);
         }
         else 
         {
-            notebook.DOMove(notebookAnchorCall.position, 0.5f);
-            notebook.DORotate(notebookAnchorCall.eulerAngles, 0.5f);
+            notebook.DOMove(notebookAnchorCall.position, TWEEN_SPEED);
+            notebook.DORotate(notebookAnchorCall.eulerAngles, TWEEN_SPEED);
 
         }
         notebookZoom = value;
@@ -130,19 +143,50 @@ public class Player : HoG
     {
         if (!notebookZoom)
         {
-            notebook.DOMove(notebookAnchorCall.position, 0.5f);
-            notebook.DORotate(notebookAnchorCall.eulerAngles, 0.5f);
+            notebook.DOMove(notebookAnchorCall.position, TWEEN_SPEED);
+            notebook.DORotate(notebookAnchorCall.eulerAngles, TWEEN_SPEED);
         }
         else 
         {
-            notebook.DOMove(notebookAnchorDesk.position, 0.5f);
-            notebook.DORotate(notebookAnchorDesk.eulerAngles, 0.5f);
+            notebook.DOMove(notebookAnchorDesk.position, TWEEN_SPEED);
+            notebook.DORotate(notebookAnchorDesk.eulerAngles, TWEEN_SPEED);
 
         }
         notebookZoom = !notebookZoom;
     }
 
-    
+    void SetManillaZoom(int index, bool value)
+    {
+        if (value && !manillaZoom)
+        {
+            selectedManillaIndex = index;
+            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
+            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
+            manillaZoom = true;
+        }
+        else
+        {
+            //Reset old manilla
+            if (selectedManillaIndex != -1 && manillas[index] != manillas[selectedManillaIndex])
+            {
+                manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
+                manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
+            }
+
+            if(!value)
+            {
+                selectedManillaIndex = -1;
+                manillaZoom = false;
+                return;
+            }
+            selectedManillaIndex = index;
+            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
+            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
+            manillaZoom = true;
+        }
+        
+
+    }
     void EndPhoneCallCallback()
     {
         inPhoneCall = false;
@@ -180,52 +224,57 @@ public class Player : HoG
                 if (hit.collider.transform == phoneBase || hit.collider.transform == phoneReciever)
                 {
                     SetNotebookZoom(true);
+                    SetPhoneZoom(true);
+                    inPhoneCall = true;
+                    DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
+
                     //IF CLIENT WAITING, PICK UP THE PHONE
                     if (!firstCallFinished)
                     {
-                        SetPhoneZoom(true);
                         Debug.Log ("Entering main dialogue with " + GameManager.gm.currentClient.name + "...");
                         DialogueManager.instance.StartDialogue(GameManager.gm.currentClient.MainDialogue);
-                        inPhoneCall = true;
                         firstCallFinished = true;
-                        DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
                     }
                     //ELSE CALL CLIENT BACK
                     else
                     {
-                        SetPhoneZoom(true);
                         Debug.Log ("Entering redial dialogue with " + GameManager.gm.currentClient.name + "...");
                         DialogueManager.instance.StartDialogue(GameManager.gm.currentClient.RepeatDialogue);
-                        inPhoneCall = true;
-                        DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
-
                     }
                 }
                 else if (hit.collider.transform == notebook)
                 {
                     SetNotebookZoom(true);
                     SetComputerZoom(false);
-                    SetManillaZoom(false);
+                    SetManillaZoom(-1, false);
                 }
-                else if (hit.collider.transform == manilla)
-                {
-                    ToggleManillaZoom();
-                    SetComputerZoom(false);
-                    SetNotebookZoom(false);
-                }
+
                 else if (hit.collider.transform == computer)
                 {
                     SetComputerZoom(true);
-                    SetManillaZoom(false);
                     SetNotebookZoom(false);
+                    SetManillaZoom(-1, false);
+
+                }
+                else
+                {
+                    for (int i = 0; i < manillas.Length; i++)
+                    {
+                        if (hit.collider.transform == manillas[i])
+                        {
+                            SetManillaZoom(i, true);
+                            SetComputerZoom(false);
+                            SetNotebookZoom(false);
+                        }
+                    }
                 }
 
             }
             else
             {
                 SetComputerZoom(false);
-                SetManillaZoom(false);
                 SetNotebookZoom(false);
+                SetManillaZoom(-1, false);
             }
         }
     }
@@ -234,6 +283,5 @@ public class Player : HoG
     Vector2 MousePosFromCenter()
     {
         return new Vector2(Input.mousePosition.x/Screen.width - 0.5f, Input.mousePosition.y/Screen.height - 0.5f) * 2;
-
     }
 }

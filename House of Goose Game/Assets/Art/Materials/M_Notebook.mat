@@ -58,7 +58,7 @@ Material:
     - _OpaqueCullMode: 2
     m_Colors:
     - _Albedo_Tint: {r: 1, g: 0.99158394, b: 0.8537736, a: 1}
-    - _Color_A: {r: 0.65882355, g: 0.9607843, b: 0.89186895, a: 0.7294118}
+    - _Color_A: {r: 0.9889531, g: 1, b: 0.9669811, a: 0.7294118}
     - _Color_B: {r: 0.2901961, g: 0.32551727, b: 0.54901963, a: 0.3254902}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
