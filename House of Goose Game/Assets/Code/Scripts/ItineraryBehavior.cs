@@ -22,7 +22,6 @@ public class ItineraryBehavior : HoG
     [SerializeField]
     TextMeshProUGUI _tripCostText;
 
-
     [SerializeField] List<Location> _allLocations;
 
     [System.Serializable]
@@ -44,7 +43,7 @@ public class ItineraryBehavior : HoG
     public void Start()
     {
         _budgetText.text = TheClient.Budget.ToString();
-        _tripCostText.text = "000";
+        _tripCostText.text = "$0000";
     }
 
     public void UpdateDestination(TMP_Dropdown change)
@@ -101,6 +100,8 @@ public class ItineraryBehavior : HoG
         }
     }
 
+    //Getters
+
     public Location GetLocation()
     {
         foreach(Location _location in _allLocations)
@@ -123,6 +124,24 @@ public class ItineraryBehavior : HoG
         return _airplaneClass;
     }
 
+    public string GetDestination()
+    {
+        return _destination;
+    }
 
+    public string GetPackage()
+    {
+        return _packages;
+    }
+
+    public string[] GetActivities()
+    {
+        return _activities.ToArray();
+    }
+
+    public string[] GetPackageActivities()
+    {
+        return _packageActivities.ToArray();
+    }
 
 }
