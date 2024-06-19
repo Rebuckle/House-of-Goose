@@ -18,7 +18,7 @@ MonoBehaviour:
     branchPoint:
       question: Hello? This is Andrew speaking.
       answers:
-      - answerLabel: Hi! It's *inputPlayerName* from *inputAgencyName*. How are you?
+      - answerLabel: Hi! It's Stuart from Booking Dreams Agency. How are you?
         nextElement: 1
   - dialogue: []
     endAfterDialogue: 0
