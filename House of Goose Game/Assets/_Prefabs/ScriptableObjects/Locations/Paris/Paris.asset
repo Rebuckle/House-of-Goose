@@ -12,14 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d98df1ffd74c4587d1966858bcfe9, type: 3}
   m_Name: Paris
   m_EditorClassIdentifier: 
-  _name: 0
-  _unlocked: 0
-  _peakSeason: 0
+  _name: 1
+  _unlocked: 1
+  _peakSeason: 2
   _downSeason: 0
-  _region: 0
-  _attributes: 
-  _lodging: []
-  _dining: []
-  _transit: []
-  _activities: []
-  _packages: []
+  _region: 3
+  _attributes: 0000000002000000
+  _lodging:
+  - {fileID: 11400000, guid: 9c822bdb8a656834c9852e5117d7ee58, type: 2}
+  - {fileID: 11400000, guid: 4d9f0893d373adf4ebd0d3ad583a745e, type: 2}
+  - {fileID: 11400000, guid: 3f39a84609ab145408a25fbf68e86abc, type: 2}
+  - {fileID: 11400000, guid: ecb21c655275dc44dae69edfc1963229, type: 2}
+  - {fileID: 11400000, guid: a9b8732ca35bd8a4bb5ef553a530b6d1, type: 2}
+  _dining:
+  - {fileID: 11400000, guid: 1b7c4ad0045a5a34e8db2a8ecfe89b1b, type: 2}
+  - {fileID: 11400000, guid: 3a2f569e94ee3b348af9d123572434f6, type: 2}
+  - {fileID: 11400000, guid: 9be02a8d510f0b241aa582d411e912a4, type: 2}
+  _transit:
+  - {fileID: 11400000, guid: 699e4795c3836a74fac57a76e919757c, type: 2}
+  - {fileID: 11400000, guid: f4fdb3b855402454aa934ac066bff90f, type: 2}
+  - {fileID: 11400000, guid: b8bcfcc4d9362884fbb0cdb635db1fbe, type: 2}
+  _activities:
+  - {fileID: 11400000, guid: d6a6f70d369ee6645ad90765085143d2, type: 2}
+  - {fileID: 11400000, guid: 814722dca9100ba4ab37819f1f1b6ba5, type: 2}
+  - {fileID: 11400000, guid: 3fb6ab7473caa574e9c7945467b3a11b, type: 2}
+  - {fileID: 11400000, guid: 5cd922f5b03766240a072cff09a5d8ef, type: 2}
+  - {fileID: 11400000, guid: 362cad755a5eb8647b13f9ae2e289b26, type: 2}
+  _packages:
+  - {fileID: 11400000, guid: 90fb62aef399c054bb2c2d1feaf66251, type: 2}
+  - {fileID: 11400000, guid: 2f8f4e2dbfa7c5140822c9fda304f152, type: 2}

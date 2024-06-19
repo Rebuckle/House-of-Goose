@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b22e0422497e14cb6c1205f8a76e86, type: 3}
+  m_Name: WealthyMan
+  m_EditorClassIdentifier: 
+  _starRatings:
+  - This trip was a complete disaster. The accommodations were shockingly cheap and
+    noisy, completely unsuitable for Mr. Pallas and his father. He expected luxury,
+    but instead, they got a chaotic mess. Unacceptable. You will be hearing from
+    our lawyers.
+  - While some aspects showed promise, the trip fell short of Mr. Pallas's exacting
+    standards. The accommodations were not as pristine and quiet as expected, with
+    noticeable flaws that marred the experience. It was a disappointment given his
+    expectations.
+  - The trip was somewhat satisfactory, though Mr. Pallas found several flaws that
+    detracted from the experience. The luxury was inconsistent, and certain aspects
+    did not meet the impeccable standards we demand.
+  - This was a pleasant trip but not good enough. Most of the accommodations were
+    luxurious and quiet, but Mr. Pallas is only satisfied with perfection. While
+    Mr. Pallas and his father enjoyed some parts of the experience, it could've been
+    better.
+  - Mr. Pallas was satisfied with this trip and will be in contact for future plans.
