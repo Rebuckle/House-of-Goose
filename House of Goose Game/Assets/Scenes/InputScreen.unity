@@ -118,6 +118,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &27686875
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1297626481}
+    m_Modifications:
+    - target: {fileID: 5459852399904050577, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_Name
+      value: sfxManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1052.1926
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -587.4712
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.545149
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+--- !u!4 &27686876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+  m_PrefabInstance: {fileID: 27686875}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &27686877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4418032035346576964, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+  m_PrefabInstance: {fileID: 27686875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a3cc804e565c449871016e899f24ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &87629778
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,6 +800,7 @@ GameObject:
   - component: {fileID: 622519608}
   - component: {fileID: 622519607}
   - component: {fileID: 622519606}
+  - component: {fileID: 622519609}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -833,7 +907,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 27686877}
+        m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: b688661a2f5187e47a165b8dc7d35541, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -893,6 +979,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622519604}
   m_CullTransparentMesh: 1
+--- !u!114 &622519609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622519604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 27686877}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b688661a2f5187e47a165b8dc7d35541, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 8
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 27686877}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b688661a2f5187e47a165b8dc7d35541, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &629989309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1249,7 @@ GameObject:
   - component: {fileID: 1068542861}
   - component: {fileID: 1068542860}
   - component: {fileID: 1068542859}
+  - component: {fileID: 1068542862}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -1284,6 +1416,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068542857}
   m_CullTransparentMesh: 1
+--- !u!114 &1068542862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068542857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 27686877}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b688661a2f5187e47a165b8dc7d35541, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 8
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 27686877}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b688661a2f5187e47a165b8dc7d35541, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1152817766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1728,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 629989310}
+  - {fileID: 27686876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1649,6 +1827,7 @@ GameObject:
   - component: {fileID: 1488848365}
   - component: {fileID: 1488848364}
   - component: {fileID: 1488848367}
+  - component: {fileID: 1488848368}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -1782,6 +1961,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfc2634e8ce0cd418ed9585b8c1fc0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1488848368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488848362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 27686877}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b688661a2f5187e47a165b8dc7d35541, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 27686877}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: f73247bb9a9ec8849856a7d1435037fe, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1523391800
 GameObject:
   m_ObjectHideFlags: 0

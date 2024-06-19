@@ -350,6 +350,22 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!4 &91267431 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+  m_PrefabInstance: {fileID: 2052912758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &91267433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4418032035346576964, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+  m_PrefabInstance: {fileID: 2052912758}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a3cc804e565c449871016e899f24ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &290951991
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +378,7 @@ GameObject:
   - component: {fileID: 290951995}
   - component: {fileID: 290951994}
   - component: {fileID: 290951993}
+  - component: {fileID: 290951996}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -471,6 +488,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290951991}
   m_CullTransparentMesh: 1
+--- !u!114 &290951996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290951991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 91267433}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b688661a2f5187e47a165b8dc7d35541, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 91267433}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b4ffd86af6cdb284fac0fcbf0506570a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &292015208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,6 +1225,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 488389573}
+  - {fileID: 91267431}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1260,6 +1323,7 @@ GameObject:
   - component: {fileID: 1873274446}
   - component: {fileID: 1873274445}
   - component: {fileID: 1873274444}
+  - component: {fileID: 1873274447}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -1369,6 +1433,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873274442}
   m_CullTransparentMesh: 1
+--- !u!114 &1873274447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873274442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 91267433}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b688661a2f5187e47a165b8dc7d35541, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 91267433}
+          m_TargetAssemblyTypeName: SFXHandler, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 8300000, guid: b4ffd86af6cdb284fac0fcbf0506570a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1001 &2052912758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1642687327}
+    m_Modifications:
+    - target: {fileID: 5459852399904050577, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_Name
+      value: sfxManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1052.1926
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -587.4712
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.545149
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768186690643845632, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e8cbc9b14be673b44b51df014e024cf8, type: 3}
 --- !u!1 &2066275984
 GameObject:
   m_ObjectHideFlags: 0
