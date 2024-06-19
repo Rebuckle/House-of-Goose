@@ -1,17 +1,26 @@
 using UnityEditor;
 using UnityEngine;
+using System;
 using DG.Tweening;
-
 
 public class Player : HoG
 {
     private const float TWEEN_SPEED = 0.5f;
+    private Vector3 MANILLA_COVER_ANGLE_OPEN = new Vector3(0, 90, -135);
+    private Vector3 MANILLA_COVER_ANGLE_CLOSED = new Vector3(0, 90, 0);
+
     public float maxSideLook = 30f;
     public float maxVerticalLook = 10f;
 
-
-
     bool inPhoneCall = false;
+
+    private SFXHandler sFXHandler;
+    public AudioClip phonePickUp_Audio;
+    public AudioClip phoneHangUp_Audio;
+    public AudioClip notebookPickUp_Audio;
+    public AudioClip manilaPickUp_Audio;
+    public AudioClip computerRejectQuack_Audio;
+    public AudioClip computerClickOn_Audio;
 
 
     private bool computerZoom = false;
@@ -26,33 +35,46 @@ public class Player : HoG
 
     public Transform phoneBase;
     public Transform phoneReciever;
-
     public Transform phoneAnchorBase;
     public Transform phoneAnchorCall;
-
+   
     public Transform notebookAnchorDesk;
     public Transform notebookAnchorCall;
     public Transform notebook;
-
+   
     public Transform manillaOpenRootAnchor;
-
     public Transform manillaOpenCoverAnchor;
-    public Transform[] manillas;
-
+    private Transform[] manillas;
     private Transform[] manillaBaseAnchors;
     private int selectedManillaIndex = -1;
-    public Transform computer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [HideInInspector] public Transform computer;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.lockState = CursorLockMode.None;
         DOTween.Init();
+        GameManager gm = GameObject.Find("Game Controller").GetComponent<GameManager>();
+        gm.OnGameStarted += OnGameStarted;
+        sFXHandler = GameObject.Find("sfxManager").GetComponent<SFXHandler>();
+
+    }
+
+    private void OnGameStarted(object gm, GameStartArgs gsa)
+    {
+        manillas = gsa.manillas.ToArray();
         CreateManillaAnchors();
     }
 
     void CreateManillaAnchors()
     {
+        if(manillas.Length == 0)
+        {
+            Debug.Log("No manilla envelopes are loaded into the Player object yet. Wait a frame and try again");
+            return;
+        }
+
         manillaBaseAnchors = new Transform[manillas.Length];
         Transform baseAnchor = new GameObject("Manilla Anchors").transform;
         for  (int i = 0; i < manillas.Length; i++)   
@@ -157,42 +179,52 @@ public class Player : HoG
 
     void SetManillaZoom(int index, bool value)
     {
-        if (value && !manillaZoom)
+        if(!value)
         {
-            selectedManillaIndex = index;
-            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
-            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
-            manillaZoom = true;
-        }
-        else
-        {
-            //Reset old manilla
-            if (selectedManillaIndex != -1 && manillas[index] != manillas[selectedManillaIndex])
+            manillaZoom = false;
+            if (selectedManillaIndex != -1)
             {
                 manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
                 manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
+                manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
+                selectedManillaIndex = -1;
+            }
+            return;
+        }
+        //Reset old manilla
+        if (selectedManillaIndex != -1)
+        {
+            if (manillas[index] != manillas[selectedManillaIndex])
+            {
+                manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
+                manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
+                manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
             }
 
-            if(!value)
-            {
-                selectedManillaIndex = -1;
-                manillaZoom = false;
-                return;
-            }
-            selectedManillaIndex = index;
-            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
-            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
-            manillaZoom = true;
         }
+        selectedManillaIndex = index;
+        manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
+        manillas[selectedManillaIndex].DORotate(manillaOpenRootAnchor.eulerAngles, TWEEN_SPEED);
+        manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_OPEN, TWEEN_SPEED);
+
+        manillaZoom = true;
+
+
         
+    }
+
+    private void OnGameStart(object sender, EventArgs e)
+    {
 
     }
+
     void EndPhoneCallCallback()
     {
         inPhoneCall = false;
         SetPhoneZoom(false);
         SetNotebookZoom(false);
         DialogueManager.OnDialogueEnded -= EndPhoneCallCallback;
+        sFXHandler.PlaySound(phoneHangUp_Audio);
     }
     void Interact()
     {
@@ -204,15 +236,19 @@ public class Player : HoG
                 if (hit.collider.transform == computer)
                 {
                     //Play computer quack sound
+                    sFXHandler.PlaySound(computerRejectQuack_Audio);
                 }
                 else if (hit.collider.transform == notebook)
                 {
                     
                 }
+                else
+                {
+                    DialogueManager.instance.SkipLine();
+                }
             }
             else
             {
-                
                 DialogueManager.instance.SkipLine();
             }
         }
@@ -227,6 +263,8 @@ public class Player : HoG
                     SetPhoneZoom(true);
                     inPhoneCall = true;
                     DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
+
+                    sFXHandler.PlaySound(phonePickUp_Audio);
 
                     //IF CLIENT WAITING, PICK UP THE PHONE
                     if (!firstCallFinished)
@@ -247,6 +285,7 @@ public class Player : HoG
                     SetNotebookZoom(true);
                     SetComputerZoom(false);
                     SetManillaZoom(-1, false);
+                    sFXHandler.PlaySound(notebookPickUp_Audio);
                 }
 
                 else if (hit.collider.transform == computer)
@@ -254,19 +293,31 @@ public class Player : HoG
                     SetComputerZoom(true);
                     SetNotebookZoom(false);
                     SetManillaZoom(-1, false);
-
+                    sFXHandler.PlaySound(computerClickOn_Audio);
                 }
                 else
                 {
+                    bool hitManilla = false;
                     for (int i = 0; i < manillas.Length; i++)
                     {
-                        if (hit.collider.transform == manillas[i])
+                        if (hit.collider.transform == manillas[i] || hit.collider.transform.root == manillas[i])
                         {
+                            Debug.Log("Zooming to manilla " + i);
                             SetManillaZoom(i, true);
                             SetComputerZoom(false);
                             SetNotebookZoom(false);
+                            hitManilla = true;
+                            sFXHandler.PlaySound(manilaPickUp_Audio);
+                            break;
                         }
                     }
+                    if (!hitManilla)
+                    {
+                        SetComputerZoom(false);
+                        SetNotebookZoom(false);
+                        SetManillaZoom(-1, false);                        
+                    }
+                    
                 }
 
             }

@@ -7,7 +7,8 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1)
+        AudioManager am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        am.FadeAudioBetween(2f);
         SceneManager.LoadScene("MainScene");
     }
 
