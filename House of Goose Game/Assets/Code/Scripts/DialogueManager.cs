@@ -118,7 +118,7 @@ public class DialogueManager : HoG
 
     IEnumerator ShowAnswers(BranchPoint branchPoint)
     {       
-            Debug.Log("Showing answers...");
+            skipLineTriggered = false;
             dialogueBox.SetActive(true);
             answerBox.SetActive(true);
             foreach (Button button in answerButtons)
