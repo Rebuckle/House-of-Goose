@@ -37,6 +37,10 @@ public class NotebookBehavior : HoG
 
     private void Start()
     {
+        if (GameManager.gm.notebookBehavior == null)
+        {
+            GameManager.gm.notebookBehavior = this;
+        }
         LoadSummaryPage();
         LoadPreferencePage();
 
@@ -104,6 +108,7 @@ public class NotebookBehavior : HoG
         }
 
         FlipPages();
+        Debug.Log(_status);
     }//end Toggle Notebook
 
     #region Summary Page
