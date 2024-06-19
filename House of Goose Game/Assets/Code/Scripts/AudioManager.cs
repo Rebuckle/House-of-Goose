@@ -6,6 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioClip titleTheme;
     [SerializeField] private AudioClip mainTheme;
+    private AudioHighPassFilter hpf;
+
     private AudioSource audioSrc;
     public AudioSource AudioSrc
     {
@@ -29,6 +31,7 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         AudioSrc.clip = titleTheme;
         AudioSrc.Play();
+        hpf = GetComponent<AudioHighPassFilter>();
     }
 
     public void FadeAudioToVolume(float volume, float duration = 1.5f)
@@ -48,5 +51,6 @@ public class AudioManager : MonoBehaviour
         AudioSrc.clip = mainTheme;
         AudioSrc.Play();
         AudioSrc.DOFade(0.35f, duration);
+        DOTween.To(() => hpf.cutoffFrequency, x => hpf.cutoffFrequency = x, 10f, 3f);
     }
 }
