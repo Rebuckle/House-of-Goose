@@ -12,14 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d98df1ffd74c4587d1966858bcfe9, type: 3}
   m_Name: Busan
   m_EditorClassIdentifier: 
-  _name: 0
-  _unlocked: 0
-  _peakSeason: 0
-  _downSeason: 0
-  _region: 0
-  _attributes: 
-  _lodging: []
-  _dining: []
-  _transit: []
-  _activities: []
-  _packages: []
+  _name: 2
+  _unlocked: 1
+  _peakSeason: 1
+  _downSeason: 2
+  _region: 4
+  _attributes: 0100000003000000
+  _lodging:
+  - {fileID: 11400000, guid: b0c9f10d46355c443af4b7bc83959e67, type: 2}
+  - {fileID: 11400000, guid: 4002d890c5345544582a45f84f7a895f, type: 2}
+  - {fileID: 11400000, guid: 776f4ffea00142a43b0e9b2de60ff116, type: 2}
+  - {fileID: 11400000, guid: f67f609010c520745b89b638e41e4d1e, type: 2}
+  - {fileID: 11400000, guid: 156bcb1b7d701af4786993f5fd1393d5, type: 2}
+  _dining:
+  - {fileID: 11400000, guid: 6bcc03b055228e941860745a0ccde1b3, type: 2}
+  - {fileID: 11400000, guid: 1090a57e334597e4a914c168d468d1e4, type: 2}
+  - {fileID: 11400000, guid: e8da73a421467bd41aee647a560dcb2f, type: 2}
+  _transit:
+  - {fileID: 11400000, guid: c4cb7555dfb3fda4a9cf34766861e752, type: 2}
+  - {fileID: 11400000, guid: 21bc1bb1928e4e44795828627702d4bc, type: 2}
+  - {fileID: 11400000, guid: 4ef05edf60b1d454fb5a03348aef51de, type: 2}
+  _activities:
+  - {fileID: 11400000, guid: 79373247c2bc4aa48af3927551951884, type: 2}
+  - {fileID: 11400000, guid: 4f2cc01e6f94d59469cb413c3af99b3f, type: 2}
+  - {fileID: 11400000, guid: a1ee8604957150d47b2187388245ad78, type: 2}
+  - {fileID: 11400000, guid: 8451881c1fa5d9f4dac3bcf02d0b2729, type: 2}
+  - {fileID: 11400000, guid: 32f72af5200bc9e4ba046733a0ed90e9, type: 2}
+  _packages:
+  - {fileID: 11400000, guid: 85f7c2fb475099f4d9a486d1ef1c94fe, type: 2}
+  - {fileID: 11400000, guid: aa2c5cd1fa66289468b65b0b9ac19a71, type: 2}

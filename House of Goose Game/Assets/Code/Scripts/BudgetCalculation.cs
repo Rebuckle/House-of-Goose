@@ -11,6 +11,31 @@ public class BudgetCalculation : MonoBehaviour
 
     [SerializeField]
     Client TheClient;
+    public void Start()
+    {
+        TheClient = TheItinerary.TheClient;
+    }
+
+    public void CalculateBudget()
+    {
+        CalculateLodging();
+        CalculateDining();
+        CalculateActivity();
+        CalculateTransit();
+        CalculateSeason();
+
+        CalculateTripCost();
+
+
+        CalculateRating();
+        SeasonRating();
+
+
+        CalculateCustomerServiceRating();
+        PlayerPrefs.SetInt(TheClient.ClientName,CalculateStarRating());
+    }
+
+    #region Calculate Trip Cost
 
     //general cost variable
     double tripCost = 0;
@@ -23,7 +48,6 @@ public class BudgetCalculation : MonoBehaviour
     //dining variables (affected by tripDuration and TheClient.GroupSize)
     double diningCost = 0;
 
-    double diningRate = 0;
     List<double> collectDining; //specified amount of dining
     bool optOutDining = false; //client opted out of dining
 
@@ -36,16 +60,10 @@ public class BudgetCalculation : MonoBehaviour
     //transit variables (affected by tripDuration and TheClient.GroupSize)
     double transitCost = 0;
 
-    double toFromAirportCost = 0; //transit cost to and from airport
     double carRentalCost = 0; //transit cost to rent a car
     double personalDriverCost = 0;//transit cost to employ a personal driver
     double transitPassCost = 0; //transit cost to buy daily pass
     bool optOutTransit = false; //client opted out of transit
-
-    //airfare variables (affected by TheClient.GroupSize and inputSeason)
-    string clientStartRegion = ""; //start continent 
-    string clientDestinationCity = ""; //destination city
-    string clientDestination = ""; //destination continent
 
     string NorthAmerica = "North America";
     string Africa = "Africa";
@@ -53,46 +71,18 @@ public class BudgetCalculation : MonoBehaviour
     string Asia = "Asia";
     string Oceania = "Oceania";
 
-    bool economyClass = false;
-    bool businessClass = false;
-    bool firstClass = false;
-
     double classType = 0;
     double airfareCost = 0;
 
     //season variables
     double valueSeason = 1; //base number
 
-    public void Start()
-    {
-                
-    }
-
-    public void CalculateBudget()
-    {
-        CalculateLodging();
-        CalculateDining();
-        CalculateActivity();
-        CalculateTransit();
-        CalculateSeason();
-        CalculateAirfare();
-
-        CalculateTripCost();
-        int rating = CalculateRating(tripCost);
-
-        PlayerPrefs.SetInt(TheClient.ClientName, rating);
-    }
-
     void CalculateLodging()
     {
         //lodging calculation
         //assuming these are Queen beds or Doubles for splitting, if 2 peeps don't want to sleep in the same bed, we'll just say they downgraded to smaller beds
 
-        if (TheClient.GroupSize == 1 || TheClient.GroupSize == 2) //solo traveller covers full bed
-        {
-            lodgingRate = lodgingRate;
-        }
-        else if (TheClient.GroupSize == 3 || TheClient.GroupSize == 4)
+        if (TheClient.GroupSize == 3 || TheClient.GroupSize == 4)
         {
             lodgingRate = lodgingRate * 2;
         }
@@ -143,10 +133,35 @@ public class BudgetCalculation : MonoBehaviour
 
     void CalculateTransit()
     {
+        foreach(Transit _transit in TheItinerary.GetLocation().Transit)
+        {
+            switch(_transit.TransitType)
+            {
+                case HoG.Transit.CarRental:
+                    {
+                        carRentalCost = _transit.Cost;
+                        break;
+                    }
+                case HoG.Transit.TransitPass:
+                    {
+                        transitPassCost = _transit.Cost;
+                        break;
+                    }
+                case HoG.Transit.PrivateDriver:
+                    {
+                        personalDriverCost = _transit.Cost;
+                        break;
+                    }
+                default: break;
+            }
+        }
+
+        CalculateAirfare();
+
         //transit calculation
         if (TheClient.OptOutTransit == false) //if client is opting in for transit coverage
         {
-            transitCost = toFromAirportCost + (TheClient.TripDuration * (carRentalCost + personalDriverCost + (transitPassCost * TheClient.GroupSize)));
+            transitCost = airfareCost + (TheClient.TripDuration * (carRentalCost + personalDriverCost + (transitPassCost * TheClient.GroupSize)));
         }
         else if (optOutTransit == true) //if client is opting out of transit coverage
         {
@@ -164,10 +179,6 @@ public class BudgetCalculation : MonoBehaviour
         {
             valueSeason = valueSeason * 0.7; //30% less
         }
-        else
-        {
-            valueSeason = valueSeason;
-        }
 
         //adjust costs impacted by season variables
         lodgingCost = lodgingCost * valueSeason;
@@ -175,29 +186,6 @@ public class BudgetCalculation : MonoBehaviour
 
     void CalculateAirfare()
     {
-        //airfare calculation
-        //clients from NA, AFR, EUR, ASIA, OCN
-        //destinations only NA, EUR, ASIA
-
-        //set values
-        //clientStartRegionCountry = "";
-        //clientDestinationCity = "";
-        //businessClass = true;
-
-        //turn client and location input into continents to condense calculations
-
-        clientStartRegion = TheClient.StartingRegion.ToString();
-
-        if (clientDestinationCity == "Portland")
-            clientDestination = "North America";
-
-        else if (clientDestinationCity == "Edinburgh" || clientDestinationCity == "Paris" || clientDestinationCity == "Santorini")
-            clientDestination = "Europe";
-
-        else if (clientDestinationCity == "Busan" || clientDestinationCity == "Tokyo" || clientDestinationCity == "Delhi" || clientDestinationCity == "Bali")
-            clientDestination = "Asia";
-
-
         //set class type multiple
         if (TheItinerary.GetAirplaneClass() == "Economy")
             classType = 1;
@@ -291,116 +279,118 @@ public class BudgetCalculation : MonoBehaviour
         Debug.Log(tripCost);
     }
 
+    #endregion
 
-    int CalculateRating(double tripCost)
+    #region Calculate Rating
+
+    #region Rating Variables
+    //variables list
+
+    //budget variables ----------------------------------------------
+    double budgetRating = 0;
+
+    //season variables ----------------------------------------------
+    string summer = "summer";
+    string winter = "winter";
+    string spring = "spring";
+    string autumn = "autumn";
+
+    string[] clientTopSeasons = new string[2] { "", "" };
+    string tripSeason = "";
+    double seasonRating = 0;
+
+    //transit variables ----------------------------------------------
+    string clientTransit = "";
+    string tripTransit = "";
+    double transitRating = 0;
+
+    //location variables ----------------------------------------------
+    string[] clientLocation = new string[2] { "", "" };
+    string[] tripLocation = new string[2] { "", "" };
+    double locationRating = 0;
+
+    //airplane class type variables ----------------------------------------------
+    string clientPlaneClassType = "";
+    string tripPlaneClassType = "";
+    double airTypeRating = 0;
+
+    //activities variables ----------------------------------------------
+    //single activities
+    bool locationActivity1 = false;
+    string[] locationActivity1Tags = new string[3] { "", "", "" }; //tags
+    double locationActivity1Cost = 0;
+
+    bool locationActivity2 = false;
+    string[] locationActivity2Tags = new string[3] { "", "", "" };
+    double locationActivity2Cost = 0;
+
+    bool locationActivity3 = false;
+    string[] locationActivity3Tags = new string[3] { "", "", "" };
+    double locationActivity3Cost = 0;
+
+    bool locationActivity4 = false;
+    string[] locationActivity4Tags = new string[3] { "", "", "" };
+    double locationActivity4Cost = 0;
+
+    bool locationActivity5 = false;
+    string[] locationActivity5Tags = new string[3] { "", "", "" };
+    double locationActivity5Cost = 0;
+
+    //bundle activities
+    bool locationActivityBundle1 = false;
+    string[] locationActivityBundle1Tags = new string[2] { "", "" };
+    double locationActivityBundle1Cost = 0;
+    double locationActivityBundle1Quantity = 0;
+
+
+    bool locationActivityBundle2 = false;
+    string[] locationActivityBundle2Tags = new string[2] { "", "" };
+    double locationActivityBundle2Cost = 0;
+    double locationActivityBundle2Quantity = 0;
+
+    //client
+    string[] clientActivityLikes = new string[6] { "", "", "", "", "", "" }; //put in keywords to determine whether they like selected activities, max 6
+    string[] clientActivityHates = new string[6] { "", "", "", "", "", "" }; //put in keywords to determine whether they dislike selected activities, max 6
+
+    double clientActivityAmount = 3; //client ideal activity amount
+    double tripActivityAmount = 0;
+    double tripActivityCost = 0;
+
+    double activityRating = 0;
+
+    //all hot & cold keywords
+    string[] hotKeywordsTags = new string[14] { "Static", "Active", "Quiet", "Lively", "Scary", "Romantic", "Children", "Mature", "Luxury", "Water", "Thrills", "Animals", "Food", "Messy" };
+    string[] coldKeywordsTags = new string[6] { "Nature", "Sightseeing", "Drinks", "Adventure", "Experience", "Relax" };
+
+    //customer satisfaction variables ----------------------------------------------
+    double customerCallLimit = 0; //client has a specific call maximum limit
+    double customerCallAmount = 0; //going over call limit
+
+    bool customerContent = false; //mostly good dialogue choices
+    bool customerIrritated = false; //mixed good bad choices
+    bool customerAngry = false; //mostly bad choices
+
+    double customerServiceRating = 0;
+
+    //star rating variables ----------------------------------------------
+    double clientRating = 0;
+    double starRatingTemp = 0; //for calculations
+    int starRating = 0;
+
+    #endregion
+
+    void CalculateRating()
     {
-
-        //variables list
-
-        //budget variables ----------------------------------------------
-        double tripBudget = 0;
-        double budgetRating = 0;
-
-        //season variables ----------------------------------------------
-        string summer = "summer";
-        string winter = "winter";
-        string spring = "spring";
-        string autumn = "autumn";
-
-        string[] clientTopSeasons = new string[2] { "", "" };
-        string tripSeason = "";
-        double seasonRating = 0;
-
-        //transit variables ----------------------------------------------
-        string clientTransit = "";
-        string tripTransit = "";
-        double transitRating = 0;
-
-        //location variables ----------------------------------------------
-        string[] clientLocation = new string[2] { "", "" };
-        string[] tripLocation = new string[2] { "", "" };
-        double locationRating = 0;
-
-        //airplane class type variables ----------------------------------------------
-        string clientPlaneClassType = "";
-        string tripPlaneClassType = "";
-        double airTypeRating = 0;
-
-        //activities variables ----------------------------------------------
-        //single activities
-        bool locationActivity1 = false;
-        string[] locationActivity1Tags = new string[3] { "", "", "" }; //tags
-        double locationActivity1Cost = 0;
-
-        bool locationActivity2 = false;
-        string[] locationActivity2Tags = new string[3] { "", "", "" };
-        double locationActivity2Cost = 0;
-
-        bool locationActivity3 = false;
-        string[] locationActivity3Tags = new string[3] { "", "", "" };
-        double locationActivity3Cost = 0;
-
-        bool locationActivity4 = false;
-        string[] locationActivity4Tags = new string[3] { "", "", "" };
-        double locationActivity4Cost = 0;
-
-        bool locationActivity5 = false;
-        string[] locationActivity5Tags = new string[3] { "", "", "" };
-        double locationActivity5Cost = 0;
-
-        //bundle activities
-        bool locationActivityBundle1 = false;
-        string[] locationActivityBundle1Tags = new string[2] { "", "" };
-        double locationActivityBundle1Cost = 0;
-        double locationActivityBundle1Quantity = 0;
-
-
-        bool locationActivityBundle2 = false;
-        string[] locationActivityBundle2Tags = new string[2] { "", "" };
-        double locationActivityBundle2Cost = 0;
-        double locationActivityBundle2Quantity = 0;
-
-        //client
-        string[] clientActivityLikes = new string[6] { "", "", "", "", "", "" }; //put in keywords to determine whether they like selected activities, max 6
-        string[] clientActivityHates = new string[6] { "", "", "", "", "", "" }; //put in keywords to determine whether they dislike selected activities, max 6
-
-        double clientActivityAmount = 3; //client ideal activity amount
-        double tripActivityAmount = 0;
-        double tripActivityCost = 0;
-
-        double activityRating = 0;
-
-        //all hot & cold keywords
-        string[] hotKeywordsTags = new string[14] { "Static", "Active", "Quiet", "Lively", "Scary", "Romantic", "Children", "Mature", "Luxury", "Water", "Thrills", "Animals", "Food", "Messy" };
-        string[] coldKeywordsTags = new string[6] { "Nature", "Sightseeing", "Drinks", "Adventure", "Experience", "Relax" };
-
-        //customer satisfaction variables ----------------------------------------------
-        double customerCallLimit = 0; //client has a specific call maximum limit
-        double customerCallAmount = 0; //going over call limit
-
-        bool customerContent = false; //mostly good dialogue choices
-        bool customerIrritated = false; //mixed good bad choices
-        bool customerAngry = false; //mostly bad choices
-
-        double customerServiceRating = 0;
-
-        //star rating variables ----------------------------------------------
-        double clientRating = 0;
-        double starRatingTemp = 0; //for calculations
-        int starRating = 0;
-
-        // ----------------------------------------------------------------------------------------------------------------------------
-
         //budgetRating calculation
 
-        Debug.Log(tripBudget + " & " + tripCost);
+        Debug.Log(TheClient.Budget + " & " + tripCost);
 
-        if (tripCost <= tripBudget)
+        if (tripCost <= TheClient.Budget)
         {
             budgetRating = 0.1; //satisfied
             Debug.Log("Green");
         }
-        else if (tripCost > (tripBudget + 1) && tripCost < (tripBudget * 1.2))
+        else if (tripCost > (TheClient.Budget + 1) && tripCost < (TheClient.Budget * 1.2))
         {
             budgetRating = 0.05; //okay with
             Debug.Log("Yellow");
@@ -412,14 +402,14 @@ public class BudgetCalculation : MonoBehaviour
         }
 
         Debug.Log("budget rating: " + budgetRating);
+        }
 
-        // ----------------------------------------------------------------------------------------------------------------------------
-        
+    void SeasonRating() {
         //seasonRating calculation
 
         for (int i = 0; i < clientTopSeasons.Length; i++) //add the array to a total
         {
-            if (clientTopSeasons[i] == tripSeason)
+            if (clientTopSeasons[i] == TheItinerary.GetSeason())
                 seasonRating = 0.2;
         }
 
@@ -445,10 +435,10 @@ public class BudgetCalculation : MonoBehaviour
 
         //transitRating calculation
         //4 types: private driver, car rental, transit pass, no transit
-        
+
         if (clientTransit == tripTransit)
             transitRating = 0.1;
-        else 
+        else
             transitRating = 0;
 
         Debug.Log("transit rating: " + transitRating);
@@ -458,7 +448,7 @@ public class BudgetCalculation : MonoBehaviour
         //locationRating  calculation
         //each location has 2 attributes to track matching / similar locations
 
-        for (int i = 0; i < clientLocation.Length; i++ )
+        for (int i = 0; i < clientLocation.Length; i++)
         {
             if (clientLocation[i] == tripLocation[0] || clientLocation[i] == tripLocation[1])
             {
@@ -472,7 +462,7 @@ public class BudgetCalculation : MonoBehaviour
 
         //airTypeRating calculation
 
-        if (clientPlaneClassType == tripPlaneClassType)
+        if (TheItinerary.GetAirplaneClass() == TheClient.AirplaneClass.ToString())
             airTypeRating = 0.05;
         else
             airTypeRating = -0.05;
@@ -808,7 +798,9 @@ public class BudgetCalculation : MonoBehaviour
 
         Debug.Log("activity rating: " + activityRating);
 
-        // ----------------------------------------------------------------------------------------------------------------------------
+    }
+
+    void CalculateCustomerServiceRating() {
 
         //customerServiceRating calculation
 
@@ -825,8 +817,9 @@ public class BudgetCalculation : MonoBehaviour
             customerServiceRating += -0.2;
 
         Debug.Log("customer service rating: " + customerServiceRating);
-
-        // ----------------------------------------------------------------------------------------------------------------------------
+    }
+        
+        int CalculateStarRating() { 
 
         //calculate final rating and star rating from client
 
@@ -879,4 +872,7 @@ public class BudgetCalculation : MonoBehaviour
         // ----------------------------------------------------------------------------------------------------------------------------
         return starRating;
     }
+
+    #endregion
+
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ItineraryBehavior : HoG
 {
     [SerializeField]
-    Client TheClient;
+    public Client TheClient;
 
     [SerializeField]
     TMP_Dropdown _destinationDropdown;
@@ -21,7 +21,6 @@ public class ItineraryBehavior : HoG
     TextMeshProUGUI _budgetText;
     [SerializeField]
     TextMeshProUGUI _tripCostText;
-
 
     [SerializeField] List<Location> _allLocations;
 
@@ -44,7 +43,7 @@ public class ItineraryBehavior : HoG
     public void Start()
     {
         _budgetText.text = TheClient.Budget.ToString();
-        _tripCostText.text = "000";
+        _tripCostText.text = "$0000";
     }
 
     public void UpdateDestination(TMP_Dropdown change)
@@ -101,6 +100,46 @@ public class ItineraryBehavior : HoG
         }
     }
 
+    #region Day Plans
+
+    [SerializeField]
+    GameObject _dayPlanButtonsParent;
+    [SerializeField]
+    GameObject _numberedDayPrefab;
+    [SerializeField]
+    GameObject _newDayPlusButton;
+
+    [SerializeField]
+    GameObject _experiencePanelParent;
+    [SerializeField]
+    GameObject _experiencePanelPrefab;
+    [SerializeField]
+    List<GameObject> _dayPlans;
+
+    [SerializeField]
+    GameObject _activitiesButtonsParent;
+    [SerializeField]
+    GameObject _numberedActivityPrefab;
+
+    public void AddNewDayPlan()
+    {
+        GameObject _newDayPlan = Instantiate(_experiencePanelPrefab, _experiencePanelParent.transform);
+        GameObject _newNumberedButton = Instantiate(_numberedDayPrefab, _dayPlanButtonsParent.transform);
+
+        _newDayPlusButton.gameObject.transform.SetAsLastSibling();
+        _newDayPlusButton.GetComponentInChildren<TextMeshProUGUI>().text = _newDayPlusButton.gameObject.transform.GetSiblingIndex() + 1 + "";
+        _dayPlans.Add(_newDayPlan);
+    }
+
+
+
+
+
+    #endregion
+
+
+    //Getters
+
     public Location GetLocation()
     {
         foreach(Location _location in _allLocations)
@@ -123,6 +162,24 @@ public class ItineraryBehavior : HoG
         return _airplaneClass;
     }
 
+    public string GetDestination()
+    {
+        return _destination;
+    }
 
+    public string GetPackage()
+    {
+        return _packages;
+    }
+
+    public string[] GetActivities()
+    {
+        return _activities.ToArray();
+    }
+
+    public string[] GetPackageActivities()
+    {
+        return _packageActivities.ToArray();
+    }
 
 }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0567c05f540dd4792ddee466ef96b8, type: 3}
+  m_Name: PACKAGENature
+  m_EditorClassIdentifier: 
+  _packageName: Nature Package
+  _location: 6
+  _averagePrice: 260
+  _tags: 030000000f000000
+  _activities:
+  - Private Sailing Charter on the Columbia River
+  - Wildlife Safari at Ridgefield National Wildlife Refuge
+  - Rock Climbing at Smith Rock State Park
