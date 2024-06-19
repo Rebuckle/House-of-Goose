@@ -13,8 +13,6 @@ public class GameManager : HoG
 
     public DialogueManager dialogueManager;
 
-    private Scene officeAssetsScene;
-
     private void Awake()
     {
         if(gm != null && gm != this)
