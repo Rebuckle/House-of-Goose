@@ -19,7 +19,7 @@ MonoBehaviour:
       question: '*b'
       answers:
       - answerLabel: 
-        nextElement: 0
+        nextElement: 1
   - dialogue:
     - line: "Hello *inputPlayerName*. My husband and I are looking to celebrate our
         retirement by revisiting a country we\u2019ve been to before."
