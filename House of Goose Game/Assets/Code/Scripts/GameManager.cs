@@ -28,7 +28,6 @@ public class GameManager : HoG
         {
             gm = this;
         }
-        SceneManager.LoadScene("OfficeAssets", LoadSceneMode.Additive);
         gameStartArgs = new GameStartArgs();
         gameStartArgs.player = playerObj;
         StartCoroutine(LoadOffice());
