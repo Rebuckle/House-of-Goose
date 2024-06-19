@@ -18,7 +18,7 @@ MonoBehaviour:
     branchPoint:
       question: '*bzzt*'
       answers:
-      - answerLabel: Hello hello! This is inputPlayerName from inputAgencyName. How
+      - answerLabel: Hello hello! This is Stuart from Booking Dreams Agency. How
           can I help you today?
         nextElement: 1
   - dialogue:
@@ -213,7 +213,7 @@ MonoBehaviour:
   - dialogue: []
     endAfterDialogue: 0
     branchPoint:
-      question: Nothing at all! I entrust everything to you, *inputPlayerName*.
+      question: Nothing at all! I entrust everything to you, Stuart.
       answers:
       - answerLabel: "I\u2019ll make sure not to disappoint! I\u2019ll let you know
           if I have any follow-up questions."
@@ -224,7 +224,7 @@ MonoBehaviour:
       question: Sounds good! Thank you for taking this on.
       answers:
       - answerLabel: "It\u2019s my pleasure. Have a good one and thank you for choosing
-          *inputAgencyName*."
+          Booking Dreams Agency."
         nextElement: 23
   - dialogue: []
     endAfterDialogue: 0

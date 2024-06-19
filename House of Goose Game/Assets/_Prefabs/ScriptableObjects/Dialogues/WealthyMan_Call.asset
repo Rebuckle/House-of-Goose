@@ -18,8 +18,8 @@ MonoBehaviour:
     branchPoint:
       question: '*bzzt*'
       answers:
-      - answerLabel: Hi there! This is inputPlayerName from inputAgencyName. How
-          can I assist you?
+      - answerLabel: Hi there! This is Stuart from Booking Dreams Agency. How can
+          I assist you?
         nextElement: 1
   - dialogue:
     - line: Hello. I want to plan a special trip for my father and I, but I am far
@@ -247,7 +247,8 @@ MonoBehaviour:
     branchPoint:
       question: "Good. Contact my assistant if there\u2019s a problem."
       answers:
-      - answerLabel: Will do! Have a great day and thank you for choosing *inputAgencyName*.
+      - answerLabel: Will do! Have a great day and thank you for choosing Booking
+          Dreams Agency.
         nextElement: 27
   - dialogue:
     - line: '*click!*'

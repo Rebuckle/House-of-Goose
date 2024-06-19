@@ -18,13 +18,13 @@ MonoBehaviour:
     branchPoint:
       question: "Hello? This is In\xEAs."
       answers:
-      - answerLabel: "Hi In\xEAs! It's *inputPlayerName\" from *inputAgencyName*.
-          How are you?"
+      - answerLabel: "Hi In\xEAs! It's Stuart from Booking Dreams Agency. How are
+          you?"
         nextElement: 1
   - dialogue: []
     endAfterDialogue: 0
     branchPoint:
-      question: Oh hi *inputPlayerName*, I'm doing well. How are you?
+      question: Oh hi Stuart, I'm doing well. How are you?
       answers:
       - answerLabel: I'm good, I'm good. I'm just here to confirm some details about
           the trip.

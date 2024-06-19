@@ -18,8 +18,8 @@ MonoBehaviour:
     branchPoint:
       question: '*bzzt*'
       answers:
-      - answerLabel: Hi, this is *inputPlayerName* from *inputAgencyName*. How can
-          I help you?
+      - answerLabel: Hi, this is Stuart from Booking Dreams Agency. How can I help
+          you?
         nextElement: 1
   - dialogue: []
     endAfterDialogue: 0
