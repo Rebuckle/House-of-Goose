@@ -13,19 +13,16 @@ MonoBehaviour:
   m_Name: WealthyMan
   m_EditorClassIdentifier: 
   _starRatings:
-  - This trip was a complete disaster. The accommodations were shockingly cheap and
-    noisy, completely unsuitable for Mr. Pallas and his father. He expected luxury,
-    but instead, they got a chaotic mess. Unacceptable. You will be hearing from
-    our lawyers.
-  - While some aspects showed promise, the trip fell short of Mr. Pallas's exacting
-    standards. The accommodations were not as pristine and quiet as expected, with
-    noticeable flaws that marred the experience. It was a disappointment given his
-    expectations.
-  - The trip was somewhat satisfactory, though Mr. Pallas found several flaws that
+  - Unacceptable. The accommodations were shockingly cheap and noisy, completely
+    unsuitable for Mr. Fallas and his father. He expected luxury, but instead, they
+    got a chaotic mess. You will be hearing from our lawyers.
+  - While some aspects showed promise, the trip fell short of Mr. Fallas's standards.
+    The accommodations were not as pristine and quiet as expected, with noticeable
+    flaws that marred the experience. He is not happy.
+  - The trip was somewhat satisfactory, though Mr. Fallas found several flaws that
     detracted from the experience. The luxury was inconsistent, and certain aspects
-    did not meet the impeccable standards we demand.
+    did not meet the standards we demand.
   - This was a pleasant trip but not good enough. Most of the accommodations were
-    luxurious and quiet, but Mr. Pallas is only satisfied with perfection. While
-    Mr. Pallas and his father enjoyed some parts of the experience, it could've been
-    better.
-  - Mr. Pallas was satisfied with this trip and will be in contact for future plans.
+    luxurious and quiet, but Mr. Fallas is only satisfied with perfection. It could've
+    been better.
+  - Mr. Fallas was satisfied with this trip and will be in contact for future plans.
