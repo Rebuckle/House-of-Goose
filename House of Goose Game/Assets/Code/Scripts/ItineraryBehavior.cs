@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ItineraryBehavior : HoG
 {
     [SerializeField]
-    Client TheClient;
+    public Client TheClient;
 
     [SerializeField]
     TMP_Dropdown _destinationDropdown;
