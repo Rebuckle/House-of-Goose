@@ -11,7 +11,6 @@ public class SFXHandler : MonoBehaviour
 
     public void PlaySound(AudioClip clip)
     {
-        asource.clip = clip;
-        asource.Play();
+        asource.PlayOneShot(clip);
     }
 }

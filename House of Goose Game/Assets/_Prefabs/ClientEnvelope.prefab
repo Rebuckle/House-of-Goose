@@ -252,7 +252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18613f5c0830eb044b7258a9043a8232, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18613f5c0830eb044b7258a9043a8232, type: 3}
       propertyPath: m_LocalRotation.x
@@ -260,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18613f5c0830eb044b7258a9043a8232, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18613f5c0830eb044b7258a9043a8232, type: 3}
       propertyPath: m_LocalRotation.z
@@ -272,7 +272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18613f5c0830eb044b7258a9043a8232, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 18613f5c0830eb044b7258a9043a8232, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -400,12 +400,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manillaOpenRootAnchor: {fileID: 0}
   manillaOpenCoverAnchor: {fileID: 0}
---- !u!1 &8318068669012225328 stripped
-GameObject:
-  locationImageImage: {fileID: 2800000, guid: a7dc77ec4bd0faa4db7a32d47c2b4b12, type: 3}
-  locationDataImage: {fileID: 2800000, guid: 5866f51e471526f4d8071081d6023058, type: 3}
+  locationImageImage: {fileID: 0}
+  locationDataImage: {fileID: 0}
   locationImageGO: {fileID: 5586375818820382777}
   locationDataGO: {fileID: 1806215094349985960}
+--- !u!1 &8318068669012225328 stripped
+GameObject:
   m_CorrespondingSourceObject: {fileID: 6241710420884064739, guid: 18613f5c0830eb044b7258a9043a8232, type: 3}
   m_PrefabInstance: {fileID: 2733885002828850387}
   m_PrefabAsset: {fileID: 0}
