@@ -26,9 +26,6 @@ public class NotebookBehavior : HoG
     [SerializeField]
     GameObject _likesPage; //page four
 
-    //Events
-    public event UnityAction<TMP_Dropdown> OnLikedLocationDropdownChange;
-
     public enum NotebookStatus { Disabled, PagesOneTwo, PagesThreeFour };
     NotebookStatus _status;
 
@@ -47,6 +44,7 @@ public class NotebookBehavior : HoG
         LoadAvailableSeasons(GameManager.gm.currentClient);
         LoadAvailableDining(GameManager.gm.currentClient);
         LoadAvailableLodging(GameManager.gm.currentClient);
+        LoadAvailableTransit(GameManager.gm.currentClient);
         LoadAvailableActivities(GameManager.gm.currentClient);
         LoadAvailableAirplaneClass(GameManager.gm.currentClient);
     }//end start
@@ -221,13 +219,14 @@ public class NotebookBehavior : HoG
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedLocationPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLocationList);
-
         newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedLocations(newDropdown.GetComponent<TMP_Dropdown>());  });
-
+        _removalLikedLocationDropdown.ClearOptions();
         _setLikedLocationDropdowns.Add(newDropdown);
 
         newDropdown = Instantiate(_activityDropdownPrefab, _dislikedLocationPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLocationList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedLocations(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalDislikedLocationDropdown.ClearOptions();
         _setDislikedLocationDropdowns.Add(newDropdown);
     }//end load available locations
 
@@ -261,6 +260,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedLocationPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLocationList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedLocations(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setLikedLocationDropdowns.Add(newDropdown);
     }//end AddLikedLocationDropdown
 
@@ -276,32 +276,47 @@ public class NotebookBehavior : HoG
         {
             case "old":
                 {
-                    _likedLocationDictionary.Add(Attributes.old.ToString(), (int)Attributes.old);
-                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    if (!_likedLocationDictionary.ContainsKey("old"))
+                    {
+                        _likedLocationDictionary.Add(Attributes.old.ToString(), (int)Attributes.old);
+                        _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "modern":
                 {
-                    _likedLocationDictionary.Add(Attributes.modern.ToString(), (int)Attributes.modern);
-                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    if(!_likedLocationDictionary.ContainsKey("modern"))
+                    {
+                        _likedLocationDictionary.Add(Attributes.modern.ToString(), (int)Attributes.modern);
+                        _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    }
                     break;
                 }
             case "open":
                 {
-                    _likedLocationDictionary.Add(Attributes.open.ToString(), (int)Attributes.open);
-                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    if (!_likedLocationDictionary.ContainsKey("open"))
+                    {
+                        _likedLocationDictionary.Add(Attributes.open.ToString(), (int)Attributes.open);
+                        _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    }
                     break;
                 }
             case "beach":
                 {
-                    _likedLocationDictionary.Add(Attributes.beach.ToString(), (int)Attributes.beach);
-                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    if (!_likedLocationDictionary.ContainsKey("beach"))
+                    {
+                        _likedLocationDictionary.Add(Attributes.beach.ToString(), (int)Attributes.beach);
+                        _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    }
                     break;
                 }
             case "dense":
                 {
-                    _likedLocationDictionary.Add(Attributes.dense.ToString(), (int)Attributes.dense);
-                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    if (!_likedLocationDictionary.ContainsKey("dense"))
+                    {
+                        _likedLocationDictionary.Add(Attributes.dense.ToString(), (int)Attributes.dense);
+                        _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
+                    }
                     break;
                 }
             default:
@@ -355,6 +370,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedLocationPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLocationList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedLocations(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setDislikedLocationDropdowns.Add(newDropdown);
     }//end AddLikedLocationDropdown
 
@@ -368,27 +384,47 @@ public class NotebookBehavior : HoG
         {
             case "old":
                 {
-                    _dislikedLocationDictionary.Add(Attributes.old.ToString(), (int)Attributes.old);
+                    if (!_likedLocationDictionary.ContainsKey("old"))
+                    {
+                        _dislikedLocationDictionary.Add(Attributes.old.ToString(), (int)Attributes.old);
+                        _removalDislikedLocationDropdown.AddOptions(_dislikedLocationDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "modern":
                 {
-                    _dislikedLocationDictionary.Add(Attributes.modern.ToString(), (int)Attributes.modern);
+                    if (!_likedLocationDictionary.ContainsKey("modern"))
+                    {
+                        _dislikedLocationDictionary.Add(Attributes.modern.ToString(), (int)Attributes.modern);
+                        _removalDislikedLocationDropdown.AddOptions(_dislikedLocationDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "open":
                 {
-                    _dislikedLocationDictionary.Add(Attributes.open.ToString(), (int)Attributes.open);
+                    if (!_likedLocationDictionary.ContainsKey("open"))
+                    {
+                        _dislikedLocationDictionary.Add(Attributes.open.ToString(), (int)Attributes.open);
+                        _removalDislikedLocationDropdown.AddOptions(_dislikedLocationDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "beach":
                 {
-                    _dislikedLocationDictionary.Add(Attributes.beach.ToString(), (int)Attributes.beach);
+                    if (!_likedLocationDictionary.ContainsKey("beach"))
+                    {
+                        _dislikedLocationDictionary.Add(Attributes.beach.ToString(), (int)Attributes.beach);
+                        _removalDislikedLocationDropdown.AddOptions(_dislikedLocationDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "dense":
                 {
-                    _dislikedLocationDictionary.Add(Attributes.dense.ToString(), (int)Attributes.dense);
+                    if (!_likedLocationDictionary.ContainsKey("dense"))
+                    {
+                        _dislikedLocationDictionary.Add(Attributes.dense.ToString(), (int)Attributes.dense);
+                        _removalDislikedLocationDropdown.AddOptions(_dislikedLocationDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -471,10 +507,14 @@ public class NotebookBehavior : HoG
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedSeasonPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableSeasonList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedSeasons(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalLikedSeasonDropdown.ClearOptions();
         _setLikedSeasonDropdowns.Add(newDropdown);
 
         newDropdown = Instantiate(_activityDropdownPrefab, _dislikedSeasonPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableSeasonList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedSeasons(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalDislikedSeasonDropdown.ClearOptions();
         _setDislikedSeasonDropdowns.Add(newDropdown);
     }//end load available seasons
 
@@ -504,6 +544,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedSeasonPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableSeasonList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedSeasons(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setLikedSeasonDropdowns.Add(newDropdown);
     }//end AddLikedSeasonDropdown
 
@@ -516,23 +557,37 @@ public class NotebookBehavior : HoG
         switch (change.options[change.value].text)
         {
             case "Winter":
+                if (!_likedSeasonDictionary.ContainsKey("Winter"))
                 {
                     _likedSeasonDictionary.Add(Seasons.Winter.ToString(), (int)Seasons.Winter);
-                    break;
+                    _removalLikedSeasonDropdown.AddOptions(_likedSeasonDictionary.Keys.ToList<string>());
                 }
+                break;
             case "Spring":
                 {
-                    _likedSeasonDictionary.Add(Seasons.Spring.ToString(), (int)Seasons.Spring);
+                    if (!_likedSeasonDictionary.ContainsKey("Spring"))
+                    {
+                        _likedSeasonDictionary.Add(Seasons.Spring.ToString(), (int)Seasons.Spring);
+                        _removalLikedSeasonDropdown.AddOptions(_likedSeasonDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Summer":
                 {
-                    _likedSeasonDictionary.Add(Seasons.Summer.ToString(), (int)Seasons.Summer);
+                    if (!_likedSeasonDictionary.ContainsKey("Summer"))
+                    {
+                        _likedSeasonDictionary.Add(Seasons.Summer.ToString(), (int)Seasons.Summer);
+                        _removalLikedSeasonDropdown.AddOptions(_likedSeasonDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Fall":
                 {
-                    _likedSeasonDictionary.Add(Seasons.Fall.ToString(), (int)Seasons.Fall);
+                    if (!_likedSeasonDictionary.ContainsKey("Fall"))
+                    {
+                        _likedSeasonDictionary.Add(Seasons.Fall.ToString(), (int)Seasons.Fall);
+                        _removalLikedSeasonDropdown.AddOptions(_likedSeasonDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -586,6 +641,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedSeasonPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableSeasonList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedSeasons(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setDislikedSeasonDropdowns.Add(newDropdown);
     }//end AddDislikedSeasonDropdown
 
@@ -597,24 +653,38 @@ public class NotebookBehavior : HoG
     {
         switch (change.options[change.value].text)
         {
+            case "Winter":
+                if (!_dislikedSeasonDictionary.ContainsKey("Winter"))
+                {
+                    _dislikedSeasonDictionary.Add(Seasons.Winter.ToString(), (int)Seasons.Winter);
+                    _removalDislikedSeasonDropdown.AddOptions(_dislikedSeasonDictionary.Keys.ToList<string>());
+                }
+                break;
             case "Spring":
                 {
-                    _dislikedLocationDictionary.Add(Seasons.Spring.ToString(), (int)Seasons.Spring);
-                    break;
-                }
-            case "Winter":
-                {
-                    _dislikedLocationDictionary.Add(Seasons.Winter.ToString(), (int)Seasons.Winter);
+                    if (!_dislikedSeasonDictionary.ContainsKey("Spring"))
+                    {
+                        _dislikedSeasonDictionary.Add(Seasons.Spring.ToString(), (int)Seasons.Spring);
+                        _removalDislikedSeasonDropdown.AddOptions(_dislikedSeasonDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Summer":
                 {
-                    _dislikedLocationDictionary.Add(Seasons.Summer.ToString(), (int)Seasons.Summer);
+                    if (!_dislikedSeasonDictionary.ContainsKey("Summer"))
+                    {
+                        _dislikedSeasonDictionary.Add(Seasons.Summer.ToString(), (int)Seasons.Summer);
+                        _removalDislikedSeasonDropdown.AddOptions(_dislikedSeasonDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Fall":
                 {
-                    _dislikedLocationDictionary.Add(Seasons.Fall.ToString(), (int)Seasons.Fall);
+                    if (!_dislikedSeasonDictionary.ContainsKey("Fall"))
+                    {
+                        _dislikedSeasonDictionary.Add(Seasons.Fall.ToString(), (int)Seasons.Fall);
+                        _removalDislikedSeasonDropdown.AddOptions(_dislikedSeasonDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -690,10 +760,14 @@ public class NotebookBehavior : HoG
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedDiningPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableDiningList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedDining(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalLikedDiningDropdown.ClearOptions();
         _setLikedDiningDropdowns.Add(newDropdown);
 
         newDropdown = Instantiate(_activityDropdownPrefab, _dislikedDiningPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableDiningList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedDining(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalDislikedDiningDropdown.ClearOptions();
         _setDislikedDiningDropdowns.Add(newDropdown);
     }//end load available dining
 
@@ -750,6 +824,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedDiningPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableDiningList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedDining(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setLikedDiningDropdowns.Add(newDropdown);
     }//end AddLikedDiningDropdown
 
@@ -762,23 +837,37 @@ public class NotebookBehavior : HoG
         switch (change.options[change.value].text)
         {
             case "Free":
+                if (!_likedDiningDictionary.ContainsKey("Free"))
                 {
                     _likedDiningDictionary.Add("Free", 0);
-                    break;
+                    _removalLikedDiningDropdown.AddOptions(_likedDiningDictionary.Keys.ToList<string>());
                 }
+                break;
             case "$":
                 {
-                    _likedDiningDictionary.Add("$", 1);
+                    if (!_likedDiningDictionary.ContainsKey("$"))
+                    {
+                        _likedDiningDictionary.Add("$", 1);
+                        _removalLikedDiningDropdown.AddOptions(_likedDiningDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$":
                 {
-                    _likedDiningDictionary.Add("$$", 2);
+                    if (!_likedDiningDictionary.ContainsKey("$$"))
+                    {
+                        _likedDiningDictionary.Add("$$", 2);
+                        _removalLikedDiningDropdown.AddOptions(_likedDiningDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$$":
                 {
-                    _likedDiningDictionary.Add("$$$", 3);
+                    if (!_likedDiningDictionary.ContainsKey("$$$"))
+                    {
+                        _likedDiningDictionary.Add("$$$", 3);
+                        _removalLikedDiningDropdown.AddOptions(_likedDiningDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -832,6 +921,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedDiningPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableDiningList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedDining(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setDislikedDiningDropdowns.Add(newDropdown);
     }//end AddDislikedDiningDropdown
 
@@ -844,23 +934,37 @@ public class NotebookBehavior : HoG
         switch (change.options[change.value].text)
         {
             case "Free":
+                if (!_dislikedDiningDictionary.ContainsKey("Free"))
                 {
                     _dislikedDiningDictionary.Add("Free", 0);
-                    break;
+                    _removalDislikedDiningDropdown.AddOptions(_dislikedDiningDictionary.Keys.ToList<string>());
                 }
+                break;
             case "$":
                 {
-                    _dislikedDiningDictionary.Add("$", 1);
+                    if (!_dislikedDiningDictionary.ContainsKey("$"))
+                    {
+                        _dislikedDiningDictionary.Add("$", 1);
+                        _removalDislikedDiningDropdown.AddOptions(_dislikedDiningDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$":
                 {
-                    _dislikedDiningDictionary.Add("$$", 2);
+                    if (!_dislikedDiningDictionary.ContainsKey("$$"))
+                    {
+                        _dislikedDiningDictionary.Add("$$", 2);
+                        _removalDislikedDiningDropdown.AddOptions(_dislikedDiningDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$$":
                 {
-                    _dislikedDiningDictionary.Add("$$$", 3);
+                    if (!_dislikedDiningDictionary.ContainsKey("$$$"))
+                    {
+                        _dislikedDiningDictionary.Add("$$$", 3);
+                        _removalDislikedDiningDropdown.AddOptions(_dislikedDiningDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -936,10 +1040,14 @@ public class NotebookBehavior : HoG
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedLodgingPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLodgingList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedLodging(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalLikedLodgingDropdown.ClearOptions();
         _setLikedLodgingDropdowns.Add(newDropdown);
 
         newDropdown = Instantiate(_activityDropdownPrefab, _dislikedLodgingPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLodgingList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedLodging(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalDislikedLodgingDropdown.ClearOptions();
         _setDislikedLodgingDropdowns.Add(newDropdown);
     }//end load available lodging
 
@@ -1004,6 +1112,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedLodgingPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLodgingList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedLodging(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setLikedLodgingDropdowns.Add(newDropdown);
     }//end AddLikedLodgingDropdown
 
@@ -1016,33 +1125,55 @@ public class NotebookBehavior : HoG
         switch (change.options[change.value].text)
         {
             case "Free":
+                if (!_likedLodgingDictionary.ContainsKey("Free"))
                 {
                     _likedLodgingDictionary.Add("Free", 0);
-                    break;
+                    _removalLikedLodgingDropdown.AddOptions(_likedLodgingDictionary.Keys.ToList<string>());
                 }
+                break;
             case "$":
                 {
-                    _likedLodgingDictionary.Add("$", 1);
+                    if (!_likedLodgingDictionary.ContainsKey("$"))
+                    {
+                        _likedLodgingDictionary.Add("$", 1);
+                        _removalLikedLodgingDropdown.AddOptions(_likedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$":
                 {
-                    _likedLodgingDictionary.Add("$$", 2);
+                    if (!_likedLodgingDictionary.ContainsKey("$$"))
+                    {
+                        _likedLodgingDictionary.Add("$$", 2);
+                        _removalLikedLodgingDropdown.AddOptions(_likedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$$":
                 {
-                    _likedLodgingDictionary.Add("$$$", 3);
+                    if (!_likedLodgingDictionary.ContainsKey("$$$"))
+                    {
+                        _likedLodgingDictionary.Add("$$$", 3);
+                        _removalLikedLodgingDropdown.AddOptions(_likedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$$$":
                 {
-                    _likedLodgingDictionary.Add("$$$$", 4);
+                    if (!_likedLodgingDictionary.ContainsKey("$$$$"))
+                    {
+                        _likedLodgingDictionary.Add("$$$$", 4);
+                        _removalLikedLodgingDropdown.AddOptions(_likedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$$$$":
                 {
-                    _likedLodgingDictionary.Add("$$$$$", 5);
+                    if (!_likedLodgingDictionary.ContainsKey("$$$$$"))
+                    {
+                        _likedDiningDictionary.Add("$$$$$", 5);
+                        _removalLikedLodgingDropdown.AddOptions(_likedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -1096,6 +1227,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedLodgingPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLodgingList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedLodging(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setDislikedLodgingDropdowns.Add(newDropdown);
     }//end AddDislikedLodgingDropdown
 
@@ -1108,33 +1240,55 @@ public class NotebookBehavior : HoG
         switch (change.options[change.value].text)
         {
             case "Free":
+                if (!_dislikedLodgingDictionary.ContainsKey("Free"))
                 {
-                    _dislikedDiningDictionary.Add("Free", 0);
-                    break;
+                    _dislikedLodgingDictionary.Add("Free", 0);
+                    _removalDislikedLodgingDropdown.AddOptions(_dislikedLodgingDictionary.Keys.ToList<string>());
                 }
+                break;
             case "$":
                 {
-                    _dislikedDiningDictionary.Add("$", 1);
+                    if (!_dislikedLodgingDictionary.ContainsKey("$"))
+                    {
+                        _dislikedLodgingDictionary.Add("$", 1);
+                        _removalDislikedLodgingDropdown.AddOptions(_dislikedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$":
                 {
-                    _dislikedDiningDictionary.Add("$$", 2);
+                    if (!_dislikedLodgingDictionary.ContainsKey("$$"))
+                    {
+                        _dislikedLodgingDictionary.Add("$$", 2);
+                        _removalDislikedLodgingDropdown.AddOptions(_dislikedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$$":
                 {
-                    _dislikedDiningDictionary.Add("$$$", 3);
+                    if (!_dislikedLodgingDictionary.ContainsKey("$$$"))
+                    {
+                        _dislikedLodgingDictionary.Add("$$$", 3);
+                        _removalDislikedLodgingDropdown.AddOptions(_dislikedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$$$":
                 {
-                    _dislikedDiningDictionary.Add("$$$$", 4);
+                    if (!_dislikedLodgingDictionary.ContainsKey("$$$$"))
+                    {
+                        _dislikedLodgingDictionary.Add("$$$$", 4);
+                        _removalDislikedLodgingDropdown.AddOptions(_dislikedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "$$$$$":
                 {
-                    _dislikedDiningDictionary.Add("$$$$$", 5);
+                    if (!_dislikedLodgingDictionary.ContainsKey("$$$$$"))
+                    {
+                        _dislikedDiningDictionary.Add("$$$$$", 5);
+                        _removalDislikedLodgingDropdown.AddOptions(_dislikedLodgingDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -1218,12 +1372,14 @@ public class NotebookBehavior : HoG
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedActivityPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableActivityList);
-
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedActivity(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalLikedActivityDropdown.ClearOptions();
         _setLikedActivityDropdowns.Add(newDropdown);
 
         newDropdown = Instantiate(_activityDropdownPrefab, _dislikedActivityPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableActivityList);
-
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedActivity(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalDislikedActivityDropdown.ClearOptions();
         _setDislikedActivityDropdowns.Add(newDropdown);
     }//end load available locations
 
@@ -1253,6 +1409,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedActivityPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableActivityList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedActivity(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setLikedActivityDropdowns.Add(newDropdown);
     }//end AddLikedActivityDropdown
 
@@ -1265,108 +1422,190 @@ public class NotebookBehavior : HoG
         switch (change.options[change.value].text)
         {
             case "Null":
+                if (!_likedActivityDictionary.ContainsKey("Null"))
                 {
                     _likedActivityDictionary.Add(ActivityTags.Null.ToString(), (int)ActivityTags.Null);
-                    break;
+                    _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
                 }
+                break;
             case "Food":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Food.ToString(), (int)ActivityTags.Food);
+                    if (!_likedActivityDictionary.ContainsKey("Food"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Food.ToString(), (int)ActivityTags.Food);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Thrills":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Thrills.ToString(), (int)ActivityTags.Thrills);
+                    if (!_likedActivityDictionary.ContainsKey("Thrills"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Thrills.ToString(), (int)ActivityTags.Thrills);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Active":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Active.ToString(), (int)ActivityTags.Active);
+                    if (!_likedActivityDictionary.ContainsKey("Active"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Active.ToString(), (int)ActivityTags.Active);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Scary":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Scary.ToString(), (int)ActivityTags.Scary);
+                    if (!_likedActivityDictionary.ContainsKey("Scary"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Scary.ToString(), (int)ActivityTags.Scary);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Experience":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Experience.ToString(), (int)ActivityTags.Experience);
+                    if (!_likedActivityDictionary.ContainsKey("Experience"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Experience.ToString(), (int)ActivityTags.Experience);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Adventure":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Adventure.ToString(), (int)ActivityTags.Adventure);
+                    if (!_likedActivityDictionary.ContainsKey("Adventure"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Adventure.ToString(), (int)ActivityTags.Adventure);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Mature":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Mature.ToString(), (int)ActivityTags.Mature);
+                    if (!_likedActivityDictionary.ContainsKey("Mature"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Mature.ToString(), (int)ActivityTags.Mature);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Quiet":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Quiet.ToString(), (int)ActivityTags.Quiet);
+                    if (!_likedActivityDictionary.ContainsKey("Quiet"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Quiet.ToString(), (int)ActivityTags.Quiet);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Luxury":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Luxury.ToString(), (int)ActivityTags.Luxury);
+                    if (!_likedActivityDictionary.ContainsKey("Luxury"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Luxury.ToString(), (int)ActivityTags.Luxury);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Relax":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Relax.ToString(), (int)ActivityTags.Relax);
+                    if (!_likedActivityDictionary.ContainsKey("Relax"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Relax.ToString(), (int)ActivityTags.Relax);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Lively":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Lively.ToString(), (int)ActivityTags.Lively);
+                    if (!_likedActivityDictionary.ContainsKey("Lively"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Lively.ToString(), (int)ActivityTags.Lively);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Sightseeing":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Sightseeing.ToString(), (int)ActivityTags.Sightseeing);
+                    if (!_likedActivityDictionary.ContainsKey("Sightseeing"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Sightseeing.ToString(), (int)ActivityTags.Sightseeing);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Drinks":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Drinks.ToString(), (int)ActivityTags.Drinks);
+                    if (!_likedActivityDictionary.ContainsKey("Drinks"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Drinks.ToString(), (int)ActivityTags.Drinks);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Children":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Children.ToString(), (int)ActivityTags.Children);
+                    if (!_likedActivityDictionary.ContainsKey("Children"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Children.ToString(), (int)ActivityTags.Children);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Nature":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Nature.ToString(), (int)ActivityTags.Nature);
+                    if (!_likedActivityDictionary.ContainsKey("Nature"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Nature.ToString(), (int)ActivityTags.Nature);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Static":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Static.ToString(), (int)ActivityTags.Static);
+                    if (!_likedActivityDictionary.ContainsKey("Static"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Static.ToString(), (int)ActivityTags.Static);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Romantic":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Romantic.ToString(), (int)ActivityTags.Romantic);
+                    if (!_likedActivityDictionary.ContainsKey("Romantic"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Romantic.ToString(), (int)ActivityTags.Romantic);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Animals":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Animals.ToString(), (int)ActivityTags.Animals);
+                    if (!_likedActivityDictionary.ContainsKey("Animals"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Animals.ToString(), (int)ActivityTags.Animals);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Messy":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Messy.ToString(), (int)ActivityTags.Messy);
+                    if (!_likedActivityDictionary.ContainsKey("Messy"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Messy.ToString(), (int)ActivityTags.Messy);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Water":
                 {
-                    _likedActivityDictionary.Add(ActivityTags.Water.ToString(), (int)ActivityTags.Water);
+                    if (!_likedActivityDictionary.ContainsKey("Water"))
+                    {
+                        _likedActivityDictionary.Add(ActivityTags.Water.ToString(), (int)ActivityTags.Water);
+                        _removalDislikedActivityDropdown.AddOptions(_likedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -1420,6 +1659,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedActivityPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableActivityList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedActivity(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setDislikedActivityDropdowns.Add(newDropdown);
     }//end AddDislikedActivityDropdown
 
@@ -1432,108 +1672,190 @@ public class NotebookBehavior : HoG
         switch (change.options[change.value].text)
         {
             case "Null":
+                if (!_dislikedActivityDictionary.ContainsKey("Null"))
                 {
                     _dislikedActivityDictionary.Add(ActivityTags.Null.ToString(), (int)ActivityTags.Null);
-                    break;
+                    _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
                 }
+                break;
             case "Food":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Food.ToString(), (int)ActivityTags.Food);
+                    if (!_dislikedActivityDictionary.ContainsKey("Food"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Food.ToString(), (int)ActivityTags.Food);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Thrills":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Thrills.ToString(), (int)ActivityTags.Thrills);
+                    if (!_dislikedActivityDictionary.ContainsKey("Thrills"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Thrills.ToString(), (int)ActivityTags.Thrills);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Active":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Active.ToString(), (int)ActivityTags.Active);
+                    if (!_dislikedActivityDictionary.ContainsKey("Active"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Active.ToString(), (int)ActivityTags.Active);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Scary":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Scary.ToString(), (int)ActivityTags.Scary);
+                    if (!_dislikedActivityDictionary.ContainsKey("Scary"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Scary.ToString(), (int)ActivityTags.Scary);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Experience":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Experience.ToString(), (int)ActivityTags.Experience);
+                    if (!_dislikedActivityDictionary.ContainsKey("Experience"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Experience.ToString(), (int)ActivityTags.Experience);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Adventure":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Adventure.ToString(), (int)ActivityTags.Adventure);
+                    if (!_dislikedActivityDictionary.ContainsKey("Adventure"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Adventure.ToString(), (int)ActivityTags.Adventure);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Mature":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Mature.ToString(), (int)ActivityTags.Mature);
+                    if (!_dislikedActivityDictionary.ContainsKey("Mature"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Mature.ToString(), (int)ActivityTags.Mature);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Quiet":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Quiet.ToString(), (int)ActivityTags.Quiet);
+                    if (!_dislikedActivityDictionary.ContainsKey("Quiet"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Quiet.ToString(), (int)ActivityTags.Quiet);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Luxury":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Luxury.ToString(), (int)ActivityTags.Luxury);
+                    if (!_dislikedActivityDictionary.ContainsKey("Luxury"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Luxury.ToString(), (int)ActivityTags.Luxury);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Relax":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Relax.ToString(), (int)ActivityTags.Relax);
+                    if (!_dislikedActivityDictionary.ContainsKey("Relax"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Relax.ToString(), (int)ActivityTags.Relax);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Lively":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Lively.ToString(), (int)ActivityTags.Lively);
+                    if (!_dislikedActivityDictionary.ContainsKey("Lively"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Lively.ToString(), (int)ActivityTags.Lively);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Sightseeing":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Sightseeing.ToString(), (int)ActivityTags.Sightseeing);
+                    if (!_dislikedActivityDictionary.ContainsKey("Sightseeing"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Sightseeing.ToString(), (int)ActivityTags.Sightseeing);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Drinks":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Drinks.ToString(), (int)ActivityTags.Drinks);
+                    if (!_dislikedActivityDictionary.ContainsKey("Drinks"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Drinks.ToString(), (int)ActivityTags.Drinks);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Children":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Children.ToString(), (int)ActivityTags.Children);
+                    if (!_dislikedActivityDictionary.ContainsKey("Children"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Children.ToString(), (int)ActivityTags.Children);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Nature":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Nature.ToString(), (int)ActivityTags.Nature);
+                    if (!_dislikedActivityDictionary.ContainsKey("Nature"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Nature.ToString(), (int)ActivityTags.Nature);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Static":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Static.ToString(), (int)ActivityTags.Static);
+                    if (!_dislikedActivityDictionary.ContainsKey("Static"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Static.ToString(), (int)ActivityTags.Static);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Romantic":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Romantic.ToString(), (int)ActivityTags.Romantic);
+                    if (!_dislikedActivityDictionary.ContainsKey("Romantic"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Romantic.ToString(), (int)ActivityTags.Romantic);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Animals":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Animals.ToString(), (int)ActivityTags.Animals);
+                    if (!_dislikedActivityDictionary.ContainsKey("Animals"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Animals.ToString(), (int)ActivityTags.Animals);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Messy":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Messy.ToString(), (int)ActivityTags.Messy);
+                    if (!_dislikedActivityDictionary.ContainsKey("Messy"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Messy.ToString(), (int)ActivityTags.Messy);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Water":
                 {
-                    _dislikedActivityDictionary.Add(ActivityTags.Water.ToString(), (int)ActivityTags.Water);
+                    if (!_dislikedActivityDictionary.ContainsKey("Water"))
+                    {
+                        _dislikedActivityDictionary.Add(ActivityTags.Water.ToString(), (int)ActivityTags.Water);
+                        _removalDislikedActivityDropdown.AddOptions(_dislikedActivityDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -1616,10 +1938,14 @@ public class NotebookBehavior : HoG
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedTransitPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableTransitList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedTransit(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalLikedTransitDropdown.ClearOptions();
         _setLikedTransitDropdowns.Add(newDropdown);
 
         newDropdown = Instantiate(_activityDropdownPrefab, _dislikedTransitPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableTransitList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedTransit(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalDislikedTransitDropdown.ClearOptions();
         _setDislikedTransitDropdowns.Add(newDropdown);
     }//end load available transit
 
@@ -1649,6 +1975,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedTransitPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableTransitList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedTransit(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setLikedTransitDropdowns.Add(newDropdown);
     }//end AddLikedTransitDropdown
 
@@ -1662,22 +1989,38 @@ public class NotebookBehavior : HoG
         {
             case "None":
                 {
-                    _likedTransitDictionary.Add(Transit.None.ToString(), (int)Transit.None);
+                    if (!_likedTransitDictionary.ContainsKey("None"))
+                    {
+                        _likedTransitDictionary.Add(Transit.None.ToString(), (int)Transit.None);
+                        _removalLikedTransitDropdown.AddOptions(_likedTransitDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "PrivateDriver":
                 {
-                    _likedTransitDictionary.Add(Transit.PrivateDriver.ToString(), (int)Transit.PrivateDriver);
+                    if (!_likedTransitDictionary.ContainsKey("PrivateDriver"))
+                    {
+                        _likedTransitDictionary.Add(Transit.PrivateDriver.ToString(), (int)Transit.PrivateDriver);
+                        _removalLikedTransitDropdown.AddOptions(_likedTransitDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "CarRental":
                 {
-                    _likedTransitDictionary.Add(Transit.CarRental.ToString(), (int)Transit.CarRental);
+                    if (!_likedTransitDictionary.ContainsKey("CarRental"))
+                    {
+                        _likedTransitDictionary.Add(Transit.CarRental.ToString(), (int)Transit.CarRental);
+                        _removalLikedTransitDropdown.AddOptions(_likedTransitDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "TransitPass":
                 {
-                    _likedTransitDictionary.Add(Transit.TransitPass.ToString(), (int)Transit.TransitPass);
+                    if (!_likedTransitDictionary.ContainsKey("TransitPass"))
+                    {
+                        _likedTransitDictionary.Add(Transit.TransitPass.ToString(), (int)Transit.TransitPass);
+                        _removalLikedTransitDropdown.AddOptions(_likedTransitDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -1731,6 +2074,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedTransitPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableTransitList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedTransit(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setDislikedTransitDropdowns.Add(newDropdown);
     }//end AddDislikedTransitDropdown
 
@@ -1744,22 +2088,38 @@ public class NotebookBehavior : HoG
         {
             case "None":
                 {
-                    _dislikedTransitDictionary.Add(Transit.None.ToString(), (int)Transit.None);
+                    if (!_dislikedTransitDictionary.ContainsKey("None"))
+                    {
+                        _dislikedTransitDictionary.Add(Transit.None.ToString(), (int)Transit.None);
+                        _removalDislikedTransitDropdown.AddOptions(_dislikedTransitDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "PrivateDriver":
                 {
-                    _dislikedTransitDictionary.Add(Transit.PrivateDriver.ToString(), (int)Transit.PrivateDriver);
+                    if (!_dislikedTransitDictionary.ContainsKey("PrivateDriver"))
+                    {
+                        _dislikedTransitDictionary.Add(Transit.PrivateDriver.ToString(), (int)Transit.PrivateDriver);
+                        _removalDislikedTransitDropdown.AddOptions(_dislikedTransitDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "CarRental":
                 {
-                    _dislikedTransitDictionary.Add(Transit.CarRental.ToString(), (int)Transit.CarRental);
+                    if (!_dislikedTransitDictionary.ContainsKey("CarRental"))
+                    {
+                        _dislikedTransitDictionary.Add(Transit.CarRental.ToString(), (int)Transit.CarRental);
+                        _removalDislikedTransitDropdown.AddOptions(_dislikedTransitDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "TransitPass":
                 {
-                    _dislikedTransitDictionary.Add(Transit.TransitPass.ToString(), (int)Transit.TransitPass);
+                    if (!_dislikedTransitDictionary.ContainsKey("TransitPass"))
+                    {
+                        _dislikedTransitDictionary.Add(Transit.TransitPass.ToString(), (int)Transit.TransitPass);
+                        _removalDislikedTransitDropdown.AddOptions(_dislikedTransitDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -1844,10 +2204,14 @@ public class NotebookBehavior : HoG
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedAirplaneClassPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableAirplaneClassList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedAirplaneClass(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalLikedAirplaneClassDropdown.ClearOptions();
         _setLikedAirplaneClassDropdowns.Add(newDropdown);
 
         newDropdown = Instantiate(_activityDropdownPrefab, _dislikedAirplaneClassPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableAirplaneClassList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedAirplaneClass(newDropdown.GetComponent<TMP_Dropdown>()); });
+        _removalDislikedAirplaneClassDropdown.ClearOptions();
         _setDislikedAirplaneClassDropdowns.Add(newDropdown);
     }//end load available Airplane Class
 
@@ -1877,6 +2241,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedAirplaneClassPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableAirplaneClassList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedAirplaneClass(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setLikedAirplaneClassDropdowns.Add(newDropdown);
     }//end AddLikedAirplaneClassDropdown
 
@@ -1890,22 +2255,38 @@ public class NotebookBehavior : HoG
         {
             case "None":
                 {
-                    _likedAirplaneClassDictionary.Add(AirplaneClass.None.ToString(), (int)AirplaneClass.None);
+                    if (!_likedAirplaneClassDictionary.ContainsKey("None"))
+                    {
+                        _likedAirplaneClassDictionary.Add(AirplaneClass.None.ToString(), (int)AirplaneClass.None);
+                        _removalLikedAirplaneClassDropdown.AddOptions(_likedAirplaneClassDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "First":
                 {
-                    _likedAirplaneClassDictionary.Add(AirplaneClass.First.ToString(), (int)AirplaneClass.First);
+                    if (!_likedAirplaneClassDictionary.ContainsKey("First"))
+                    {
+                        _likedAirplaneClassDictionary.Add(AirplaneClass.First.ToString(), (int)AirplaneClass.First);
+                        _removalLikedAirplaneClassDropdown.AddOptions(_likedAirplaneClassDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Business":
                 {
-                    _likedAirplaneClassDictionary.Add(AirplaneClass.Business.ToString(), (int)AirplaneClass.Business);
+                    if (!_likedAirplaneClassDictionary.ContainsKey("Business"))
+                    {
+                        _likedAirplaneClassDictionary.Add(AirplaneClass.Business.ToString(), (int)AirplaneClass.Business);
+                        _removalLikedAirplaneClassDropdown.AddOptions(_likedAirplaneClassDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             case "Economy":
                 {
-                    _likedAirplaneClassDictionary.Add(AirplaneClass.Economy.ToString(), (int)AirplaneClass.Economy);
+                    if (!_likedAirplaneClassDictionary.ContainsKey("Economy"))
+                    {
+                        _likedAirplaneClassDictionary.Add(AirplaneClass.Economy.ToString(), (int)AirplaneClass.Economy);
+                        _removalLikedAirplaneClassDropdown.AddOptions(_likedAirplaneClassDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
@@ -1959,6 +2340,7 @@ public class NotebookBehavior : HoG
     {
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _dislikedAirplaneClassPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableAirplaneClassList);
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateDislikedAirplaneClass(newDropdown.GetComponent<TMP_Dropdown>()); });
         _setDislikedAirplaneClassDropdowns.Add(newDropdown);
     }//end AddDislikedAirplaneClassDropdown
 
@@ -1970,29 +2352,45 @@ public class NotebookBehavior : HoG
     {
         switch (change.options[change.value].text)
         {
-            case "Spring":
+            case "None":
                 {
-                    _dislikedLocationDictionary.Add(Seasons.Spring.ToString(), (int)Seasons.Spring);
+                    if (!_dislikedAirplaneClassDictionary.ContainsKey("None"))
+                    {
+                        _dislikedAirplaneClassDictionary.Add(AirplaneClass.None.ToString(), (int)AirplaneClass.None);
+                        _removalDislikedAirplaneClassDropdown.AddOptions(_dislikedAirplaneClassDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
-            case "Winter":
+            case "First":
                 {
-                    _dislikedLocationDictionary.Add(Seasons.Winter.ToString(), (int)Seasons.Winter);
+                    if (!_dislikedAirplaneClassDictionary.ContainsKey("First"))
+                    {
+                        _dislikedAirplaneClassDictionary.Add(AirplaneClass.First.ToString(), (int)AirplaneClass.First);
+                        _removalDislikedAirplaneClassDropdown.AddOptions(_dislikedAirplaneClassDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
-            case "Summer":
+            case "Business":
                 {
-                    _dislikedLocationDictionary.Add(Seasons.Summer.ToString(), (int)Seasons.Summer);
+                    if (!_dislikedAirplaneClassDictionary.ContainsKey("Business"))
+                    {
+                        _dislikedAirplaneClassDictionary.Add(AirplaneClass.Business.ToString(), (int)AirplaneClass.Business);
+                        _removalDislikedAirplaneClassDropdown.AddOptions(_dislikedAirplaneClassDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
-            case "Fall":
+            case "Economy":
                 {
-                    _dislikedLocationDictionary.Add(Seasons.Fall.ToString(), (int)Seasons.Fall);
+                    if (!_dislikedAirplaneClassDictionary.ContainsKey("Economy"))
+                    {
+                        _dislikedAirplaneClassDictionary.Add(AirplaneClass.Economy.ToString(), (int)AirplaneClass.Economy);
+                        _removalDislikedAirplaneClassDropdown.AddOptions(_dislikedAirplaneClassDictionary.Keys.ToList<string>());
+                    }
                     break;
                 }
             default:
                 {
-                    Debug.Log("Invalid Season Attribute!!");
+                    Debug.Log("Invalid Airplane Class Attribute!!");
                     break;
                 }
         }//end switch

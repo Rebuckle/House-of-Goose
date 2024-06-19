@@ -759,19 +759,7 @@ MonoBehaviour:
     m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NotebookBehavior, Assembly-CSharp
-        m_MethodName: UpdateLikedSeasons
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 5283194757582506922}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &354626848348208411
 MonoBehaviour:
