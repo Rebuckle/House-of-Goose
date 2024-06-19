@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632ce7c4bd359a046a768d4773d085e8, type: 3}
+  m_Name: CoupleHoneymoon
+  m_EditorClassIdentifier: 
+  _clientName: Suyin Teo
+  _clientStory: The wife of a newlywed couple is excitedly planning their honeymoon,
+    envisioning a romantic getaway to celebrate their union and embark on the next
+    chapter of their lives together. They seek a destination that promises relaxation
+    and adventure as they begin their story as a married couple.
+  _clientImage: {fileID: 21300000, guid: 9fc21e4ac51025c42b8c6790bfeabfa1, type: 3}
+  _budget: 6500
+  _tripDuration: 14
+  _groupSize: 2
+  _callLimit: 3
+  _startingRegion: 4
+  _preferredSeasons: 0200000003000000
+  _unpreferredSeasons: 0000000002000000
+  _preferredLocationAttributes: 0000000003000000
+  _unpreferredLocationAttributes: 010000000200000004000000
+  _knownPreferredSeasons: 02000000
+  _knownUnpreferredSeasons: 
+  _knownPreferredLocationAttributes: 00000000
+  _knownUnpreferredLocationAttributes: 
+  _optOutDining: 0
+  _diningAmount: 14
+  _diningQuality: 02000000
+  _knownDiningQualityPreference: 00000000
+  _optOutTransit: 0
+  _airplaneClass: 2
+  _preferredTransit: 01000000
+  _unpreferredTransit: 000000000200000003000000
+  _knownPreferredTransit: 
+  _knownUnpreferredTransit: 0300000000000000
+  _knownPreferredAirplaneClass: 
+  _knownUnpreferredAirplaneClass: 00000000
+  _lodgingQuality: 04000000
+  _knownLodgingQuality: 
+  _optOutActivity: 0
+  _activityAmount: 1
+  _likedActivityTags: 070000001100000003000000090000001200000005000000
+  _dislikedActivityTags: 100000000e00000004000000
+  _knownLikedActivityTags: 0500000012000000
+  _knownDislikedActivityTags: 10000000
+  _mainDialogue: {fileID: 11400000, guid: 4c38b329218e97746a52cd502d1009c8, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: aba365c62e445a94bb494d9412d2cca5, type: 2}

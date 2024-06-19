@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632ce7c4bd359a046a768d4773d085e8, type: 3}
+  m_Name: RetiredCouple
+  m_EditorClassIdentifier: 
+  _clientName: "In\xEAs Madeira"
+  _clientStory: A mature couple is celebrating their retirement by revisiting places
+    they explored in their youth, reliving cherished memories and creating new ones
+    together. They are eager to reconnect with familiar destinations, savoring the
+    nostalgia and reflecting on their lifelong journey.
+  _clientImage: {fileID: 21300000, guid: bdd6f9323b244404098413de14520b37, type: 3}
+  _budget: 5000
+  _tripDuration: 12
+  _groupSize: 2
+  _callLimit: 3
+  _startingRegion: 3
+  _preferredSeasons: 0100000002000000
+  _unpreferredSeasons: 0200000000000000
+  _preferredLocationAttributes: 0000000002000000
+  _unpreferredLocationAttributes: 010000000300000004000000
+  _knownPreferredSeasons: 
+  _knownUnpreferredSeasons: 00000000
+  _knownPreferredLocationAttributes: 
+  _knownUnpreferredLocationAttributes: 01000000
+  _optOutDining: 0
+  _diningAmount: 6
+  _diningQuality: 02000000
+  _knownDiningQualityPreference: 
+  _optOutTransit: 0
+  _airplaneClass: 1
+  _preferredTransit: 02000000
+  _unpreferredTransit: 000000000100000003000000
+  _knownPreferredTransit: 
+  _knownUnpreferredTransit: 01000000
+  _knownPreferredAirplaneClass: 
+  _knownUnpreferredAirplaneClass: 00000000
+  _lodgingQuality: 03000000
+  _knownLodgingQuality: 
+  _optOutActivity: 0
+  _activityAmount: 2
+  _likedActivityTags: 07000000110000001000000008000000050000000a000000
+  _dislikedActivityTags: 0e00000004000000030000000b00000014000000
+  _knownLikedActivityTags: 05000000
+  _knownDislikedActivityTags: 0b000000
+  _mainDialogue: {fileID: 11400000, guid: 619d53302e9e8bc43bbb9fab60772cab, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: de70c60446b77eb479b5b7b15560e9f7, type: 2}

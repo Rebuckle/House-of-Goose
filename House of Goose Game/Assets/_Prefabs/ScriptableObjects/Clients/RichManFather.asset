@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632ce7c4bd359a046a768d4773d085e8, type: 3}
+  m_Name: RichManFather
+  m_EditorClassIdentifier: 
+  _clientName: Octavio Fallas
+  _clientStory: A succesful Belgian businessman wants to plan a heartfelt trip to
+    express gratitude to his hardworking single father for raising and caring for
+    him. This journey aims to create lasting memories and honor the bond between
+    father and son through meaningful experiences together.
+  _clientImage: {fileID: 21300000, guid: 2321e980bd8e756408bfd79e94da9cb0, type: 3}
+  _budget: 30000
+  _tripDuration: 10
+  _groupSize: 2
+  _callLimit: 3
+  _startingRegion: 1
+  _preferredSeasons: 0000000003000000
+  _unpreferredSeasons: 0100000002000000
+  _preferredLocationAttributes: 0100000003000000
+  _unpreferredLocationAttributes: 000000000200000004000000
+  _knownPreferredSeasons: 00000000
+  _knownUnpreferredSeasons: 
+  _knownPreferredLocationAttributes: 01000000
+  _knownUnpreferredLocationAttributes: 04000000
+  _optOutDining: 0
+  _diningAmount: 10
+  _diningQuality: 03000000
+  _knownDiningQualityPreference: 
+  _optOutTransit: 0
+  _airplaneClass: 1
+  _preferredTransit: 01000000
+  _unpreferredTransit: 000000000200000003000000
+  _knownPreferredTransit: 
+  _knownUnpreferredTransit: 02000000
+  _knownPreferredAirplaneClass: 
+  _knownUnpreferredAirplaneClass: 02000000
+  _lodgingQuality: 05000000
+  _knownLodgingQuality: 
+  _optOutActivity: 0
+  _activityAmount: 4
+  _likedActivityTags: 07000000100000000800000001000000090000000a000000
+  _dislikedActivityTags: 0e000000030000000b0000001300000012000000
+  _knownLikedActivityTags: 0700000001000000
+  _knownDislikedActivityTags: 1300000012000000
+  _mainDialogue: {fileID: 11400000, guid: b284848e81ef5f348bf9380817c74dab, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: 63e11231146045e43af488d3c7229787, type: 2}

@@ -1,0 +1,278 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: CollegeGrad_Call
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: '*bzzt*'
+      answers:
+      - answerLabel: Hi, this is *inputPlayerName* from *inputAgencyName*. How can
+          I help you?
+        nextElement: 1
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Hi *inputPlayerName*! Yes, I\u2019m calling because I saw this agency
+        online. You book mystery trips for people, right?"
+      answers:
+      - answerLabel: Yes we do. Are you looking for a trip?
+        nextElement: 2
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Yes we are! My friends and I are graduating soon, and we thought
+        what better way to celebrate than with a vacation? Can you help us out?
+      answers:
+      - answerLabel: Of course. Have you done one of these before or would you like
+          me to explain the process?
+        nextElement: 3
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "No, I haven\u2019t! How does it work?"
+      answers:
+      - answerLabel: Essentially I will ask you a handful of questions to see what
+          you like, dislike, and how you would like to use the budget. You might
+          prefer food or lodging rather than transit or activities. Stuff like that.
+        nextElement: 4
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Just remember that I will be building this for the entire group,
+          so please give me a budget that includes everyone. You will have to send
+          me one large payment to split amongst yourselves.
+        nextElement: 5
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: From there, you hop on a plane that hides the destination and
+          then begin your mystery trip.
+        nextElement: 6
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Oh, that sounds incredible! I love the idea of not knowing where
+        we're going until we land. Adds a lot of mystery and suspense to the whole
+        adventure. Will we get any hint as to where we are going?
+      answers:
+      - answerLabel: Besides what you tell me, I will provide a general idea for
+          temperature and weather so you can pack appropriately. Do you have any
+          more questions or shall we begin?
+        nextElement: 7
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Nothing at the moment. Ask away.
+      answers:
+      - answerLabel: Alright so, how large is the group? What sort of place do you
+          want to go to? And do you have a preference on the season?
+        nextElement: 8
+  - dialogue:
+    - line: "Yeah, so there are actually three of us in total! Since we have a limited
+        budget, we\u2019re thinking of avoiding peak season so maybe something around
+        autumn or winter."
+      client: 0
+    - line: As for where we are going, we want to go to a city that is convenient
+        to get around and is also pretty different from where we currently live.
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "We\u2019re in Sydney, by the way. So yeah, we want somewhere that
+        is lively with a vibrant nightlife, plenty of shopping options, and a generally
+        safe place for us to roam around. Does that make sense?"
+      answers:
+      - answerLabel: It sure does. How many days do you want the trip to be?
+        nextElement: 9
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "We\u2019re thinking maybe 21 days. We want to make the most of our
+        graduation celebration and escape a little bit before we enter the\u2026
+        adult world. I\u2019m terrified just at the thought of it."
+      answers:
+      - answerLabel: Sounds good.
+        nextElement: 10
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Tell me about your lodging.
+        nextElement: 11
+      - answerLabel: Tell me about your activity preferences.
+        nextElement: 15
+      - answerLabel: Tell me about your flight and budget.
+        nextElement: 19
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: You mentioned a limited budget. What kind of lodging are you
+          wanting then?
+        nextElement: 12
+  - dialogue:
+    - line: 'We are definitely looking for more affordable options. Since we are
+        a fairly large group, we are comfortable with shared spaces if need be. '
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "We would like a private room to keep our things safe, so if there
+        is a bit of wiggle room in the budget, we\u2019re willing to spend a little
+        more on that."
+      answers:
+      - answerLabel: Do you want to plan any dining or transit bundles? Reduce your
+          stress on looking up how to get around and it might save a few bucks when
+          you're looking for food later.
+        nextElement: 13
+  - dialogue:
+    - line: 'Ah, thank you for the offer, but we''ve looked into the dining and transit
+        options and we''d prefer to have complete control over that aspect of our
+        trip. '
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: We plan on cooking if there's a kitchen available, or just grabbing
+        something quick from a convenience store.
+      answers:
+      - answerLabel: Sure, I'll opt you out then.
+        nextElement: 14
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Thanks. What next?
+      answers:
+      - answerLabel: Tell me about your activity preferences.
+        nextElement: 15
+      - answerLabel: Tell me about your flight and budget.
+        nextElement: 19
+      - answerLabel: That wraps it up!
+        nextElement: 23
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Have you also looked into our activity bundles? They're a great
+          way to experience a destination without the stress of booking it yourself,
+          and we often have a discounted rate as well.
+        nextElement: 16
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Yes, definitely! As long as they're not too expensive.
+      answers:
+      - answerLabel: 'Great. So what do you generally like and dislike? And how many
+          activities would you like? '
+        nextElement: 17
+  - dialogue:
+    - line: "We're an active bunch that, like, want to go sightseeing and get a lay
+        of the land so we can explore it on our own. We\u2019re big fans of anything
+        spooky and thrilling. "
+      client: 0
+    - line: "We\u2019re a bit of adrenaline junkies. We would also like to go out
+        for some drinks, experience something a little different from what we're
+        used to. "
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: As for dislikes, we just don't want to be bored at all, so nothing
+        that drags on forever or is super quiet please. And maybe we can book something
+        for every other day like... 10 activities?
+      answers:
+      - answerLabel: Perfect, that gives me plenty of options.
+        nextElement: 18
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Great, what next?
+      answers:
+      - answerLabel: Tell me about your lodging.
+        nextElement: 11
+      - answerLabel: Tell me about your flight and budget.
+        nextElement: 19
+      - answerLabel: That wraps it up!
+        nextElement: 23
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: 'You mentioned you''re in Australia. Will you all be flying
+          from Sydney? And what''s your prefered class to fly in? '
+        nextElement: 20
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Yep we\u2019ll all fly out from Sydney Airport. We'll stick with
+        economy. Will we be able to sit together?"
+      answers:
+      - answerLabel: I will make sure you do. What budget are you thinking of?
+        nextElement: 21
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Since we\u2019re handling our own food and transit costs, we\u2019re
+        thinking around $5500 to cover all of us. Does that work?"
+      answers:
+      - answerLabel: Yes that'll work just fine.
+        nextElement: 22
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Anything else you need?
+      answers:
+      - answerLabel: Tell me about your lodging.
+        nextElement: 11
+      - answerLabel: Tell me about your activity preferences.
+        nextElement: 15
+      - answerLabel: That wraps it up!
+        nextElement: 23
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: That about wraps up everything on my end. Do you have any questions?
+        nextElement: 24
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Nope! I think that covers everything. If anything comes up, we'll
+        be sure to let you know.
+      answers:
+      - answerLabel: Sounds good. I shall get started on your trip then. Have yourself
+          a lovely day and thank you for choosing *inputAgencyName*.
+        nextElement: 25
+  - dialogue:
+    - line: '*click!*'
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: Thanks, you too! Bye for now.
+      answers:
+      - answerLabel: Bye.
+        nextElement: 26
+  - dialogue:
+    - line: '*click!*'
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []

@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: Father_Redial
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Hello? This is Andrew speaking.
+      answers:
+      - answerLabel: Hi! It's *inputPlayerName* from *inputAgencyName*. How are you?
+        nextElement: 1
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Ah I'm good, how about you?
+      answers:
+      - answerLabel: I'm doing well, thank you. I just need to confirm a few details
+          about your trip before I book it. Is that alright?
+        nextElement: 2
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Of course. Go ahead.
+      answers:
+      - answerLabel: Great! What sort of destination did you want? And during which
+          seasons?
+        nextElement: 3
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Just somewhere that has a lot of nature and a large beach. We want
+        to go during either the spring or autumn.
+      answers:
+      - answerLabel: And whereabouts are you flying from again? And in what class?
+        nextElement: 4
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: We'll fly out from Montreal and will be taking economy.
+      answers:
+      - answerLabel: Did you want transit and dining coverage?
+        nextElement: 5
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Yes, we wanted to rent a car. As for dining, we'll book a few affordable
+        eats.
+      answers:
+      - answerLabel: Sounds good. And what sort of lodging were you looking for?
+        nextElement: 6
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Somewhere that is private but affordable. As long as we are in the
+        same hotel room, we'll be happy.
+      answers:
+      - answerLabel: Understood. And what are the plans for activities again?
+        nextElement: 7
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: We were thinking of doing four activities, one of which I'm willing
+        to spend a little more on. It needs to be good for the kids.
+      answers:
+      - answerLabel: Right, right. Okay, and what was the overall budget?
+        nextElement: 8
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: No more than $7000.
+      answers:
+      - answerLabel: Fantastic, I will finish up this trip and will let you know
+          when everything is done. Thank you for your help.
+        nextElement: 9
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: It's all good. You have a good one.
+      answers:
+      - answerLabel: You too! Bye.
+        nextElement: 10
+  - dialogue:
+    - line: '*click!*'
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []

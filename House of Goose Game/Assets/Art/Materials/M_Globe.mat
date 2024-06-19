@@ -28,7 +28,7 @@ Material:
   m_Parent: {fileID: 2100000, guid: e3e6be16ca0ff904b8b5784570c6c336, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AXIS_HORIZONTAL
+  - _AXIS_VERTICAL
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -49,15 +49,21 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CameraTexture:
+        m_Texture: {fileID: 2800000, guid: 55316f083dbdf5246b98cfa1161f9708, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AXIS: 1
-    - _Blur_Amount: 0.006
-    - _Offset: 0.006
-    - _Rim_Clamp: 7.59
+    - _AXIS: 0
+    - _Blur_Amount: 0.35
+    - _Offset: 0.31
+    - _Rim_Clamp: 12.41
+    - _Shading_Depth: 1
     m_Colors:
-    - _Albedo_Tint: {r: 1, g: 0.97822875, b: 0.9481132, a: 1}
-    - _Color_A: {r: 0, g: 0.18811893, b: 1, a: 0.77254903}
-    - _Color_B: {r: 0.35686275, g: 0.9529412, b: 0.5909548, a: 0.89411765}
+    - _Albedo_Tint: {r: 0.4811321, g: 0.44028124, b: 0.39262193, a: 1}
+    - _Color_A: {r: 0.5283019, g: 0.4631192, b: 0.241723, a: 0}
+    - _Color_B: {r: 0.8396226, g: 0.5920069, b: 0.2495104, a: 0}
+    - _Shadow_Color: {r: 0, g: 0.025045913, b: 0.18867922, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
