@@ -30,12 +30,16 @@ public class Location : ScriptableObject
     [SerializeField]
     List<Activity> _activities;
 
+    [SerializeField]
+    List<TripPackages> _packages;
+
     public Locations Name { get => _name; set => _name = value; }
     public bool Unlocked { get => _unlocked; set => _unlocked = value; }
     public Seasons PeakSeason { get => _peakSeason; set => _peakSeason = value; }
     public Seasons DownSeason { get => _downSeason; set => _downSeason = value; }
     public Regions Region { get => _region; set => _region = value; }
     public Attributes[] Attributes { get => _attributes; set => _attributes = value; }
+    public List<TripPackages> Packages { get => _packages; set => _packages = value; }
 
     public Location(Locations _newName, Attributes[] _attributes)
     {

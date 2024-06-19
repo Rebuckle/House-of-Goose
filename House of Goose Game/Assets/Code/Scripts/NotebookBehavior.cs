@@ -270,7 +270,6 @@ public class NotebookBehavior : HoG
     /// <param name="change"></param>
     public void UpdateLikedLocations(TMP_Dropdown change)
     {
-        //_likedLocationDictionary.Add(change.options[change.value], );
 
         switch (change.options[change.value].text)
         {
