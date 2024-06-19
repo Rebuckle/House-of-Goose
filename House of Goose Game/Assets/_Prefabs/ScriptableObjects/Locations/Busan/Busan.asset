@@ -10,21 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 828d98df1ffd74c4587d1966858bcfe9, type: 3}
-  m_Name: Bali_SO
+  m_Name: Busan
   m_EditorClassIdentifier: 
-  _name: 5
+  _name: 0
   _unlocked: 0
   _peakSeason: 0
   _downSeason: 0
   _region: 0
-  _attributes: 0000000001000000
-  _lodging:
-  - {fileID: 0}
-  - {fileID: 0}
-  _dining:
-  - {fileID: 0}
-  _transit:
-  - {fileID: 0}
-  _activities:
-  - {fileID: 11400000, guid: e5c916bc1e59d9f42826b11edba9c76b, type: 2}
+  _attributes: 
+  _lodging: []
+  _dining: []
+  _transit: []
+  _activities: []
   _packages: []

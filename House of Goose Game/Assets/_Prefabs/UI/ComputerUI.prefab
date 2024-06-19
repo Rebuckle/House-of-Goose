@@ -694,7 +694,19 @@ MonoBehaviour:
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2434170394462866826}
+        m_TargetAssemblyTypeName: ItineraryBehavior, Assembly-CSharp
+        m_MethodName: UpdateAirplaneClass
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7861048563983483945}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!1 &1119509249630026104
 GameObject:
@@ -2075,7 +2087,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 367.7}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8632389452907309273
 CanvasRenderer:
@@ -3038,7 +3050,19 @@ MonoBehaviour:
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2434170394462866826}
+        m_TargetAssemblyTypeName: ItineraryBehavior, Assembly-CSharp
+        m_MethodName: UpdateDestination
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 910592750528618146}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!1 &3019701046060446630
 GameObject:
@@ -3360,6 +3384,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 545869742812491223}
+  - component: {fileID: 2434170394462866826}
+  - component: {fileID: 8703825349725628542}
   m_Layer: 0
   m_Name: ComputerUI
   m_TagString: Untagged
@@ -3383,6 +3409,53 @@ Transform:
   - {fileID: 1934055065649673229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2434170394462866826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645406619229135843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b61280dcb0eb4447ba0bbc52ec49320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheClient: {fileID: 0}
+  _destinationDropdown: {fileID: 910592750528618146}
+  _seasonDropdown: {fileID: 2024797440023928441}
+  _airplaneClassDropdown: {fileID: 7861048563983483945}
+  _packagesDropdown: {fileID: 4619452821711828723}
+  _allPlans:
+  - _activities:
+    - {fileID: 57663876834766492}
+    _transit: {fileID: 8931232139166783779}
+    _lodging: {fileID: 4072760647304851906}
+    _dining: {fileID: 583624023224690406}
+  _budgetText: {fileID: 5923026462515289268}
+  _tripCostText: {fileID: 530995233812798659}
+  _allLocations:
+  - {fileID: 11400000, guid: f3d1b17c4d95705408cc9e04f18de8b4, type: 2}
+  - {fileID: 11400000, guid: f2393fa1ddf5f7742a144e419894f319, type: 2}
+  - {fileID: 11400000, guid: cad97f2551127614cbfb5bd39e485875, type: 2}
+  - {fileID: 11400000, guid: 690cad2d4d1cacc438c7c7437e2de575, type: 2}
+  - {fileID: 11400000, guid: 6684085b68ae21044b555070b9b1fd22, type: 2}
+  - {fileID: 11400000, guid: defd2e2d8c374b4468178052faaf4bf4, type: 2}
+  - {fileID: 11400000, guid: c1cacf0b6491001468468c4db8cf798d, type: 2}
+--- !u!114 &8703825349725628542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645406619229135843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16db20d1a6a94244593d1efe03b11d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheItinerary: {fileID: 2434170394462866826}
+  TheClient: {fileID: 0}
 --- !u!1 &3750434884306785771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,7 +3597,19 @@ MonoBehaviour:
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2434170394462866826}
+        m_TargetAssemblyTypeName: ItineraryBehavior, Assembly-CSharp
+        m_MethodName: UpdateSeason
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2024797440023928441}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!1 &3833088685942284046
 GameObject:
@@ -3908,7 +3993,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4289184238927320313}
   - component: {fileID: 4421659268136307343}
-  - component: {fileID: 7019692610547578292}
   m_Layer: 0
   m_Name: SpacerPanel (1)
   m_TagString: Untagged
@@ -3923,7 +4007,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4257013808705906921}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3943,36 +4027,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4257013808705906921}
   m_CullTransparentMesh: 1
---- !u!114 &7019692610547578292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257013808705906921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4540155391381664603
 GameObject:
   m_ObjectHideFlags: 0
@@ -5867,7 +5921,19 @@ MonoBehaviour:
       m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2434170394462866826}
+        m_TargetAssemblyTypeName: ItineraryBehavior, Assembly-CSharp
+        m_MethodName: UpdatePackages
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4619452821711828723}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!1 &7241537407287567996
 GameObject:
@@ -9076,6 +9142,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
+--- !u!114 &57663876834766492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5648219863800843577, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
+  m_PrefabInstance: {fileID: 5669573399819330469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &583624023224690406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5095589895167870275, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
+  m_PrefabInstance: {fileID: 5669573399819330469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4072760647304851906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8514904799424516711, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
+  m_PrefabInstance: {fileID: 5669573399819330469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8931232139166783779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3845021541950208646, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
+  m_PrefabInstance: {fileID: 5669573399819330469}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9179702562500248790 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3587825393801766771, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
