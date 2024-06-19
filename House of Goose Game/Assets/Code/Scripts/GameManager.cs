@@ -18,6 +18,7 @@ public class GameManager : HoG
     public NotebookBehavior notebookBehavior;
     public LocationBehavior locationBehavior;
     public DialogueManager dialogueManager;
+    public ItineraryBehavior itineraryBehavior;
 
     private void Awake()
     {
@@ -30,6 +31,8 @@ public class GameManager : HoG
         }
         gameStartArgs = new GameStartArgs() { player = playerObj };
         StartCoroutine(LoadOffice());
+
+        itineraryBehavior.TheClient = currentClient;
     }//end Awake
 
     private IEnumerator LoadOffice()

@@ -42,9 +42,9 @@ public class ItineraryBehavior : HoG
 
     public void Start()
     {
-        if(gameObject.GetComponent<GameManager>())
+        if(TheClient == null)
         {
-            TheClient = gameObject.GetComponent<GameManager>().currentClient;
+            TheClient = GameObject.Find("Game Controller").GetComponent<GameManager>().currentClient;
         }
 
         _budgetText.text = TheClient.Budget.ToString();
