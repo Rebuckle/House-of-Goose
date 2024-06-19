@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b22e0422497e14cb6c1205f8a76e86, type: 3}
+  m_Name: MarriedWoman
+  m_EditorClassIdentifier: 
+  _starRatings:
+  - 'Our honeymoon was a huge disappointment. The accommodations were awful, and
+    nothing felt special or romantic. This was the worst trip of our lives and it
+    put a huge strain on our relationship. '
+  - The trip was okay, but definitely not what we expected for our honeymoon. Some
+    parts were nice, but overall, it lacked the romance and adventures we hoped for.
+  - "Our honeymoon was... alright. We had some lovely moments and enjoyed the destination,
+    but it wasn\u2019t as special as we wanted. Maybe this agency just isn't built
+    for handling honeymoons."
+  - We had a great honeymoon! The destination was beautiful, and we had some really
+    romantic experiences. A few things could have been better, but overall, we were
+    happy. My wife really loved the activities that were booked! Thank you for planning
+    this.
+  - "Our honeymoon was absolutely perfect! Everything was so special and romantic.
+    We couldn\u2019t have asked for a better trip. It was one of our best travel
+    experiences and we will definintely come back in the future!"
