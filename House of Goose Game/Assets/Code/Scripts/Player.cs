@@ -259,7 +259,9 @@ public class Player : HoG
                 Debug.Log("Hit " + hit.collider.name);
                 if (hit.collider.transform == phoneBase || hit.collider.transform == phoneReciever)
                 {
+                    if (notebookZoom != true) GameManager.gm.notebookBehavior.ToggleNotebook();
                     SetNotebookZoom(true);
+
                     SetPhoneZoom(true);
                     inPhoneCall = true;
                     DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
@@ -282,6 +284,7 @@ public class Player : HoG
                 }
                 else if (hit.collider.transform == notebook)
                 {
+                    if (notebookZoom != true) GameManager.gm.notebookBehavior.ToggleNotebook();
                     SetNotebookZoom(true);
                     SetComputerZoom(false);
                     SetManillaZoom(-1, false);
@@ -291,6 +294,7 @@ public class Player : HoG
                 else if (hit.collider.transform == computer)
                 {
                     SetComputerZoom(true);
+                    if (notebookZoom != false) GameManager.gm.notebookBehavior.ToggleNotebook();
                     SetNotebookZoom(false);
                     SetManillaZoom(-1, false);
                     sFXHandler.PlaySound(computerClickOn_Audio);
@@ -305,6 +309,7 @@ public class Player : HoG
                             Debug.Log("Zooming to manilla " + i);
                             SetManillaZoom(i, true);
                             SetComputerZoom(false);
+                            if (notebookZoom != false) GameManager.gm.notebookBehavior.ToggleNotebook();
                             SetNotebookZoom(false);
                             hitManilla = true;
                             sFXHandler.PlaySound(manilaPickUp_Audio);
@@ -314,6 +319,7 @@ public class Player : HoG
                     if (!hitManilla)
                     {
                         SetComputerZoom(false);
+                        if (notebookZoom != false) GameManager.gm.notebookBehavior.ToggleNotebook();
                         SetNotebookZoom(false);
                         SetManillaZoom(-1, false);                        
                     }
@@ -324,6 +330,7 @@ public class Player : HoG
             else
             {
                 SetComputerZoom(false);
+                if (notebookZoom != false) GameManager.gm.notebookBehavior.ToggleNotebook();
                 SetNotebookZoom(false);
                 SetManillaZoom(-1, false);
             }
