@@ -106,11 +106,34 @@ public class ItineraryBehavior : HoG
     GameObject _dayPlanButtonsParent;
     [SerializeField]
     GameObject _numberedDayPrefab;
+    [SerializeField]
+    GameObject _newDayPlusButton;
+
+    [SerializeField]
+    GameObject _experiencePanelParent;
+    [SerializeField]
+    GameObject _experiencePanelPrefab;
+    [SerializeField]
+    List<GameObject> _dayPlans;
 
     [SerializeField]
     GameObject _activitiesButtonsParent;
     [SerializeField]
     GameObject _numberedActivityPrefab;
+
+    public void AddNewDayPlan()
+    {
+        GameObject _newDayPlan = Instantiate(_experiencePanelPrefab, _experiencePanelParent.transform);
+        GameObject _newNumberedButton = Instantiate(_numberedDayPrefab, _dayPlanButtonsParent.transform);
+
+        _newDayPlusButton.gameObject.transform.SetAsLastSibling();
+        _newDayPlusButton.GetComponentInChildren<TextMeshProUGUI>().text = _newDayPlusButton.gameObject.transform.GetSiblingIndex() + 1 + "";
+        _dayPlans.Add(_newDayPlan);
+    }
+
+
+
+
 
     #endregion
 
