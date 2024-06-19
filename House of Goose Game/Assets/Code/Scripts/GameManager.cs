@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : HoG
 {
@@ -12,6 +13,8 @@ public class GameManager : HoG
 
     public DialogueManager dialogueManager;
 
+    private Scene officeAssetsScene;
+
     private void Awake()
     {
         if(gm != null && gm != this)
@@ -21,6 +24,10 @@ public class GameManager : HoG
         {
             gm = this;
         }
+
+        SceneManager.LoadScene("OfficeAssets", LoadSceneMode.Additive);
+
+
     }//end Awake
 
 
