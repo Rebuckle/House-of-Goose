@@ -16,38 +16,39 @@ MonoBehaviour:
   _clientStory: This client exemplifies typical customers who approach the travel
     agency. This profile serves as a tutorial to familiarize agents with building
     itineraries based on provided information. This will not affect the final score.
-  _clientImage: {fileID: 0}
+  _clientImage: {fileID: 21300000, guid: ead8c0ed22d59ef428e482c1ba022566, type: 3}
   _budget: 2100
   _tripDuration: 7
   _groupSize: 1
   _callLimit: 3
   _startingRegion: 5
   _preferredSeasons: 0100000002000000
-  _unpreferredSeasons: 
-  _preferredLocationAttributes: 
-  _unpreferredLocationAttributes: 0000000003000000
-  _knownPreferredSeasons: 
-  _knownUnpreferredSeasons: 
-  _knownPreferredLocationAttributes: 
-  _knownUnpreferredLocationAttributes: 
+  _unpreferredSeasons: 0000000003000000
+  _preferredLocationAttributes: 0200000003000000
+  _unpreferredLocationAttributes: 000000000100000004000000
+  _knownPreferredSeasons: 01000000
+  _knownUnpreferredSeasons: 00000000
+  _knownPreferredLocationAttributes: 02000000
+  _knownUnpreferredLocationAttributes: 00000000
   _optOutDining: 0
   _diningAmount: 2
   _diningQuality: 02000000
   _knownDiningQualityPreference: 
   _optOutTransit: 1
-  _airplaneClass: 0
-  _preferredTransit: 
-  _unpreferredTransit: 
+  _airplaneClass: 3
+  _preferredTransit: 00000000
+  _unpreferredTransit: 010000000200000003000000
   _knownPreferredTransit: 
-  _knownUnpreferredTransit: 
-  _knownAirplaneClass: 0
+  _knownUnpreferredTransit: 01000000
+  _knownPreferredAirplaneClass: 
+  _knownUnpreferredAirplaneClass: 02000000
   _lodgingQuality: 02000000
   _knownLodgingQuality: 
   _optOutActivity: 0
   _activityAmount: 3
   _likedActivityTags: 010000000200000003000000040000000500000006000000
   _dislikedActivityTags: 100000000b000000090000000e00000000000000
-  _knownLikedActivityTags: 
-  _knownDislikedActivityTags: 
+  _knownLikedActivityTags: 02000000
+  _knownDislikedActivityTags: 0e000000
   _mainDialogue: {fileID: 11400000, guid: aeb0b016b18a5794eb8d8f0c6e3d8c2d, type: 2}
   _repeatDialogue: {fileID: 11400000, guid: aeb0b016b18a5794eb8d8f0c6e3d8c2d, type: 2}
