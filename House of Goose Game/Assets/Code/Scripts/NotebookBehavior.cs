@@ -36,6 +36,14 @@ public class NotebookBehavior : HoG
     {
         LoadSummaryPage();
         LoadPreferencePage();
+
+        LoadAvailableLocations(GameManager.gm.currentClient);
+        LoadAvailableSeasons(GameManager.gm.currentClient);
+        LoadAvailableDining(GameManager.gm.currentClient);
+        LoadAvailableLodging(GameManager.gm.currentClient);
+        LoadAvailableActivities(GameManager.gm.currentClient);
+        LoadAvailableAirplaneClass(GameManager.gm.currentClient);
+
     }//end start
 
     public void FlipPages()
@@ -200,6 +208,8 @@ public class NotebookBehavior : HoG
             {
                 _availableLocationList.Add(_location.ToString());
             }
+
+            Debug.Log("Location Attribute: " + _location.ToString());
         }
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedLocationPanel.transform);
