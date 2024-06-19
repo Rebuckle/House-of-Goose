@@ -3442,6 +3442,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6684085b68ae21044b555070b9b1fd22, type: 2}
   - {fileID: 11400000, guid: defd2e2d8c374b4468178052faaf4bf4, type: 2}
   - {fileID: 11400000, guid: c1cacf0b6491001468468c4db8cf798d, type: 2}
+  _dayPlanButtonsParent: {fileID: 4028220253018748585}
+  _numberedDayPrefab: {fileID: 5599797544510181254, guid: 22696c38d27454b4cacd42f2982d2e94, type: 3}
+  _newDayPlusButton: {fileID: 6581915187254931359}
+  _experiencePanelParent: {fileID: 7417938937005002224}
+  _experiencePanelPrefab: {fileID: 9179469532252528956, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
+  _activitiesButtonsParent: {fileID: 5888959530809432975}
+  _numberedActivityPrefab: {fileID: 6569998428705266849, guid: 98c88941a445cdd4489f59beb9499982, type: 3}
 --- !u!114 &8703825349725628542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5542,7 +5549,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7711247804915995583}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2434170394462866826}
+        m_TargetAssemblyTypeName: ItineraryBehavior, Assembly-CSharp
+        m_MethodName: AddNewDayPlan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6718285523787199438
 GameObject:
   m_ObjectHideFlags: 0
@@ -9175,6 +9194,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5888959530809432975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2240425958310950954, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
+  m_PrefabInstance: {fileID: 5669573399819330469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8931232139166783779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3845021541950208646, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
