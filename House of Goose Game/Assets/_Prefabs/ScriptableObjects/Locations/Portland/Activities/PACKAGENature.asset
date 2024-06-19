@@ -9,10 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa15c44f7d7b2945aa4c905bc6df1c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a0567c05f540dd4792ddee466ef96b8, type: 3}
   m_Name: PACKAGENature
   m_EditorClassIdentifier: 
-  _name: Nature Package
-  _quality: 3
-  _cost: 260
-  _attributes: 030000000f000000
+  _packageName: Nature Package
+  _location: 6
+  _averagePrice: 260
+  _tags: 030000000f000000
+  _activities:
+  - Private Sailing Charter on the Columbia River
+  - Wildlife Safari at Ridgefield National Wildlife Refuge
+  - Rock Climbing at Smith Rock State Park

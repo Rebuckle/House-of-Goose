@@ -9,10 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa15c44f7d7b2945aa4c905bc6df1c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a0567c05f540dd4792ddee466ef96b8, type: 3}
   m_Name: PACKAGERomantic
   m_EditorClassIdentifier: 
-  _name: Romantic Package
-  _quality: 3
-  _cost: 220
-  _attributes: 1100000005000000
+  _packageName: Romantic Package
+  _location: 1
+  _averagePrice: 220
+  _tags: 1100000005000000
+  _activities:
+  - 
+  - 
+  - 

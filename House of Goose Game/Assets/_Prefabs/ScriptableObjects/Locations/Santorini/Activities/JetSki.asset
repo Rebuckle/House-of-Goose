@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aa15c44f7d7b2945aa4c905bc6df1c7, type: 3}
   m_Name: JetSki
   m_EditorClassIdentifier: 
-  _name: 
-  _quality: 0
-  _cost: 0
-  _attributes: 
+  _name: Jet Ski at Perivolos
+  _quality: 1
+  _cost: 60
+  _attributes: 020000001400000006000000

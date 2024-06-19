@@ -9,10 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa15c44f7d7b2945aa4c905bc6df1c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a0567c05f540dd4792ddee466ef96b8, type: 3}
   m_Name: PACKAGEEntertainment
   m_EditorClassIdentifier: 
-  _name: Entertainment Package
-  _quality: 3
-  _cost: 140
-  _attributes: 050000000b000000
+  _packageName: Entertainment Package
+  _location: 3
+  _averagePrice: 140
+  _tags: 050000000b000000
+  _activities:
+  - Kabuki at Kabukiza Theatre
+  - Dinner Cruise Live Show on Tokyo Bay
+  - Concert at Tokyo Opera City Concert Hall

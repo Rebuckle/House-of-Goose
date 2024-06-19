@@ -18,8 +18,26 @@ MonoBehaviour:
   _downSeason: 2
   _region: 0
   _attributes: 0200000003000000
-  _lodging: []
-  _dining: []
-  _transit: []
-  _activities: []
-  _packages: []
+  _lodging:
+  - {fileID: 11400000, guid: 24686c03a31ee694dadf9e9a3c5d015e, type: 2}
+  - {fileID: 11400000, guid: fb01973c63fce524db59be3807d80efb, type: 2}
+  - {fileID: 11400000, guid: 82038d041cc45224a836ccb231402d90, type: 2}
+  - {fileID: 11400000, guid: 6351e55f3a58e4d499de50791c19c76a, type: 2}
+  - {fileID: 11400000, guid: df83403123d16a34580e29af1a369564, type: 2}
+  _dining:
+  - {fileID: 11400000, guid: c0a5da64901098d41a72febba37749a4, type: 2}
+  - {fileID: 11400000, guid: cbad54ea5b29853459dc838c77e57ed8, type: 2}
+  - {fileID: 11400000, guid: 34cd1c9e950f03047971d3a52028add4, type: 2}
+  _transit:
+  - {fileID: 11400000, guid: 1ada014fffc5f7b4bb0a60ec5b42b96d, type: 2}
+  - {fileID: 11400000, guid: 345d3b24afb4ff044bb4c0f9306c3c52, type: 2}
+  - {fileID: 11400000, guid: 21f51c135424941408ddef4607b40bbe, type: 2}
+  _activities:
+  - {fileID: 11400000, guid: 7510bbe9653f3b1438d316f32675120f, type: 2}
+  - {fileID: 11400000, guid: 2230008c4e6b67b4f8ef9d7bb2499e62, type: 2}
+  - {fileID: 11400000, guid: ddb37504a4f11cb44905c721547190c8, type: 2}
+  - {fileID: 11400000, guid: 5cf14b3c2716f0440b9dd654e8cb9c00, type: 2}
+  - {fileID: 11400000, guid: b172b5f8fc6564649bcf57951d42afe8, type: 2}
+  _packages:
+  - {fileID: 11400000, guid: c59773960aa8a794fa83a8c2040a4d84, type: 2}
+  - {fileID: 11400000, guid: 7426e8f8d3c53734fad493942c83709d, type: 2}

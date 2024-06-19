@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa15c44f7d7b2945aa4c905bc6df1c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a0567c05f540dd4792ddee466ef96b8, type: 3}
   m_Name: PACKAGEWanderer
   m_EditorClassIdentifier: 
-  _name: Wanderer Package
-  _quality: 2
-  _cost: 30
-  _attributes: 0c00000003000000
+  _packageName: Wanderer Package
+  _location: 1
+  _averagePrice: 30
+  _tags: 0c00000003000000
+  _activities: []
