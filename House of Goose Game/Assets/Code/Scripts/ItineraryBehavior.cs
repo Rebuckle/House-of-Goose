@@ -51,6 +51,12 @@ public class ItineraryBehavior : HoG
         _tripCostText.text = "$0000";
 
         SetDestinationList();
+
+        _destination = HoG.Locations.Edinburgh.ToString();
+
+        SetSeasonList();
+        SetAirplaneClassList();
+        SetPackagesList();
     }
 
     // Setters
@@ -66,6 +72,46 @@ public class ItineraryBehavior : HoG
 
         _destinationDropdown.AddOptions(_allLocs);
     }
+
+    public void SetSeasonList()
+    {
+        List<string> _allSeas = new List<string>();
+
+        foreach (HoG.Seasons _sea in System.Enum.GetValues(typeof(HoG.Seasons)))
+        {
+            _allSeas.Add(_sea.ToString());
+        }
+
+        _seasonDropdown.AddOptions(_allSeas);
+    }
+
+    public void SetAirplaneClassList()
+    {
+        List<string> _allAirplaneClasses = new List<string>();
+
+        foreach (HoG.AirplaneClass _class in System.Enum.GetValues(typeof(HoG.AirplaneClass)))
+        {
+            _allAirplaneClasses.Add(_class.ToString());
+        }
+
+        _airplaneClassDropdown.AddOptions(_allAirplaneClasses);
+    }
+
+    public void SetPackagesList()
+    {
+        List<string> _allPacks = new List<string>();
+
+        foreach (TripPackages _package in GetLocation().Packages)
+        {
+            foreach(string _packageName in _package.Activities)
+            {
+                _allPacks.Add(_packageName);
+            }
+        }
+
+        _packagesDropdown.AddOptions(_allPacks);
+    }
+
 
 
     // Updaters
