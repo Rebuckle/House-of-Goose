@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d98df1ffd74c4587d1966858bcfe9, type: 3}
   m_Name: Paris
   m_EditorClassIdentifier: 
-  _name: 0
-  _unlocked: 0
-  _peakSeason: 0
+  _name: 1
+  _unlocked: 1
+  _peakSeason: 2
   _downSeason: 0
-  _region: 0
-  _attributes: 
+  _region: 3
+  _attributes: 0000000002000000
   _lodging: []
   _dining: []
   _transit: []

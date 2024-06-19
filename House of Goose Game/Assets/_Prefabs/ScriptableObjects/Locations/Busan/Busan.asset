@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d98df1ffd74c4587d1966858bcfe9, type: 3}
   m_Name: Busan
   m_EditorClassIdentifier: 
-  _name: 0
-  _unlocked: 0
-  _peakSeason: 0
-  _downSeason: 0
-  _region: 0
-  _attributes: 
+  _name: 2
+  _unlocked: 1
+  _peakSeason: 1
+  _downSeason: 2
+  _region: 4
+  _attributes: 0100000003000000
   _lodging: []
   _dining: []
   _transit: []

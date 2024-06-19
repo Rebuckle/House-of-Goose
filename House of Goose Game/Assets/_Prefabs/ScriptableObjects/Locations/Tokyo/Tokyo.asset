@@ -12,14 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d98df1ffd74c4587d1966858bcfe9, type: 3}
   m_Name: Tokyo
   m_EditorClassIdentifier: 
-  _name: 0
-  _unlocked: 0
-  _peakSeason: 0
+  _name: 3
+  _unlocked: 1
+  _peakSeason: 1
   _downSeason: 0
-  _region: 0
-  _attributes: 
-  _lodging: []
-  _dining: []
-  _transit: []
-  _activities: []
-  _packages: []
+  _region: 4
+  _attributes: 0100000004000000
+  _lodging:
+  - {fileID: 11400000, guid: 8fdf530021ff94f43bd82f05000bbaf2, type: 2}
+  - {fileID: 11400000, guid: 6271593efee376846b672fcd95b6917e, type: 2}
+  - {fileID: 11400000, guid: 2b411461993eb72439fc30d643ef89f6, type: 2}
+  - {fileID: 11400000, guid: e1079aeb310c60c458dca241b5d6e22d, type: 2}
+  - {fileID: 11400000, guid: 41c29b3bc3c31334f8c6316c42fc6403, type: 2}
+  _dining:
+  - {fileID: 11400000, guid: 1b010004246fbcc4599f0f82ec24f238, type: 2}
+  - {fileID: 11400000, guid: 772139f1dbd50474e896809d9ec11b90, type: 2}
+  - {fileID: 11400000, guid: 97bc63b49a0859844b5f55e3584093b5, type: 2}
+  _transit:
+  - {fileID: 11400000, guid: 38588f35e5595ee4cba66a9c8d2d8581, type: 2}
+  - {fileID: 11400000, guid: 11c73b9ac435c3249ae51c36bdfb4555, type: 2}
+  - {fileID: 11400000, guid: d4d9dcb8c845efc40905edc732de00a4, type: 2}
+  _activities:
+  - {fileID: 11400000, guid: 32ea664d82fc21647b6f7f00a93a86da, type: 2}
+  - {fileID: 11400000, guid: e168d46268677814caa88f39aa5d82cc, type: 2}
+  - {fileID: 11400000, guid: 0f8650a5b191ff3479d4f5d048a09960, type: 2}
+  - {fileID: 11400000, guid: 7160598b55633254bbfbbc5920530795, type: 2}
+  - {fileID: 11400000, guid: e84d9789a1b6f7140b7e265579736bf9, type: 2}
+  _packages:
+  - {fileID: 0}
+  - {fileID: 0}

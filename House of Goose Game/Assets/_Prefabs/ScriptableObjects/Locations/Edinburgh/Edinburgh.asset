@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Edinburgh
   m_EditorClassIdentifier: 
   _name: 0
-  _unlocked: 0
-  _peakSeason: 0
+  _unlocked: 1
+  _peakSeason: 3
   _downSeason: 0
-  _region: 0
-  _attributes: 
+  _region: 3
+  _attributes: 0000000002000000
   _lodging: []
   _dining: []
   _transit: []

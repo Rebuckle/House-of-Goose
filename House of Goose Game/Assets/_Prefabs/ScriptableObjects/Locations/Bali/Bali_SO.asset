@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Bali_SO
   m_EditorClassIdentifier: 
   _name: 5
-  _unlocked: 0
-  _peakSeason: 0
-  _downSeason: 0
-  _region: 0
-  _attributes: 0000000001000000
+  _unlocked: 1
+  _peakSeason: 2
+  _downSeason: 3
+  _region: 4
+  _attributes: 0200000003000000
   _lodging:
   - {fileID: 0}
   - {fileID: 0}
