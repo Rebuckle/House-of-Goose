@@ -16,10 +16,11 @@ MonoBehaviour:
   - dialogue: []
     endAfterDialogue: 0
     branchPoint:
-      question: '*b'
+      question: '*bzzt*'
       answers:
-      - answerLabel: 
-        nextElement: 0
+      - answerLabel: Hi there! This is *inputPlayerName* from *inputAgencyName*.
+          What can I do for you?
+        nextElement: 1
   - dialogue:
     - line: "Hello *inputPlayerName*. My husband and I are looking to celebrate our
         retirement by revisiting a country we\u2019ve been to before."
