@@ -13,6 +13,7 @@ public class EventsNotebook : ObjectEventSubscriber
 
     protected override void OnGameStart(object gameManager, GameStartArgs gsa)
     {
+        base.OnGameStart(gameManager, gsa);
         gsa.notebook = transform;
         gsa.player.notebook = transform;
         gsa.player.notebookAnchorCall = nbAnchorCall;

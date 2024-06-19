@@ -10,6 +10,7 @@ public class EventsPhone : ObjectEventSubscriber
 
     protected override void OnGameStart(object gameManager, GameStartArgs gsa)
     {
+        base.OnGameStart(gameManager, gsa);
         gsa.phone = transform;
         gsa.player.phoneBase = pBase;
         gsa.player.phoneReciever = receiver;
