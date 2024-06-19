@@ -23,17 +23,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Manila
+  m_Name: M_Paperclip
   m_Shader: {fileID: -6465566751694194690, guid: 83b2304374792d84a84b21af2fb17121, type: 3}
   m_Parent: {fileID: 2100000, guid: e3e6be16ca0ff904b8b5784570c6c336, type: 2}
-  m_ModifiedSerializedProperties: 8
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _AXIS_VERTICAL
-  m_InvalidKeywords:
-  - _DOUBLESIDED_ON
+  - _AXIS_HORIZONTAL
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 1
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap:
     MotionVector: User
@@ -46,27 +45,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Overlay_Texture:
+    - _Albedo:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AXIS: 0
-    - _Blur_Amount: 0.001
-    - _CullMode: 0
-    - _CullModeForward: 0
-    - _DoubleSidedEnable: 1
-    - _Offset: 0.001
-    - _Overlay_Blending: 0.89
-    - _Overlay_Intensity: 0
-    - _Overlay_Tiling: 1.67
-    - _Rim_Clamp: 1.84
-    - _Shading_Depth: 0.638
+    - _AXIS: 1
+    - _Blur_Amount: 0
+    - _Offset: 0.02
     m_Colors:
-    - _Albedo_Tint: {r: 0.9622642, g: 0.89769554, b: 0.64907444, a: 1}
-    - _Color_A: {r: 0.7075472, g: 0.66199553, b: 0.61743504, a: 0.7019608}
-    - _Color_B: {r: 0.6981132, g: 0.65262264, b: 0.6223745, a: 0.90588236}
-    - _Shadow_Color: {r: 0.20754719, g: 0.08825177, b: 0.018600922, a: 0}
+    - _Albedo_Tint: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
+    - _Color_A: {r: 0, g: 0.10329267, b: 0.51886773, a: 0}
+    - _Color_B: {r: 0.5471698, g: 0.4538502, b: 0.2916517, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
