@@ -1409,7 +1409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -13.085}
+  m_AnchoredPosition: {x: 200, y: -0}
   m_SizeDelta: {x: 400, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3032526719652842276
@@ -3447,8 +3447,12 @@ MonoBehaviour:
   _newDayPlusButton: {fileID: 6581915187254931359}
   _experiencePanelParent: {fileID: 7417938937005002224}
   _experiencePanelPrefab: {fileID: 9179469532252528956, guid: 9c1774ef1aa083d40b448c5657cab52e, type: 3}
+  _dayPlans: []
   _activitiesButtonsParent: {fileID: 5888959530809432975}
   _numberedActivityPrefab: {fileID: 6569998428705266849, guid: 98c88941a445cdd4489f59beb9499982, type: 3}
+  _newActivityPlusButton: {fileID: 0}
+  _activitiesParent: {fileID: 0}
+  _activitiesDropdownPrefab: {fileID: 0}
 --- !u!114 &8703825349725628542
 MonoBehaviour:
   m_ObjectHideFlags: 0
