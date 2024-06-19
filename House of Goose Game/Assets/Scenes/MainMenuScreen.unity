@@ -1593,6 +1593,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069829611}
   m_CullTransparentMesh: 1
+--- !u!1001 &1947059751231851942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4890006830398021933, guid: 9dcdb790fdcad4c4d9914742a71fd5a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890006830398021933, guid: 9dcdb790fdcad4c4d9914742a71fd5a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890006830398021933, guid: 9dcdb790fdcad4c4d9914742a71fd5a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435229806010852607, guid: 9dcdb790fdcad4c4d9914742a71fd5a0, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9dcdb790fdcad4c4d9914742a71fd5a0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1601,3 +1630,4 @@ SceneRoots:
   - {fileID: 292015210}
   - {fileID: 847607486}
   - {fileID: 387265983}
+  - {fileID: 1947059751231851942}
