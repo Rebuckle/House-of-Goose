@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class NotebookBehavior : HoG
@@ -23,6 +26,9 @@ public class NotebookBehavior : HoG
     [SerializeField]
     GameObject _likesPage; //page four
 
+    //Events
+    public event UnityAction<TMP_Dropdown> OnLikedLocationDropdownChange;
+
     public enum NotebookStatus { Disabled, PagesOneTwo, PagesThreeFour };
     NotebookStatus _status;
 
@@ -43,7 +49,6 @@ public class NotebookBehavior : HoG
         LoadAvailableLodging(GameManager.gm.currentClient);
         LoadAvailableActivities(GameManager.gm.currentClient);
         LoadAvailableAirplaneClass(GameManager.gm.currentClient);
-
     }//end start
 
     public void FlipPages()
@@ -181,6 +186,7 @@ public class NotebookBehavior : HoG
     [SerializeField]
     TMP_Dropdown _removalDislikedLocationDropdown;
 
+
     /// <summary>
     /// Populate the Client Book with Available Locations, under both Liked and Disliked panels.
     /// </summary>
@@ -215,6 +221,9 @@ public class NotebookBehavior : HoG
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedLocationPanel.transform);
         newDropdown.GetComponent<TMP_Dropdown>().AddOptions(_availableLocationList);
+
+        newDropdown.GetComponent<TMP_Dropdown>().onValueChanged.AddListener(delegate { UpdateLikedLocations(newDropdown.GetComponent<TMP_Dropdown>());  });
+
         _setLikedLocationDropdowns.Add(newDropdown);
 
         newDropdown = Instantiate(_activityDropdownPrefab, _dislikedLocationPanel.transform);
@@ -268,26 +277,31 @@ public class NotebookBehavior : HoG
             case "old":
                 {
                     _likedLocationDictionary.Add(Attributes.old.ToString(), (int)Attributes.old);
+                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
                     break;
                 }
             case "modern":
                 {
                     _likedLocationDictionary.Add(Attributes.modern.ToString(), (int)Attributes.modern);
+                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
                     break;
                 }
             case "open":
                 {
                     _likedLocationDictionary.Add(Attributes.open.ToString(), (int)Attributes.open);
+                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
                     break;
                 }
             case "beach":
                 {
                     _likedLocationDictionary.Add(Attributes.beach.ToString(), (int)Attributes.beach);
+                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
                     break;
                 }
             case "dense":
                 {
                     _likedLocationDictionary.Add(Attributes.dense.ToString(), (int)Attributes.dense);
+                    _removalLikedLocationDropdown.AddOptions(_likedLocationDictionary.Keys.ToList());
                     break;
                 }
             default:
