@@ -187,11 +187,14 @@ public class NotebookBehavior : HoG
     /// <param name="currentClient"></param>
     public void LoadAvailableLocations(Client currentClient)
     {
+        _likedLocationDictionary = new Dictionary<string, int>();
+        _dislikedLocationDictionary = new Dictionary<string, int>();
+
         foreach(Attributes _location in System.Enum.GetValues(typeof(HoG.Attributes)))
         {
             if(currentClient.KnownPreferredLocationAttributes.Contains(_location)) {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedLocationPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _location.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _location.ToString();
 
                 //Add to retrievable dictionary
                 _likedLocationDictionary.Add(_location.ToString(), (int) _location);
@@ -199,7 +202,7 @@ public class NotebookBehavior : HoG
             else if (currentClient.KnownUnpreferredLocationAttributes.Contains(_location))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedLocationPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _location.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _location.ToString();
 
                 //Add to retrievable dictionary
                 _dislikedLocationDictionary.Add(_location.ToString(), (int)_location);
@@ -208,8 +211,6 @@ public class NotebookBehavior : HoG
             {
                 _availableLocationList.Add(_location.ToString());
             }
-
-            Debug.Log("Location Attribute: " + _location.ToString());
         }
 
         GameObject newDropdown = Instantiate(_activityDropdownPrefab, _likedLocationPanel.transform);
@@ -427,12 +428,15 @@ public class NotebookBehavior : HoG
 
     public void LoadAvailableSeasons(Client currentClient)
     {
+        _likedSeasonDictionary = new Dictionary<string, int>();
+        _dislikedSeasonDictionary = new Dictionary<string, int>();
+
         foreach (Seasons _season in System.Enum.GetValues(typeof(HoG.Seasons)))
         {
             if (currentClient.KnownPreferredSeasons.Contains(_season))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedSeasonPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _season.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _season.ToString();
 
                 //Add to retrievable dictionary
                 _likedSeasonDictionary.Add(_season.ToString(), (int)_season);
@@ -440,7 +444,7 @@ public class NotebookBehavior : HoG
             else if (currentClient.KnownUnpreferredSeasons.Contains(_season))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedSeasonPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _season.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _season.ToString();
 
                 //Add to retrievable dictionary
                 _dislikedSeasonDictionary.Add(_season.ToString(), (int)_season);
@@ -651,12 +655,15 @@ public class NotebookBehavior : HoG
 
     public void LoadAvailableDining(Client currentClient)
     {
-        for(int _qualityAmount = 0; _qualityAmount <= 3; _qualityAmount++)
+        _likedSeasonDictionary = new Dictionary<string, int>();
+        _dislikedSeasonDictionary = new Dictionary<string, int>();
+
+        for (int _qualityAmount = 0; _qualityAmount <= 3; _qualityAmount++)
         {
             if (currentClient.KnownDiningQualityPreference.Contains(_qualityAmount))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedDiningPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = TransformDiningQuality(_qualityAmount);
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = TransformDiningQuality(_qualityAmount);
 
                 //Add to retrievable dictionary
                 _likedDiningDictionary.Add(_qualityAmount.ToString(), (int)_qualityAmount);
@@ -894,12 +901,15 @@ public class NotebookBehavior : HoG
 
     public void LoadAvailableLodging(Client currentClient)
     {
+        _likedLodgingDictionary = new Dictionary<string, int>();
+        _dislikedLodgingDictionary = new Dictionary<string, int>();
+
         for (int _qualityAmount = 0; _qualityAmount <= 3; _qualityAmount++)
         {
             if (currentClient.KnownLodgingQuality.Contains(_qualityAmount))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedLodgingPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = TransformLodgingQuality(_qualityAmount);
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = TransformLodgingQuality(_qualityAmount);
 
                 //Add to retrievable dictionary
                 _likedLodgingDictionary.Add(_qualityAmount.ToString(), (int)_qualityAmount);
@@ -1165,12 +1175,15 @@ public class NotebookBehavior : HoG
 
     public void LoadAvailableActivities(Client currentClient)
     {
+        _likedActivityDictionary = new Dictionary<string, int>();
+        _dislikedActivityDictionary = new Dictionary<string, int>();
+
         foreach (ActivityTags _activities in System.Enum.GetValues(typeof(HoG.ActivityTags)))
         {
             if (currentClient.KnownLikedActivityTags.Contains(_activities))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedActivityPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _activities.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _activities.ToString();
 
                 //Add to retrievable dictionary
                 _likedLocationDictionary.Add(_activities.ToString(), (int)_activities);
@@ -1178,7 +1191,7 @@ public class NotebookBehavior : HoG
             else if (currentClient.KnownLikedActivityTags.Contains(_activities))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedActivityPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _activities.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _activities.ToString();
 
                 //Add to retrievable dictionary
                 _dislikedLocationDictionary.Add(_activities.ToString(), (int)_activities);
@@ -1560,12 +1573,15 @@ public class NotebookBehavior : HoG
 
     public void LoadAvailableTransit(Client currentClient)
     {
+        _likedTransitDictionary = new Dictionary<string, int>();
+        _dislikedTransitDictionary = new Dictionary<string, int>();
+
         foreach (Transit _transit in System.Enum.GetValues(typeof(HoG.Transit)))
         {
             if (currentClient.KnownPreferredTransit.Contains(_transit))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedTransitPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _transit.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _transit.ToString();
 
                 //Add to retrievable dictionary
                 _likedTransitDictionary.Add(_transit.ToString(), (int)_transit);
@@ -1573,7 +1589,7 @@ public class NotebookBehavior : HoG
             else if (currentClient.KnownUnpreferredTransit.Contains(_transit))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedTransitPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _transit.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _transit.ToString();
 
                 //Add to retrievable dictionary
                 _dislikedTransitDictionary.Add(_transit.ToString(), (int)_transit);
@@ -1785,12 +1801,15 @@ public class NotebookBehavior : HoG
 
     public void LoadAvailableAirplaneClass(Client currentClient)
     {
+        _likedAirplaneClassDictionary = new Dictionary<string, int>();
+        _dislikedAirplaneClassDictionary = new Dictionary<string, int>();
+
         foreach (AirplaneClass _airplaneClass in System.Enum.GetValues(typeof(HoG.AirplaneClass)))
         {
             if (currentClient.KnownPreferredAirplaneClass.Contains(_airplaneClass))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _likedAirplaneClassPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _airplaneClass.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _airplaneClass.ToString();
 
                 //Add to retrievable dictionary
                 _likedAirplaneClassDictionary.Add(_airplaneClass.ToString(), (int)_airplaneClass);
@@ -1798,7 +1817,7 @@ public class NotebookBehavior : HoG
             else if (currentClient.KnownUnpreferredAirplaneClass.Contains(_airplaneClass))
             {
                 GameObject addAttribute = Instantiate(_knownActivityTextPrefab, _dislikedAirplaneClassPanel.transform);
-                addAttribute.GetComponent<TextMeshProUGUI>().text = _airplaneClass.ToString();
+                addAttribute.GetComponentInChildren<TextMeshProUGUI>().text = _airplaneClass.ToString();
 
                 //Add to retrievable dictionary
                 _dislikedAirplaneClassDictionary.Add(_airplaneClass.ToString(), (int)_airplaneClass);
