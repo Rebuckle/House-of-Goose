@@ -6,6 +6,9 @@ using DG.Tweening;
 public class Player : HoG
 {
     private const float TWEEN_SPEED = 0.5f;
+    private Vector3 MANILLA_COVER_ANGLE_OPEN = new Vector3(0, 90, -135);
+    private Vector3 MANILLA_COVER_ANGLE_CLOSED = new Vector3(0, 90, 0);
+
     public float maxSideLook = 30f;
     public float maxVerticalLook = 10f;
 
@@ -22,14 +25,14 @@ public class Player : HoG
     public Transform cameraAnchorChair;
     public Transform cameraAnchorComputer;
 
-    [HideInInspector] public Transform phoneBase;
-    [HideInInspector] public Transform phoneReciever;
-    [HideInInspector] public Transform phoneAnchorBase;
-    [HideInInspector] public Transform phoneAnchorCall;
+    public Transform phoneBase;
+    public Transform phoneReciever;
+    public Transform phoneAnchorBase;
+    public Transform phoneAnchorCall;
    
-    [HideInInspector] public Transform notebookAnchorDesk;
-    [HideInInspector] public Transform notebookAnchorCall;
-    [HideInInspector] public Transform notebook;
+    public Transform notebookAnchorDesk;
+    public Transform notebookAnchorCall;
+    public Transform notebook;
    
     public Transform manillaOpenRootAnchor;
     public Transform manillaOpenCoverAnchor;
@@ -167,35 +170,38 @@ public class Player : HoG
 
     void SetManillaZoom(int index, bool value)
     {
-        if (value && !manillaZoom)
+        if(!value)
         {
-            selectedManillaIndex = index;
-            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
-            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
-            manillaZoom = true;
-        }
-        else
-        {
-            //Reset old manilla
-            if (selectedManillaIndex != -1 && manillas[index] != manillas[selectedManillaIndex])
+            manillaZoom = false;
+            if (selectedManillaIndex != -1)
             {
                 manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
                 manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
-            }
-
-            if(!value)
-            {
+                manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
                 selectedManillaIndex = -1;
-                manillaZoom = false;
-                return;
             }
-            selectedManillaIndex = index;
-            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
-            manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
-            manillaZoom = true;
+            return;
         }
-        
+        //Reset old manilla
+        if (selectedManillaIndex != -1)
+        {
+            if (manillas[index] != manillas[selectedManillaIndex])
+            {
+                manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
+                manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
+                manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
+            }
 
+        }
+        selectedManillaIndex = index;
+        manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
+        manillas[selectedManillaIndex].DORotate(manillaOpenRootAnchor.eulerAngles, TWEEN_SPEED);
+        manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_OPEN, TWEEN_SPEED);
+
+        manillaZoom = true;
+
+
+        
     }
 
     private void OnGameStart(object sender, EventArgs e)
@@ -225,10 +231,13 @@ public class Player : HoG
                 {
                     
                 }
+                else
+                {
+                    DialogueManager.instance.SkipLine();
+                }
             }
             else
             {
-                
                 DialogueManager.instance.SkipLine();
             }
         }
@@ -274,15 +283,26 @@ public class Player : HoG
                 }
                 else
                 {
+                    bool hitManilla = false;
                     for (int i = 0; i < manillas.Length; i++)
                     {
-                        if (hit.collider.transform == manillas[i])
+                        if (hit.collider.transform == manillas[i] || hit.collider.transform.root == manillas[i])
                         {
+                            Debug.Log("Zooming to manilla " + i);
                             SetManillaZoom(i, true);
                             SetComputerZoom(false);
                             SetNotebookZoom(false);
+                            hitManilla = true;
+                            break;
                         }
                     }
+                    if (!hitManilla)
+                    {
+                        SetComputerZoom(false);
+                        SetNotebookZoom(false);
+                        SetManillaZoom(-1, false);
+                    }
+                    
                 }
 
             }

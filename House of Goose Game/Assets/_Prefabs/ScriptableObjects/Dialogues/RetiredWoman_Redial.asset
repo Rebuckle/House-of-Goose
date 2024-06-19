@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: RetiredWoman_Redial
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Hello? This is In\xEAs."
+      answers:
+      - answerLabel: "Hi In\xEAs! It's *inputPlayerName\" from *inputAgencyName*.
+          How are you?"
+        nextElement: 1
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Oh hi *inputPlayerName*, I'm doing well. How are you?
+      answers:
+      - answerLabel: I'm good, I'm good. I'm just here to confirm some details about
+          the trip.
+        nextElement: 2
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Oh of course! I'd love to chat. What do you need?
+      answers:
+      - answerLabel: Whereabouts do you want to go again?
+        nextElement: 3
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Somewhere I've been before. I've done all of Europe and come of Central
+        and South America.
+      answers:
+      - answerLabel: Perfect. How long again?
+        nextElement: 4
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Twelve days.
+      answers:
+      - answerLabel: And what are the plans for the transit, lodging, and dining?
+        nextElement: 5
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Nothing crazy for the lodging, just something comfortable and clean.
+        My husband would like to rent a car, and I think we are only doing a few
+        dinner reservations.
+      answers:
+      - answerLabel: Were we going to set you up with any activities?
+        nextElement: 6
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: I believe you said we'll do two.
+      answers:
+      - answerLabel: Right, I remember now. Where are you flying out from again?
+          And in what class?
+        nextElement: 7
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: We'll fly out from Lisbon with first class. I don't want to hurt
+        our backs on the way.
+      answers:
+      - answerLabel: Great, and what was the budget again?
+        nextElement: 8
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: $5000.
+      answers:
+      - answerLabel: "Perfect. Alright, that covers everything. Thank you for your
+          help, In\xEAs."
+        nextElement: 9
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: My pleasure. Have a good one, dear.
+      answers:
+      - answerLabel: You too.
+        nextElement: 10
+  - dialogue:
+    - line: '*click!*'
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []
