@@ -145,6 +145,7 @@ public class NotebookBehavior : HoG
 
     #region Likes and Dislikes Pages
 
+    [Header("Prefabs")]
     [SerializeField]
     GameObject _activityDropdownPrefab;
     [SerializeField]
@@ -168,9 +169,9 @@ public class NotebookBehavior : HoG
     [SerializeField]
     List<GameObject> _setDislikedLocationDropdowns;
     [SerializeField]
-    Dropdown _removalLikedLocationDropdown;
+    TMP_Dropdown _removalLikedLocationDropdown;
     [SerializeField]
-    Dropdown _removalDislikedLocationDropdown;
+    TMP_Dropdown _removalDislikedLocationDropdown;
 
     /// <summary>
     /// Populate the Client Book with Available Locations, under both Liked and Disliked panels.
@@ -410,9 +411,9 @@ public class NotebookBehavior : HoG
     [SerializeField]
     List<GameObject> _setDislikedSeasonDropdowns;
     [SerializeField]
-    Dropdown _removalLikedSeasonDropdown;
+    TMP_Dropdown _removalLikedSeasonDropdown;
     [SerializeField]
-    Dropdown _removalDislikedSeasonDropdown;
+    TMP_Dropdown _removalDislikedSeasonDropdown;
 
     public void LoadAvailableSeasons(Client currentClient)
     {
@@ -617,6 +618,8 @@ public class NotebookBehavior : HoG
 
     #region Dining
 
+    [Header("Dining")]
+
     [SerializeField]
     List<string> _availableDiningList;
     [SerializeField]
@@ -632,9 +635,9 @@ public class NotebookBehavior : HoG
     [SerializeField]
     List<GameObject> _setDislikedDiningDropdowns;
     [SerializeField]
-    Dropdown _removalLikedDiningDropdown;
+    TMP_Dropdown _removalLikedDiningDropdown;
     [SerializeField]
-    Dropdown _removalDislikedDiningDropdown;
+    TMP_Dropdown _removalDislikedDiningDropdown;
 
     public void LoadAvailableDining(Client currentClient)
     {
@@ -858,6 +861,8 @@ public class NotebookBehavior : HoG
 
     #region Lodging
 
+    [Header("Lodging")]
+
     [SerializeField]
     List<string> _availableLodgingList;
     [SerializeField]
@@ -873,9 +878,9 @@ public class NotebookBehavior : HoG
     [SerializeField]
     List<GameObject> _setDislikedLodgingDropdowns;
     [SerializeField]
-    Dropdown _removalLikedLodgingDropdown;
+    TMP_Dropdown _removalLikedLodgingDropdown;
     [SerializeField]
-    Dropdown _removalDislikedLodgingDropdown;
+    TMP_Dropdown _removalDislikedLodgingDropdown;
 
     public void LoadAvailableLodging(Client currentClient)
     {
@@ -1127,6 +1132,8 @@ public class NotebookBehavior : HoG
 
     #region Activities
 
+    [Header("Activities")]
+
     [SerializeField]
     List<string> _availableActivityList;
     [SerializeField]
@@ -1142,9 +1149,9 @@ public class NotebookBehavior : HoG
     [SerializeField]
     List<GameObject> _setDislikedActivityDropdowns;
     [SerializeField]
-    Dropdown _removalLikedActivityDropdown;
+    TMP_Dropdown _removalLikedActivityDropdown;
     [SerializeField]
-    Dropdown _removalDislikedActivityDropdown;
+    TMP_Dropdown _removalDislikedActivityDropdown;
 
     public void LoadAvailableActivities(Client currentClient)
     {
@@ -1537,9 +1544,9 @@ public class NotebookBehavior : HoG
     [SerializeField]
     List<GameObject> _setDislikedTransitDropdowns;
     [SerializeField]
-    Dropdown _removalLikedTransitDropdown;
+    TMP_Dropdown _removalLikedTransitDropdown;
     [SerializeField]
-    Dropdown _removalDislikedTransitDropdown;
+    TMP_Dropdown _removalDislikedTransitDropdown;
 
     public void LoadAvailableTransit(Client currentClient)
     {
@@ -1762,9 +1769,9 @@ public class NotebookBehavior : HoG
     [SerializeField]
     List<GameObject> _setDislikedAirplaneClassDropdowns;
     [SerializeField]
-    Dropdown _removalLikedAirplaneClassDropdown;
+    TMP_Dropdown _removalLikedAirplaneClassDropdown;
     [SerializeField]
-    Dropdown _removalDislikedAirplaneClassDropdown;
+    TMP_Dropdown _removalDislikedAirplaneClassDropdown;
 
     public void LoadAvailableAirplaneClass(Client currentClient)
     {
