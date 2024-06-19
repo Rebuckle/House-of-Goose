@@ -100,6 +100,21 @@ public class ItineraryBehavior : HoG
         }
     }
 
+    #region Day Plans
+
+    [SerializeField]
+    GameObject _dayPlanButtonsParent;
+    [SerializeField]
+    GameObject _numberedDayPrefab;
+
+    [SerializeField]
+    GameObject _activitiesButtonsParent;
+    [SerializeField]
+    GameObject _numberedActivityPrefab;
+
+    #endregion
+
+
     //Getters
 
     public Location GetLocation()
