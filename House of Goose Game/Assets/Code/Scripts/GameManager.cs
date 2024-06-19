@@ -28,8 +28,7 @@ public class GameManager : HoG
         {
             gm = this;
         }
-        gameStartArgs = new GameStartArgs();
-        gameStartArgs.player = playerObj;
+        gameStartArgs = new GameStartArgs() { player = playerObj };
         StartCoroutine(LoadOffice());
     }//end Awake
 
