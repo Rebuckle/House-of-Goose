@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewScriptableObjectScript", menuName = "Scriptable Objects/NewScriptableObjectScript")]
+[CreateAssetMenu(fileName = "Dining", menuName = "Scriptable Objects/Dining")]
 public class Dining : ScriptableObject, IExperience
 {
     [SerializeField]

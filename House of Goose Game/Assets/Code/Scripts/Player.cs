@@ -14,6 +14,14 @@ public class Player : HoG
 
     bool inPhoneCall = false;
 
+    private SFXHandler sFXHandler;
+    public AudioClip phonePickUp_Audio;
+    public AudioClip phoneHangUp_Audio;
+    public AudioClip notebookPickUp_Audio;
+    public AudioClip manilaPickUp_Audio;
+    public AudioClip computerRejectQuack_Audio;
+    public AudioClip computerClickOn_Audio;
+
 
     private bool computerZoom = false;
     private bool notebookZoom = false;
@@ -41,7 +49,7 @@ public class Player : HoG
     private int selectedManillaIndex = -1;
 
     [HideInInspector] public Transform computer;
-    
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -49,6 +57,7 @@ public class Player : HoG
         DOTween.Init();
         GameManager gm = GameObject.Find("Game Controller").GetComponent<GameManager>();
         gm.OnGameStarted += OnGameStarted;
+        sFXHandler = GameObject.Find("sfxManager").GetComponent<SFXHandler>();
 
     }
 
@@ -215,6 +224,7 @@ public class Player : HoG
         SetPhoneZoom(false);
         SetNotebookZoom(false);
         DialogueManager.OnDialogueEnded -= EndPhoneCallCallback;
+        sFXHandler.PlaySound(phoneHangUp_Audio);
     }
     void Interact()
     {
@@ -226,6 +236,7 @@ public class Player : HoG
                 if (hit.collider.transform == computer)
                 {
                     //Play computer quack sound
+                    sFXHandler.PlaySound(computerRejectQuack_Audio);
                 }
                 else if (hit.collider.transform == notebook)
                 {
@@ -253,6 +264,8 @@ public class Player : HoG
                     inPhoneCall = true;
                     DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
 
+                    sFXHandler.PlaySound(phonePickUp_Audio);
+
                     //IF CLIENT WAITING, PICK UP THE PHONE
                     if (!firstCallFinished)
                     {
@@ -272,6 +285,7 @@ public class Player : HoG
                     SetNotebookZoom(true);
                     SetComputerZoom(false);
                     SetManillaZoom(-1, false);
+                    sFXHandler.PlaySound(notebookPickUp_Audio);
                 }
 
                 else if (hit.collider.transform == computer)
@@ -279,7 +293,7 @@ public class Player : HoG
                     SetComputerZoom(true);
                     SetNotebookZoom(false);
                     SetManillaZoom(-1, false);
-
+                    sFXHandler.PlaySound(computerClickOn_Audio);
                 }
                 else
                 {
@@ -293,6 +307,7 @@ public class Player : HoG
                             SetComputerZoom(false);
                             SetNotebookZoom(false);
                             hitManilla = true;
+                            sFXHandler.PlaySound(manilaPickUp_Audio);
                             break;
                         }
                     }
@@ -300,7 +315,7 @@ public class Player : HoG
                     {
                         SetComputerZoom(false);
                         SetNotebookZoom(false);
-                        SetManillaZoom(-1, false);
+                        SetManillaZoom(-1, false);                        
                     }
                     
                 }
