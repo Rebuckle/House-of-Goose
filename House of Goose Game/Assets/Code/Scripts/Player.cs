@@ -59,7 +59,7 @@ public class Player : HoG
     {
         if(manillas.Length == 0)
         {
-            Debug.Log("No manila envelopes are loaded into the Player object yet. Wait a frame and try again");
+            Debug.Log("No manilla envelopes are loaded into the Player object yet. Wait a frame and try again");
             return;
         }
 
