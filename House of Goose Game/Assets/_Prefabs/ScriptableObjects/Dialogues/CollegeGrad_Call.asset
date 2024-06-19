@@ -18,14 +18,14 @@ MonoBehaviour:
     branchPoint:
       question: '*bzzt*'
       answers:
-      - answerLabel: Hi, this is *inputPlayerName* from *inputAgencyName*. How can
-          I help you?
+      - answerLabel: Hi, this is Stuart from Booking Dreams Agency. How can I help
+          you?
         nextElement: 1
   - dialogue: []
     endAfterDialogue: 0
     branchPoint:
-      question: "Hi *inputPlayerName*! Yes, I\u2019m calling because I saw this agency
-        online. You book mystery trips for people, right?"
+      question: "Hi Stuart! Yes, I\u2019m calling because I saw this agency online.
+        You book mystery trips for people, right?"
       answers:
       - answerLabel: Yes we do. Are you looking for a trip?
         nextElement: 2
@@ -258,7 +258,7 @@ MonoBehaviour:
         be sure to let you know.
       answers:
       - answerLabel: Sounds good. I shall get started on your trip then. Have yourself
-          a lovely day and thank you for choosing *inputAgencyName*.
+          a lovely day and thank you for choosing Booking Dreams Agency.
         nextElement: 25
   - dialogue:
     - line: '*click!*'

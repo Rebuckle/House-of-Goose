@@ -18,8 +18,8 @@ MonoBehaviour:
     branchPoint:
       question: Hi there. This is Mr. Fallas' assistant. What can I do for you?
       answers:
-      - answerLabel: Hi, yes, this is inputPlayerName from inputAgencyName. I need
-          to confirm a few more details about the trip.
+      - answerLabel: Hi, yes, this is Stuart from Booking Dreams Agency. I need to
+          confirm a few more details about the trip.
         nextElement: 1
   - dialogue: []
     endAfterDialogue: 0

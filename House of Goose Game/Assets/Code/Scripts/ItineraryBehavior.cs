@@ -42,6 +42,11 @@ public class ItineraryBehavior : HoG
 
     public void Start()
     {
+        if(TheClient == null)
+        {
+            TheClient = GameObject.Find("Game Controller").GetComponent<GameManager>().currentClient;
+        }
+
         _budgetText.text = TheClient.Budget.ToString();
         _tripCostText.text = "$0000";
     }
@@ -146,7 +151,7 @@ public class ItineraryBehavior : HoG
         GameObject _newNumberedButton = Instantiate(_numberedDayPrefab, _dayPlanButtonsParent.transform);
 
         _newDayPlusButton.gameObject.transform.SetAsLastSibling();
-        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = _newDayPlusButton.gameObject.transform.GetSiblingIndex() + 1 + "";
+        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = _newDayPlusButton.gameObject.transform.GetSiblingIndex() + "";
         _dayPlans.Add(_newDayPlan);
         _newDayPlan.SetActive(false);
 
