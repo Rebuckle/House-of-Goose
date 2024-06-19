@@ -12,4 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b22e0422497e14cb6c1205f8a76e86, type: 3}
   m_Name: RetiredWoman
   m_EditorClassIdentifier: 
-  _starRatings: []
+  _starRatings:
+  - Our retirement trip was a disaster. We were excited to revisit where we spent
+    our younger years, but the activities were far too strenuous for us, and the
+    accommodations were uncomfortable. It was not the relaxing experience we wanted,
+    and we left feeling disappointed.
+  - We enjoyed revisiting our old stomping grounds, but many of the activities were
+    too active for us with our back problems. Some parts were enjoyable, but overall,
+    it wasn't the celebratory trip we were looking for.
+  - This trip was okay but could've been better. We loved being back in a place filled
+    with memories from our youth. We had some relaxing moments, but there were a
+    few things that didn't suit us with our back problems. Overall, we were satisfied
+    but would've liked something better.
+  - We had a wonderful retirement trip! Going back to the place we cherished in our
+    younger years was incredibly special. The accommodations were comfortable, and
+    we had plenty of time to relax and reminisce. A few minor inconveniences, but
+    overall, it was a very enjoyable experience. We'd consider doing it again!
+  - Our retirement trip was perfect! Revisiting our old favorite place brought back
+    so many wonderful memories of our travels and when we fell in love. I couldn't
+    have asked for anything more! We are so happy that we found this agency, thank
+    you for taking care of us and giving us this unforgettable experience!
