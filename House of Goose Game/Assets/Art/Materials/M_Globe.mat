@@ -58,11 +58,12 @@ Material:
     - _AXIS: 0
     - _Blur_Amount: 0.35
     - _Offset: 0.31
-    - _Rim_Clamp: 7.59
+    - _Rim_Clamp: 12.41
     - _Shading_Depth: 1
     m_Colors:
     - _Albedo_Tint: {r: 1, g: 0.97822875, b: 0.9481132, a: 1}
-    - _Color_A: {r: 1, g: 0.77191246, b: 0, a: 1}
-    - _Color_B: {r: 1, g: 0.105143644, b: 0, a: 1}
+    - _Color_A: {r: 0.5283019, g: 0.46311927, b: 0.24172305, a: 1}
+    - _Color_B: {r: 0.8396226, g: 0.592007, b: 0.24951048, a: 1}
+    - _Shadow_Color: {r: 0, g: 0.11875011, b: 0.8867924, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
