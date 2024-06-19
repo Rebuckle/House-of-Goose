@@ -10,6 +10,6 @@ public class ObjectEventSubscriber : MonoBehaviour
 
     protected virtual void OnGameStart(object gameManager, GameStartArgs gsa)
     {
-        print($"Setting up {gameObject.name} from Event Delegate {gameManager}");
+        print($"Setting up {gameObject.name} from Event Delegate: {gameManager}");
     }
 }
