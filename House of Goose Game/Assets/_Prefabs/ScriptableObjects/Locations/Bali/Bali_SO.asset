@@ -20,9 +20,11 @@ MonoBehaviour:
   _attributes: 0000000001000000
   _lodging:
   - {fileID: 0}
+  - {fileID: 0}
   _dining:
   - {fileID: 0}
   _transit:
   - {fileID: 0}
   _activities:
   - {fileID: 11400000, guid: e5c916bc1e59d9f42826b11edba9c76b, type: 2}
+  _packages: []
