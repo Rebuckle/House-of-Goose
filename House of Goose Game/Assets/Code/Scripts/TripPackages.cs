@@ -16,7 +16,7 @@ public class TripPackages : ScriptableObject
     double _averagePrice;
 
     [SerializeField]
-    List<HoG.Attributes> _tags;
+    List<HoG.ActivityTags> _tags;
 
     [SerializeField]
     List<string> _activities;
@@ -24,6 +24,6 @@ public class TripPackages : ScriptableObject
     public string PackageName { get => _packageName; set => _packageName = value; }
     public Locations Location { get => _location; set => _location = value; }
     public double AveragePrice { get => _averagePrice; set => _averagePrice = value; }
-    public List<Attributes> Tags { get => _tags; set => _tags = value; }
+    public List<ActivityTags> Tags { get => _tags; set => _tags = value; }
     public List<string> Activities { get => _activities; set => _activities = value; }
 }
