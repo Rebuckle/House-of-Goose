@@ -46,6 +46,18 @@ public class ItineraryBehavior : HoG
         _tripCostText.text = "$0000";
     }
 
+    // Setters
+
+    public void SetDestinationList()
+    {
+        string _allLocs = "";
+
+        //_destinationDropdown.AddOptions();
+    }
+
+
+    // Updaters
+
     public void UpdateDestination(TMP_Dropdown change)
     {
         _destination = change.itemText.ToString();
@@ -120,6 +132,13 @@ public class ItineraryBehavior : HoG
     GameObject _activitiesButtonsParent;
     [SerializeField]
     GameObject _numberedActivityPrefab;
+    [SerializeField]
+    GameObject _newActivityPlusButton;
+
+    [SerializeField]
+    GameObject _activitiesParent;
+    [SerializeField]
+    GameObject _activitiesDropdownPrefab;
 
     public void AddNewDayPlan()
     {
@@ -127,16 +146,32 @@ public class ItineraryBehavior : HoG
         GameObject _newNumberedButton = Instantiate(_numberedDayPrefab, _dayPlanButtonsParent.transform);
 
         _newDayPlusButton.gameObject.transform.SetAsLastSibling();
-        _newDayPlusButton.GetComponentInChildren<TextMeshProUGUI>().text = _newDayPlusButton.gameObject.transform.GetSiblingIndex() + 1 + "";
+        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = _newDayPlusButton.gameObject.transform.GetSiblingIndex() + 1 + "";
         _dayPlans.Add(_newDayPlan);
+        _newDayPlan.SetActive(false);
+
+        _newDayPlan.gameObject.transform.Find("NewActivityButton-Itinerary");
     }
 
+    public void GoToDay(int index)
+    {
+        foreach(GameObject _dayPlan in _dayPlans)
+        {
+            _dayPlan.SetActive(false);
+        }
+        _dayPlans[index].SetActive(true);
+    }
 
+    public void AddNewActivityDropdown()
+    {
+        GameObject _newActivity = Instantiate(_activitiesDropdownPrefab, _activitiesParent.transform);
+        GameObject _newNumberedButton = Instantiate(_numberedActivityPrefab, _activitiesButtonsParent.transform);
 
-
+        _newActivityPlusButton.gameObject.transform.SetAsLastSibling();
+        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = _newActivityPlusButton.gameObject.transform.GetSiblingIndex() + 1 + "";
+    }
 
     #endregion
-
 
     //Getters
 
