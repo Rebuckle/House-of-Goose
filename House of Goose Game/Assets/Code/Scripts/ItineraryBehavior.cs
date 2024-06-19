@@ -49,15 +49,22 @@ public class ItineraryBehavior : HoG
 
         _budgetText.text = TheClient.Budget.ToString();
         _tripCostText.text = "$0000";
+
+        SetDestinationList();
     }
 
     // Setters
-
+    
     public void SetDestinationList()
     {
-        string _allLocs = "";
+        List<string> _allLocs = new List<string>();
 
-        //_destinationDropdown.AddOptions();
+        foreach (HoG.Locations _location in System.Enum.GetValues(typeof(HoG.Locations)))
+        {
+            _allLocs.Add(_location.ToString());
+        }
+
+        _destinationDropdown.AddOptions(_allLocs);
     }
 
 
