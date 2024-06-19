@@ -12,4 +12,230 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
   m_Name: Father_Call
   m_EditorClassIdentifier: 
-  sections: []
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: '*bzzt*'
+      answers:
+      - answerLabel: Hello! This is inputPlayerName from inputAgencyName. How can
+          I assist you?
+        nextElement: 1
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Hello. I'm planning my very first family trip and need some assistance.
+        My friend has used your service and was very happy with the result.
+      answers:
+      - answerLabel: "I\u2019m glad to hear it! I will ask you a couple of questions
+          to guage what you are looking for and will begin building your trip from
+          there. Does that sound good?"
+        nextElement: 2
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Sounds perfect.
+      answers:
+      - answerLabel: Great! First off, can you tell me about what kind of destination
+          you are interested in? And how long you are going?
+        nextElement: 3
+  - dialogue:
+    - line: "Sure. We\u2019re looking for a place that is kid-friendly since I have
+        an 8-year-old and a 5-year-old."
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: We love nature and the beach and are generally looking for somewhere
+        that is safe and affordable. And we are going for four days.
+      answers:
+      - answerLabel: Do you have a preference on seasons?
+        nextElement: 4
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Yes, actually. We would like to visit either during the spring or
+        autumn. My wife's not great with heat.
+      answers:
+      - answerLabel: Got it.
+        nextElement: 5
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: Tell me about your activity preferences.
+        nextElement: 6
+      - answerLabel: Tell me about your lodging.
+        nextElement: 11
+      - answerLabel: Tell me about your flight and budget.
+        nextElement: 15
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: "Do you have any specific activities in mind that you\u2019d
+          like to include in your itinerary?"
+        nextElement: 7
+  - dialogue:
+    - line: "We\u2019d like to have a mix of experiences, stuff that\u2019ll stay
+        in our kids\u2019 memories forever."
+      client: 0
+    - line: We want options to go hiking, maybe go to an amusement park, grab some
+        local sweets and wander around.
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "I\u2019d be willing to pay for one pricier experience if the rest
+        are on the lower end price-wise."
+      answers:
+      - answerLabel: Understood. Do you have a particular amount in mind?
+        nextElement: 8
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: No more than four.
+      answers:
+      - answerLabel: Sure. Do you have any particular dislikes that I should keep
+          in mind?
+        nextElement: 9
+  - dialogue:
+    - line: Um... I guess I want to avoid anything dangerous and generally keep everything
+        enjoyable for the kids.
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Maybe nothing that is in a mature or quiet setting since they\u2019re
+        a bit high-energy."
+      answers:
+      - answerLabel: Of course.
+        nextElement: 10
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Tell me about your lodging.
+        nextElement: 11
+      - answerLabel: Tell me about your flight and budget.
+        nextElement: 15
+      - answerLabel: I have everything I need.
+        nextElement: 19
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Now, are you planning on using our dining and transit services?
+        nextElement: 12
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Yes, I was reading up on it. We want to rent a car if that is possible.
+        As for dining, I\u2019d like to keep it relatively affordable with maybe
+        three booked meals. We\u2019ll bring snacks and cook the rest."
+      answers:
+      - answerLabel: Sound like a plan. And what kind lodging would you like me to
+          book?
+        nextElement: 13
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Just a simple hotel will suffice. The kids, wife, and I will all
+        stay in one room together. We won't be in there often so let's keep it relatively
+        low in cost as well.
+      answers:
+      - answerLabel: Fantastic. I will do that. Just a couple more questions left.
+        nextElement: 14
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Tell me about your activity preferences.
+        nextElement: 6
+      - answerLabel: Tell me about your flight and budget.
+        nextElement: 15
+      - answerLabel: I have everything I need.
+        nextElement: 19
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Where are you currently located, and what is your budget for
+          this trip?
+        nextElement: 16
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: We are in Montreal, Canada and want to spend no more than $7000.
+      answers:
+      - answerLabel: Great, I can work with that. By the way, for the flight, do
+          you have a class preference?
+        nextElement: 17
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Class? Economy is perfectly fine for us.
+      answers:
+      - answerLabel: Alright I will get that set up then.
+        nextElement: 18
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Tell me about your activity preferences.
+        nextElement: 6
+      - answerLabel: Tell me about your lodging.
+        nextElement: 11
+      - answerLabel: I have everything I need.
+        nextElement: 19
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Okay! We are done. Do you have any other questions or special
+          requests?
+        nextElement: 20
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Will you be taking care of insurance?
+      answers:
+      - answerLabel: I can send you information to forward to your insurance company.
+          They can set you up with packages from there.
+        nextElement: 21
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: "Most insurances know about how our agencies work so they won\u2019t
+          spoil the surprise for you."
+        nextElement: 22
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Perfect. I have no other questions.
+      answers:
+      - answerLabel: Awesome, alright, I will get started on your trip immediately.
+          I will reach out if I need to confirm anything else.
+        nextElement: 23
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Thank you for your help.
+      answers:
+      - answerLabel: No problem! Have a great day and thank you for choosing *inputAgencyName*!
+          Bye for now.
+        nextElement: 24
+  - dialogue:
+    - line: Bye.
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []
