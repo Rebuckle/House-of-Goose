@@ -51,5 +51,5 @@ MonoBehaviour:
   _dislikedActivityTags: 0e00000004000000030000000b00000014000000
   _knownLikedActivityTags: 05000000
   _knownDislikedActivityTags: 0b000000
-  _mainDialogue: {fileID: 0}
-  _repeatDialogue: {fileID: 0}
+  _mainDialogue: {fileID: 11400000, guid: 619d53302e9e8bc43bbb9fab60772cab, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: de70c60446b77eb479b5b7b15560e9f7, type: 2}

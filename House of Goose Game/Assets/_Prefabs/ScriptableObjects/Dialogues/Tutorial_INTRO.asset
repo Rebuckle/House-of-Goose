@@ -12,4 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
   m_Name: Tutorial_INTRO
   m_EditorClassIdentifier: 
-  sections: []
+  sections:
+  - dialogue:
+    - line: Hello *inputPlayerName*. Welcome to your first shift at *inputAgencyName*.
+        Before you begin, you must complete our training module.
+      client: 0
+    - line: Every day, you will receive calls from potential clients. As you know,
+        we are a travel agency that prides itself on delivering the absolute best
+        trips for our clients.
+      client: 0
+    - line: We are unique and innovative with our mystery trip planning structure.
+        We follow a series of structured questions to ensure their satisfaction with
+        a trip planned entirely outside of their knowledge.
+      client: 0
+    - line: With every call you receive. You must take notes about the client in
+        your provided notebook.
+      client: 0
+    - line: Record what they like and dislike, and most imporantly, always write
+        down their budget.
+      client: 0
+    - line: After the call has completed, research potential locations that compliment
+        their preferences.
+      client: 0
+    - line: Find out what season they'd prefer, if they need any dining or transit
+        coverage, what sort of lodging they would like, and if there are any activities
+        that would interest them.
+      client: 0
+    - line: 'As the client''s budget is extremely important, your computer has been
+        set up to conveniently calculate your itinerary. Enter in all of your plans
+        and click calculate to ensure it is within the desired range. '
+      client: 0
+    - line: Once you are confident, click submit. After you click submit, your phone
+        will become available again and the next client will be connected to you.
+      client: 0
+    - line: Once you are confident, click submit. After you click submit, your phone
+        will become available again and the next client will be connected to you.
+      client: 0
+    - line: 'This one is a recording of a previous conversation between a client
+        and another travel agent. Listen in and run through all of the tasks. '
+      client: 0
+    - line: 'This one is a recording of a previous conversation between a client
+        and another travel agent. Listen in and run through all of the tasks. '
+      client: 0
+    - line: Good luck!
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []

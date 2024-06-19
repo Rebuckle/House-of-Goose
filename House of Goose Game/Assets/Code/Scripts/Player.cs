@@ -186,7 +186,7 @@ public class Player : HoG
             {
                 manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
                 manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
-                manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
+                manillas[selectedManillaIndex].Find("Armature").Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
                 selectedManillaIndex = -1;
             }
             return;
@@ -198,14 +198,14 @@ public class Player : HoG
             {
                 manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
                 manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
-                manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
+                manillas[selectedManillaIndex].Find("Armature").Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
             }
 
         }
         selectedManillaIndex = index;
         manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
         manillas[selectedManillaIndex].DORotate(manillaOpenRootAnchor.eulerAngles, TWEEN_SPEED);
-        manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_OPEN, TWEEN_SPEED);
+        manillas[selectedManillaIndex].Find("Armature").Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_OPEN, TWEEN_SPEED);
 
         manillaZoom = true;
 
