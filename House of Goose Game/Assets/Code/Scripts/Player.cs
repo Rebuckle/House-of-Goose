@@ -19,7 +19,7 @@ public class Player : HoG
     public float maxVerticalLook = 10f;
     private Vector2 targetLookAngle;
 
-    private bool firstCallFinished = true;
+    private bool firstCallFinished = false;
 
     public Transform phoneBase;
     public Transform phoneReciever;
@@ -147,6 +147,7 @@ public class Player : HoG
     {
         inPhoneCall = false;
         SetPhoneZoom(false);
+        SetNotebookZoom(false);
         DialogueManager.OnDialogueEnded -= EndPhoneCallCallback;
     }
     void Interact()
@@ -178,20 +179,22 @@ public class Player : HoG
                 Debug.Log("Hit " + hit.collider.name);
                 if (hit.collider.transform == phoneBase || hit.collider.transform == phoneReciever)
                 {
+                    SetNotebookZoom(true);
                     //IF CLIENT WAITING, PICK UP THE PHONE
                     if (!firstCallFinished)
                     {
                         SetPhoneZoom(true);
-                        Debug.Log ("Entering call dialogue with " + GameManager.gm.currentClient.name + "...");
+                        Debug.Log ("Entering main dialogue with " + GameManager.gm.currentClient.name + "...");
                         DialogueManager.instance.StartDialogue(GameManager.gm.currentClient.MainDialogue);
                         inPhoneCall = true;
+                        firstCallFinished = true;
                         DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
                     }
                     //ELSE CALL CLIENT BACK
                     else
                     {
                         SetPhoneZoom(true);
-                        Debug.Log ("Entering callback dialogue with " + GameManager.gm.currentClient.name + "...");
+                        Debug.Log ("Entering redial dialogue with " + GameManager.gm.currentClient.name + "...");
                         DialogueManager.instance.StartDialogue(GameManager.gm.currentClient.RepeatDialogue);
                         inPhoneCall = true;
                         DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
@@ -202,7 +205,7 @@ public class Player : HoG
                 {
                     SetNotebookZoom(true);
                     SetComputerZoom(false);
-                    SetNotebookZoom(false);
+                    SetManillaZoom(false);
                 }
                 else if (hit.collider.transform == manilla)
                 {

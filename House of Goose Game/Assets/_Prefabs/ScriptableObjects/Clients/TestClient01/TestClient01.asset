@@ -40,7 +40,8 @@ MonoBehaviour:
   _unpreferredTransit: 02000000
   _knownPreferredTransit: 
   _knownUnpreferredTransit: 
-  _knownAirplaneClass: 0
+  _knownPreferredAirplaneClass: 
+  _knownUnpreferredAirplaneClass: 
   _lodgingQuality: 0000000001000000
   _knownLodgingQuality: 
   _optOutActivity: 0
@@ -49,5 +50,5 @@ MonoBehaviour:
   _dislikedActivityTags: 0f0000001000000008000000
   _knownLikedActivityTags: 
   _knownDislikedActivityTags: 
-  _mainDialogue: {fileID: 11400000, guid: aeb0b016b18a5794eb8d8f0c6e3d8c2d, type: 2}
-  _repeatDialogue: {fileID: 11400000, guid: aeb0b016b18a5794eb8d8f0c6e3d8c2d, type: 2}
+  _mainDialogue: {fileID: 11400000, guid: 78d4130dbe30ebe40a63d045b896a870, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: bec0692e628e4414c8a09aea764f850f, type: 2}

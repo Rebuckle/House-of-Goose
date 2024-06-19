@@ -1,0 +1,261 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: RetiredWoman_Call
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: '*b'
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue:
+    - line: "Hello *inputPlayerName*. My husband and I are looking to celebrate our
+        retirement by revisiting a country we\u2019ve been to before."
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "He and I used to travel when we were first dating, and, well, we
+        haven\u2019t had the chance to go out for a while now. Can you help us?"
+      answers:
+      - answerLabel: Sure. Just to let you know, this is a mystery travel agency,
+          so we plan trips for our clients and surprise them when they land. Is this
+          okay with you?
+        nextElement: 2
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Yes, as long as it\u2019s one of the countries we\u2019ve been to,
+        I don\u2019t mind the surprise."
+      answers:
+      - answerLabel: Great! And where have you been before?
+        nextElement: 3
+  - dialogue:
+    - line: We have been to every country across Europe, as well as Central and South
+        America.
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: Since we are a bit older now, we want somewhere that is easy for
+        us to get around.
+      answers:
+      - answerLabel: Of course. How long of a trip would you like?
+        nextElement: 4
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Nothing too long. I think we\u2019ll miss our cats if we\u2019re
+        gone for two weeks. Let\u2019s go with twelve days for now."
+      answers:
+      - answerLabel: Twelve days is perfect. Just enough time to relax without getting
+          too homesick. What seasons would you like to travel?
+        nextElement: 5
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: I love flowers, so whenever they are blooming and vibrant.
+      answers:
+      - answerLabel: Not a problem! I will book something around then.
+        nextElement: 6
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Tell me about your lodging.
+        nextElement: 7
+      - answerLabel: Tell me about your activity preferences.
+        nextElement: 16
+      - answerLabel: Tell be about your flight and budget needs.
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: And how would you like to get around?
+        nextElement: 8
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Well, my husband loves driving, so we would like to rent a car if
+        that\u2019s possible."
+      answers:
+      - answerLabel: Now, what sort of lodging would you like?
+        nextElement: 9
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Something comfy where they\u2019ll take care of us. We don\u2019t
+        need anything fancy. A three-star is more than enough."
+      answers:
+      - answerLabel: Great. And would you like dining coverage?
+        nextElement: 10
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Sorry, how does that work?
+      answers:
+      - answerLabel: "No worries! Essentially we can either provide you a reservation
+          a day so you don\u2019t need to go searching for dinner, or we can book
+          them on specific days."
+        nextElement: 11
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Whatever you desire, we can do.
+        nextElement: 12
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Oh okay. I understand. What would you recommend?
+      answers:
+      - answerLabel: "Hm\u2026 do you think you\u2019ll be cooking at all?"
+        nextElement: 13
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Oh yes. We love to cook together, but it does get overwhelming at
+        times.
+      answers:
+      - answerLabel: Then how about we give you six nights of coverage? Give you
+          two a few breaks from the kitchen.
+        nextElement: 14
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "I think that sounds lovely. Let\u2019s go with six. Nothing too
+        expensive please."
+      answers:
+      - answerLabel: No worries. I will write that down.
+        nextElement: 15
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: Tell me about your activity preferences.
+        nextElement: 16
+      - answerLabel: Tell be about your flight and budget needs.
+        nextElement: 0
+      - answerLabel: That's all for now.
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: Hi there! This is *inputPlayerName* from *inputAgencyName*.
+          What can I do for you?
+        nextElement: 1
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: 
+      answers:
+      - answerLabel: 
+        nextElement: 0
