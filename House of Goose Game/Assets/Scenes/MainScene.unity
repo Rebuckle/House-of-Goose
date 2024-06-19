@@ -1668,8 +1668,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraAnchorChair: {fileID: 674698515}
   cameraAnchorComputer: {fileID: 682898860}
-  notebookAnchorDesk: {fileID: 580477574}
-  notebookAnchorCall: {fileID: 1155633764}
+  notebookAnchorDesk: {fileID: 1155633764}
+  notebookAnchorCall: {fileID: 580477574}
   maxSideLook: 30
   maxVerticalLook: 10
   phoneBase: {fileID: 1814510273}

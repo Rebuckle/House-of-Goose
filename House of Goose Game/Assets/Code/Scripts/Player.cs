@@ -147,6 +147,7 @@ public class Player : HoG
     {
         inPhoneCall = false;
         SetPhoneZoom(false);
+        SetNotebookZoom(false);
         DialogueManager.OnDialogueEnded -= EndPhoneCallCallback;
     }
     void Interact()
@@ -178,6 +179,7 @@ public class Player : HoG
                 Debug.Log("Hit " + hit.collider.name);
                 if (hit.collider.transform == phoneBase || hit.collider.transform == phoneReciever)
                 {
+                    SetNotebookZoom(true);
                     //IF CLIENT WAITING, PICK UP THE PHONE
                     if (!firstCallFinished)
                     {
@@ -203,7 +205,7 @@ public class Player : HoG
                 {
                     SetNotebookZoom(true);
                     SetComputerZoom(false);
-                    SetNotebookZoom(false);
+                    SetManillaZoom(false);
                 }
                 else if (hit.collider.transform == manilla)
                 {
