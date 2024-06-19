@@ -1,15 +1,13 @@
 using UnityEditor;
 using UnityEngine;
+using System;
 using DG.Tweening;
-
 
 public class Player : HoG
 {
     private const float TWEEN_SPEED = 0.5f;
     public float maxSideLook = 30f;
     public float maxVerticalLook = 10f;
-
-
 
     bool inPhoneCall = false;
 
@@ -24,35 +22,47 @@ public class Player : HoG
     public Transform cameraAnchorChair;
     public Transform cameraAnchorComputer;
 
-    public Transform phoneBase;
-    public Transform phoneReciever;
-
-    public Transform phoneAnchorBase;
-    public Transform phoneAnchorCall;
-
-    public Transform notebookAnchorDesk;
-    public Transform notebookAnchorCall;
-    public Transform notebook;
-
+    [HideInInspector] public Transform phoneBase;
+    [HideInInspector] public Transform phoneReciever;
+    [HideInInspector] public Transform phoneAnchorBase;
+    [HideInInspector] public Transform phoneAnchorCall;
+   
+    [HideInInspector] public Transform notebookAnchorDesk;
+    [HideInInspector] public Transform notebookAnchorCall;
+    [HideInInspector] public Transform notebook;
+   
     public Transform manillaOpenRootAnchor;
-
     public Transform manillaOpenCoverAnchor;
-    public Transform[] manillas;
-
+    private Transform[] manillas;
     private Transform[] manillaBaseAnchors;
     private int selectedManillaIndex = -1;
-    public Transform computer;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    [HideInInspector] public Transform computer;
+    
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.lockState = CursorLockMode.None;
         DOTween.Init();
+        GameManager gm = GameObject.Find("Game Controller").GetComponent<GameManager>();
+        gm.OnGameStarted += OnGameStarted;
+
+    }
+
+    private void OnGameStarted(object gm, GameStartArgs gsa)
+    {
+        manillas = gsa.manillas.ToArray();
         CreateManillaAnchors();
     }
 
     void CreateManillaAnchors()
     {
+        if(manillas.Length == 0)
+        {
+            Debug.Log("No manila envelopes are loaded into the Player object yet. Wait a frame and try again");
+            return;
+        }
+
         manillaBaseAnchors = new Transform[manillas.Length];
         Transform baseAnchor = new GameObject("Manilla Anchors").transform;
         for  (int i = 0; i < manillas.Length; i++)   
@@ -187,6 +197,12 @@ public class Player : HoG
         
 
     }
+
+    private void OnGameStart(object sender, EventArgs e)
+    {
+
+    }
+
     void EndPhoneCallCallback()
     {
         inPhoneCall = false;

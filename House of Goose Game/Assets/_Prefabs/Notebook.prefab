@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2102209138799030573}
+  - component: {fileID: 4224760148604545136}
   m_Layer: 0
   m_Name: Notebook
   m_TagString: Untagged
@@ -34,6 +35,20 @@ Transform:
   - {fileID: 8377424805587428432}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4224760148604545136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629150353589209487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478726130a324ec4281ec12990c69875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nbAnchorCall: {fileID: 2138792992236563354}
+  nbAnchorDesk: {fileID: 8377424805587428432}
 --- !u!1 &8413282734265615057
 GameObject:
   m_ObjectHideFlags: 0
