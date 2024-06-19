@@ -147,4 +147,5 @@ public class Client : ScriptableObject
     public DialogueTree RepeatDialogue { get => _repeatDialogue; set => _repeatDialogue = value; }
     public List<AirplaneClass> KnownPreferredAirplaneClass { get => _knownPreferredAirplaneClass; set => _knownPreferredAirplaneClass = value; }
     public List<AirplaneClass> KnownUnpreferredAirplaneClass { get => _knownUnpreferredAirplaneClass; set => _knownUnpreferredAirplaneClass = value; }
+    public AirplaneClass AirplaneClass { get => _airplaneClass; set => _airplaneClass = value; }
 }
