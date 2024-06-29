@@ -347,6 +347,10 @@ PrefabInstance:
       propertyPath: field of view
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 8421678369401967409, guid: f877a13b3f49e944fbcaadd538736d90, type: 3}
+      propertyPath: near clip plane
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -499,6 +503,8 @@ MonoBehaviour:
   manilaPickUp_Audio: {fileID: 8300000, guid: 3f873e0fbe5b5694493c9698cedfbe3d, type: 3}
   computerRejectQuack_Audio: {fileID: 8300000, guid: 2c2ad07001359fb468df5487d71a7ae4, type: 3}
   computerClickOn_Audio: {fileID: 8300000, guid: 67bd59557930d8749b2a746727b808b7, type: 3}
+  phoneRing_Audio: {fileID: 8300000, guid: 5114ce09520a99b408c7c79b3de3ac18, type: 3}
+  phoneBusy_Audio: {fileID: 8300000, guid: b27853e946e8dda45a5285c3c7e89531, type: 3}
   cameraAnchorChair: {fileID: 674698515}
   cameraAnchorComputer: {fileID: 682898860}
   phoneBase: {fileID: 0}

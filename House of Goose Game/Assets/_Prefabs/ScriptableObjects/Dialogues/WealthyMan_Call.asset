@@ -1,0 +1,259 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: WealthyMan_Call
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: '*bzzt*'
+      answers:
+      - answerLabel: Hi there! This is Stuart from Booking Dreams Agency. How can
+          I assist you?
+        nextElement: 1
+  - dialogue:
+    - line: Hello. I want to plan a special trip for my father and I, but I am far
+        too busy to make it myself.
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: "I heard that your agency requires the least amount of effort on
+        the clients\u2019 side. Is this correct?"
+      answers:
+      - answerLabel: Yes, we actually plan mystery trips based off of a series of
+          prompts. The only work there is on your side would simply be answering
+          a couple of questions. Does that interest you?
+        nextElement: 2
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Sure, but let\u2019s make this quick. I have a meeting coming up."
+      answers:
+      - answerLabel: "Of course. Let\u2019s get right into it. Can you describe the
+          kind of destination you\u2019re envisioning? And what time of year you\u2019d
+          prefer."
+        nextElement: 3
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "We\u2019re looking to travel somewhere that has a modern city and
+        a waterfront. We prefer the colder and quieter months, so winter or autumn."
+      answers:
+      - answerLabel: Great.
+        nextElement: 4
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Tell me about the lodging and dining.
+        nextElement: 5
+      - answerLabel: Tell me about your activity prefrences.
+        nextElement: 9
+      - answerLabel: Tell me about the flight.
+        nextElement: 15
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Have you had time to review how our dining and transit bundles
+          work?
+        nextElement: 6
+  - dialogue:
+    - line: "I\u2019ll make it simple. We want a private driver to be available between
+        8:00am to 8:00pm every day."
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: We also want to have all of our dinners booked and will only accept
+        the best of the best. Money is not an object.
+      answers:
+      - answerLabel: Sure. I will write that down. What sort of lodging would you
+          like?
+        nextElement: 7
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: I only do presidential suites. We want one with two bedrooms and
+        available room serve. Make sure it has an ocean view.
+      answers:
+      - answerLabel: Not a problem.
+        nextElement: 8
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Wonderful, what next?
+      answers:
+      - answerLabel: Tell me about your activity prefrences.
+        nextElement: 9
+      - answerLabel: Tell me about the flight.
+        nextElement: 15
+      - answerLabel: I have everything I need.
+        nextElement: 25
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: Will you be partaking in any activities?
+        nextElement: 10
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Activities?
+      answers:
+      - answerLabel: Yes, we offer to book activities to save you the trouble of
+          researching it later.
+        nextElement: 11
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Sure. Book four.
+      answers:
+      - answerLabel: Fantastic. What do you usually like and dislike?
+        nextElement: 12
+  - dialogue:
+    - line: "I\u2019ll tell you what I hate: busy crowds, loud kids, and messed of
+        any sort."
+      client: 0
+    endAfterDialogue: 0
+    branchPoint:
+      question: My father has a fear of animals so nothing that involves being around
+        them. He also has trouble walking so everything needs to be accessible for
+        him.
+      answers:
+      - answerLabel: Understood. And for your likes?
+        nextElement: 13
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Anything that is not that.
+      answers:
+      - answerLabel: Oh, sure.
+        nextElement: 14
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Right, what's next?
+      answers:
+      - answerLabel: Tell me about the lodging and dining.
+        nextElement: 5
+      - answerLabel: Tell me about the flight.
+        nextElement: 15
+      - answerLabel: I have everything I need.
+        nextElement: 25
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: How many days are you looking at?
+        nextElement: 16
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Ten.
+      answers:
+      - answerLabel: Ten it is. Where are you two flying out from?
+        nextElement: 17
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "We\u2019ll take my private jet from San Juan."
+      answers:
+      - answerLabel: Ah, we have an airline that will conveniently and comfortably
+          take you to your destination. It has first class and will ensure the trip
+          remains a surprise.
+        nextElement: 18
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "I\u2019m not taking my father through the airport. We\u2019ll be
+        taking my jet. Forward the trip to my assistant, I\u2019ll tell them to keep
+        it a mystery."
+      answers:
+      - answerLabel: "I understand, but unfortunately I still need to book a spot
+          on my airline. The system doesn\u2019t let me opt out of that option."
+        nextElement: 19
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "So if I pay for two tickets, there won\u2019t be a problem?"
+      answers:
+      - answerLabel: "That\u2019s correct."
+        nextElement: 20
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Fine. We\u2019ll book two first classes. Advertise it to anyone
+        that wants a free roundtrip to the same location. I couldn\u2019t care less."
+      answers:
+      - answerLabel: "Oh! That\u2019s awfully kind of you. I\u2019ll go ahead and
+          do that then."
+        nextElement: 21
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Is that everything?
+      answers:
+      - answerLabel: Just one more thing. What is the budget?
+        nextElement: 22
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Like I said, money is not a problem.
+      answers:
+      - answerLabel: Of course! I just need a value to put in the system.
+        nextElement: 23
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Put $30,000 and call it a day.
+      answers:
+      - answerLabel: $30,000 it is.
+        nextElement: 24
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Need anything else?
+      answers:
+      - answerLabel: Tell me about the lodging and dining.
+        nextElement: 5
+      - answerLabel: Tell me about your activity prefrences.
+        nextElement: 9
+      - answerLabel: I have everything I need.
+        nextElement: 25
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: ...
+      answers:
+      - answerLabel: "I\u2019ll finish everything up and have your trip planned in
+          no time."
+        nextElement: 26
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: "Good. Contact my assistant if there\u2019s a problem."
+      answers:
+      - answerLabel: Will do! Have a great day and thank you for choosing Booking
+          Dreams Agency.
+        nextElement: 27
+  - dialogue:
+    - line: '*click!*'
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []

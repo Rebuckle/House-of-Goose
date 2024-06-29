@@ -25,8 +25,8 @@ MonoBehaviour:
     branchPoint:
       question: Yep that's me. What can I do for you?
       answers:
-      - answerLabel: It's *inputPlayerName* from *inputAgencyName*. I just need to
-          confirm some things about the trip. Do you have a moment?
+      - answerLabel: It's Stuart from Booking Dreams Agency. I just need to confirm
+          some things about the trip. Do you have a moment?
         nextElement: 2
   - dialogue: []
     endAfterDialogue: 0

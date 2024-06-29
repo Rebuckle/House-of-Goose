@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b22e0422497e14cb6c1205f8a76e86, type: 3}
+  m_Name: Father
+  m_EditorClassIdentifier: 
+  _starRatings:
+  - 'Our family trip was a total letdown. The accommodations were terrible, and we
+    faced constant issues. It was not the experience we hoped for. '
+  - "The trip was decent, but I wouldn't do this again. Although we made sure the
+    kids had fun, the place wasn\u2019t great and we encountered several problems.
+    Not worth it. I'll be planning everything here on out."
+  - The mystery trip was decent. The kids enjoyed it, and we made some good memories.
+    There were a few hiccups, but overall, it was a satisfactory experience.
+  - We had a great family trip! The place was nice, and the kids loved it. There
+    were a few minor issues, but overall, we were happy with the experience. Would
+    consider doing it again.
+  - Our trip was fantastic! The kids had the time of their lives, and everything
+    went smoothly. It was affordable and exceeded our expectations. An unforgettable
+    experience for our family! We will definitely do this again.

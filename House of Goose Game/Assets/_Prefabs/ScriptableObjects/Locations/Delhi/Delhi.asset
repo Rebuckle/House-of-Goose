@@ -12,14 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d98df1ffd74c4587d1966858bcfe9, type: 3}
   m_Name: Delhi
   m_EditorClassIdentifier: 
-  _name: 0
-  _unlocked: 0
+  _name: 4
+  _unlocked: 1
   _peakSeason: 0
-  _downSeason: 0
-  _region: 0
-  _attributes: 
-  _lodging: []
-  _dining: []
-  _transit: []
-  _activities: []
-  _packages: []
+  _downSeason: 1
+  _region: 4
+  _attributes: 0100000004000000
+  _lodging:
+  - {fileID: 11400000, guid: 710d13ebf2e0fda4b9a973d61a70ffe2, type: 2}
+  - {fileID: 11400000, guid: 33f8fb8d2c6471a48ad3118ac783eb5c, type: 2}
+  - {fileID: 11400000, guid: 0986111d17d8a5b478d84b83e9d1c9c2, type: 2}
+  - {fileID: 11400000, guid: a60886a8bfc7d9647a19ae777975cfce, type: 2}
+  - {fileID: 11400000, guid: f87cec5a261ed88428b4aab88671cb2a, type: 2}
+  _dining:
+  - {fileID: 11400000, guid: f805acb94c54a184db9602e01483d822, type: 2}
+  - {fileID: 11400000, guid: cbc429e9a52f0e74f92e5cf9b8f4e52f, type: 2}
+  - {fileID: 11400000, guid: c50762cd8a32aa74aa85c1a638835116, type: 2}
+  _transit:
+  - {fileID: 11400000, guid: 9cc49f62d06ba1945aa5b1a668e86d78, type: 2}
+  - {fileID: 11400000, guid: f95a767f5eaf3a342b570fa7825b4399, type: 2}
+  - {fileID: 11400000, guid: 02e73de81231bd7408b99630609076b6, type: 2}
+  _activities:
+  - {fileID: 11400000, guid: 29ef0a0a76970fa4f9a1d35c0d75b078, type: 2}
+  - {fileID: 11400000, guid: d7823f102b8eeb14fa8c9a430878723d, type: 2}
+  - {fileID: 11400000, guid: 85b4aec1af6d33c4e826d82b52ba90a9, type: 2}
+  - {fileID: 11400000, guid: acfe4148c2f33bc40b763f56a0a64f0c, type: 2}
+  - {fileID: 11400000, guid: b2d2762b76e7a61428fc4615be3b4aa7, type: 2}
+  _packages:
+  - {fileID: 11400000, guid: 36aa4122de94712408ff7ac483ff0289, type: 2}
+  - {fileID: 11400000, guid: 8b5e39c60aa5fd047b8821b4f0dbf584, type: 2}

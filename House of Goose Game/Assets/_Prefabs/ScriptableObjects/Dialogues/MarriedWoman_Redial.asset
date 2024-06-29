@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec18db075a14d244af1225865b5a2f4, type: 3}
+  m_Name: MarriedWoman_Redial
+  m_EditorClassIdentifier: 
+  sections:
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Hello?
+      answers:
+      - answerLabel: Hi, is this Suyin?
+        nextElement: 1
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Yes it is. Who is this?
+      answers:
+      - answerLabel: It's Stuart from Booking Dreams Agency. I just need to confirm
+          a few things about the trip. Do you have a moment?
+        nextElement: 2
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Uh... yeah. I'm just heading to work. What do you need?
+      answers:
+      - answerLabel: I'm going to go over a few details before I proceed with the
+          booking. It'll be a couple of questions.
+        nextElement: 3
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Sure! Go ahead.
+      answers:
+      - answerLabel: When do you want to go and what sort of location would you like?
+        nextElement: 4
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: We want either summer or autumn, and ideally somewhere that's a bit
+        older with a beach. It also needs to be safe for my wife and I.
+      answers:
+      - answerLabel: Right. And what were the plans for lodging, transit, and dining?
+        nextElement: 5
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Daily coverage for dining, somewhere nice that's not insanely expensive.
+        We want a private driver and really nice lodging. But again, nothing absurdly
+        costly.
+      answers:
+      - answerLabel: Perfect, I will write that down. And what are we doing for activities?
+        nextElement: 6
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: We want to do a fair bit. I think we agreed on eight. Anything that
+        is active, romantic, and just exciting will make us happy.
+      answers:
+      - answerLabel: And what is the plan for the flight again?
+        nextElement: 7
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: We'll leave from Singapore and want to take business class. And our
+        budget was 6500.
+      answers:
+      - answerLabel: You beat me to my last question. Alright, that is everything.
+          I'll let you know when I'm finished.
+        nextElement: 8
+  - dialogue: []
+    endAfterDialogue: 0
+    branchPoint:
+      question: Thanks! We'll chat then. Bye for now.
+      answers:
+      - answerLabel: Bye.
+        nextElement: 9
+  - dialogue:
+    - line: '*click*'
+      client: 0
+    endAfterDialogue: 1
+    branchPoint:
+      question: 
+      answers: []

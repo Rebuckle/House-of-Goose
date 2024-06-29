@@ -26,13 +26,14 @@ Material:
   m_Name: M_Manila
   m_Shader: {fileID: -6465566751694194690, guid: 83b2304374792d84a84b21af2fb17121, type: 3}
   m_Parent: {fileID: 2100000, guid: e3e6be16ca0ff904b8b5784570c6c336, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 8
   m_ValidKeywords:
   - _AXIS_VERTICAL
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _DOUBLESIDED_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
+  m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap:
     MotionVector: User
@@ -53,6 +54,9 @@ Material:
     m_Floats:
     - _AXIS: 0
     - _Blur_Amount: 0.001
+    - _CullMode: 0
+    - _CullModeForward: 0
+    - _DoubleSidedEnable: 1
     - _Offset: 0.001
     - _Overlay_Blending: 0.89
     - _Overlay_Intensity: 0
@@ -62,7 +66,7 @@ Material:
     m_Colors:
     - _Albedo_Tint: {r: 0.9622642, g: 0.89769554, b: 0.64907444, a: 1}
     - _Color_A: {r: 0.7075472, g: 0.66199553, b: 0.61743504, a: 0.7019608}
-    - _Color_B: {r: 0.6981132, g: 0.65262264, b: 0.62237453, a: 1}
+    - _Color_B: {r: 0.6981132, g: 0.65262264, b: 0.6223745, a: 0.90588236}
     - _Shadow_Color: {r: 0.20754719, g: 0.08825177, b: 0.018600922, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

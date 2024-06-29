@@ -13,18 +13,31 @@ MonoBehaviour:
   m_Name: Bali_SO
   m_EditorClassIdentifier: 
   _name: 5
-  _unlocked: 0
-  _peakSeason: 0
-  _downSeason: 0
-  _region: 0
-  _attributes: 0000000001000000
+  _unlocked: 1
+  _peakSeason: 2
+  _downSeason: 3
+  _region: 4
+  _attributes: 0200000003000000
   _lodging:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8a2aaa6eabf4b8e4fb515672d1dc690e, type: 2}
+  - {fileID: 11400000, guid: ccf7d1ebd738f1249b95bcbe18f4a507, type: 2}
+  - {fileID: 11400000, guid: 3b780f96de5e4ed4e88d4cfad3f31006, type: 2}
+  - {fileID: 11400000, guid: e5a786fa48a391240a67bf4fe2715233, type: 2}
+  - {fileID: 11400000, guid: 0c0e4edbec4afaf4381f0ce2a3a500d3, type: 2}
   _dining:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 86532a456395d0e438b40ae1f8fee055, type: 2}
+  - {fileID: 11400000, guid: d58731ccfe360d14f9bf66e6a541b801, type: 2}
+  - {fileID: 11400000, guid: c5603bf6a9f96d346a0ed5df657d02a8, type: 2}
   _transit:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8e7a2b17187b61644af79fa19e68f71c, type: 2}
+  - {fileID: 11400000, guid: dc44cf064c5d7a643aecdbb6d1058511, type: 2}
+  - {fileID: 11400000, guid: e021d3962c4ba904392536cf849c01e9, type: 2}
   _activities:
   - {fileID: 11400000, guid: e5c916bc1e59d9f42826b11edba9c76b, type: 2}
-  _packages: []
+  - {fileID: 11400000, guid: 0d2dd762ca1ef4d42926bebd713bf0ed, type: 2}
+  - {fileID: 11400000, guid: 27439363f88df6d48a7015701042dd5a, type: 2}
+  - {fileID: 11400000, guid: e4cd0632a2666ab4fa5aee3b433faa5e, type: 2}
+  - {fileID: 11400000, guid: e63f1b51daca99943b3eb585de0cf5bb, type: 2}
+  _packages:
+  - {fileID: 11400000, guid: 08e3116de1972b4448c482deccdb785c, type: 2}
+  - {fileID: 11400000, guid: db14827dd3ad21f469ac8c0737a6505b, type: 2}

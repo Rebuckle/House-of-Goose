@@ -32,7 +32,7 @@ public class BudgetCalculation : MonoBehaviour
 
 
         CalculateCustomerServiceRating();
-        CalculateStarRating();
+        PlayerPrefs.SetInt(TheClient.ClientName,CalculateStarRating());
     }
 
     #region Calculate Trip Cost
@@ -375,7 +375,7 @@ public class BudgetCalculation : MonoBehaviour
     //star rating variables ----------------------------------------------
     double clientRating = 0;
     double starRatingTemp = 0; //for calculations
-    double starRating = 0;
+    int starRating = 0;
 
     #endregion
 
@@ -819,7 +819,7 @@ public class BudgetCalculation : MonoBehaviour
         Debug.Log("customer service rating: " + customerServiceRating);
     }
         
-        void CalculateStarRating() { 
+        int CalculateStarRating() { 
 
         //calculate final rating and star rating from client
 
@@ -828,46 +828,49 @@ public class BudgetCalculation : MonoBehaviour
         starRatingTemp = clientRating * 100;
 
         if (starRatingTemp > 95) //hard to get perfect score
-            starRating = 5;
+            starRating = 10;
         else if (starRatingTemp > 90)
-            starRating = 4.5;
+            starRating = 9;
         else if (starRatingTemp > 80)
-            starRating = 4;
+            starRating = 8;
         else if (starRatingTemp > 70)
-            starRating = 3.5;
+            starRating = 7;
         else if (starRatingTemp > 60)
-            starRating = 3;
+            starRating = 6;
         else if (starRatingTemp > 50)
-            starRating = 2.5;
+            starRating = 5;
         else if (starRatingTemp > 40)
-            starRating = 2;
+            starRating = 4;
         else if (starRatingTemp > 30)
-            starRating = 1.5;
+            starRating = 3;
         else if (starRatingTemp > 20)
-            starRating = 1;
+            starRating = 2;
         else if (starRatingTemp > 10)
-            starRating = 0.5;
+            starRating = 1;
         else if (starRatingTemp >= 0)
             starRating = 0;
 
         Debug.Log("client rating: " + clientRating);
-        Debug.Log("final star rating: " + starRating + " / 5");
+        Debug.Log("final star rating: " + (float)starRating/2 + " / 5");
 
         // ----------------------------------------------------------------------------------------------------------------------------
 
         //output success message
-        if (starRating == 5)
+        if (starRating == 10)
             Debug.Log("EXCELLENT WORK!");
-        else if (starRating >= 4)
+        else if (starRating >= 8)
             Debug.Log("GOOD JOB!");
-        else if (starRating >= 3)
+        else if (starRating >= 6)
             Debug.Log("YOU'RE GETTING THERE!");
-        else if (starRating >= 2)
+        else if (starRating >= 4)
             Debug.Log("TRY HARDER.");
-        else if (starRating >= 1)
+        else if (starRating >= 2)
             Debug.Log("THAT WAS TERRIBLE.");
         else if (starRating >= 0)
             Debug.Log("YOUR JOB IS AT RISK.");
+
+        // ----------------------------------------------------------------------------------------------------------------------------
+        return starRating;
     }
 
     #endregion

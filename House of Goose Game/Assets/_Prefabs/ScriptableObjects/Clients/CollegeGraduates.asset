@@ -21,7 +21,7 @@ MonoBehaviour:
   _budget: 5500
   _tripDuration: 21
   _groupSize: 3
-  _callLimit: 3
+  _callLimit: 2
   _startingRegion: 6
   _preferredSeasons: 0300000000000000
   _unpreferredSeasons: 0100000002000000
@@ -51,5 +51,5 @@ MonoBehaviour:
   _dislikedActivityTags: 100000001100000008000000
   _knownLikedActivityTags: 040000000c000000
   _knownDislikedActivityTags: 08000000
-  _mainDialogue: {fileID: 0}
-  _repeatDialogue: {fileID: 0}
+  _mainDialogue: {fileID: 11400000, guid: 78d4130dbe30ebe40a63d045b896a870, type: 2}
+  _repeatDialogue: {fileID: 11400000, guid: bec0692e628e4414c8a09aea764f850f, type: 2}

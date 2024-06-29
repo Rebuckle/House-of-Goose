@@ -21,6 +21,8 @@ public class Player : HoG
     public AudioClip manilaPickUp_Audio;
     public AudioClip computerRejectQuack_Audio;
     public AudioClip computerClickOn_Audio;
+    public AudioClip phoneRing_Audio;
+    public AudioClip phoneBusy_Audio;
 
 
     private bool computerZoom = false;
@@ -59,6 +61,13 @@ public class Player : HoG
         gm.OnGameStarted += OnGameStarted;
         sFXHandler = GameObject.Find("sfxManager").GetComponent<SFXHandler>();
 
+        Invoke("CallSpawnDelay", 3); //ring phone
+
+    }
+
+    private void CallSpawnDelay()
+    {
+        sFXHandler.PlaySound(phoneRing_Audio);
     }
 
     private void OnGameStarted(object gm, GameStartArgs gsa)
@@ -186,7 +195,7 @@ public class Player : HoG
             {
                 manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
                 manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
-                manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
+                manillas[selectedManillaIndex].Find("Armature").Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
                 selectedManillaIndex = -1;
             }
             return;
@@ -198,14 +207,14 @@ public class Player : HoG
             {
                 manillas[selectedManillaIndex].DOMove(manillaBaseAnchors[selectedManillaIndex].position, TWEEN_SPEED);
                 manillas[selectedManillaIndex].DORotate(manillaBaseAnchors[selectedManillaIndex].eulerAngles, TWEEN_SPEED);
-                manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
+                manillas[selectedManillaIndex].Find("Armature").Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_CLOSED, TWEEN_SPEED);
             }
 
         }
         selectedManillaIndex = index;
         manillas[selectedManillaIndex].DOMove(manillaOpenRootAnchor.position, TWEEN_SPEED);
         manillas[selectedManillaIndex].DORotate(manillaOpenRootAnchor.eulerAngles, TWEEN_SPEED);
-        manillas[selectedManillaIndex].Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_OPEN, TWEEN_SPEED);
+        manillas[selectedManillaIndex].Find("Armature").Find("root").Find("folder_front").DOLocalRotate(MANILLA_COVER_ANGLE_OPEN, TWEEN_SPEED);
 
         manillaZoom = true;
 
@@ -259,7 +268,9 @@ public class Player : HoG
                 Debug.Log("Hit " + hit.collider.name);
                 if (hit.collider.transform == phoneBase || hit.collider.transform == phoneReciever)
                 {
+                    if (notebookZoom != true) GameManager.gm.notebookBehavior.ToggleNotebook();
                     SetNotebookZoom(true);
+
                     SetPhoneZoom(true);
                     inPhoneCall = true;
                     DialogueManager.OnDialogueEnded += EndPhoneCallCallback;
@@ -282,6 +293,7 @@ public class Player : HoG
                 }
                 else if (hit.collider.transform == notebook)
                 {
+                    if (notebookZoom != true) GameManager.gm.notebookBehavior.ToggleNotebook();
                     SetNotebookZoom(true);
                     SetComputerZoom(false);
                     SetManillaZoom(-1, false);
@@ -291,6 +303,7 @@ public class Player : HoG
                 else if (hit.collider.transform == computer)
                 {
                     SetComputerZoom(true);
+                    if (notebookZoom != false) GameManager.gm.notebookBehavior.ToggleNotebook();
                     SetNotebookZoom(false);
                     SetManillaZoom(-1, false);
                     sFXHandler.PlaySound(computerClickOn_Audio);
@@ -305,6 +318,7 @@ public class Player : HoG
                             Debug.Log("Zooming to manilla " + i);
                             SetManillaZoom(i, true);
                             SetComputerZoom(false);
+                            if (notebookZoom != false) GameManager.gm.notebookBehavior.ToggleNotebook();
                             SetNotebookZoom(false);
                             hitManilla = true;
                             sFXHandler.PlaySound(manilaPickUp_Audio);
@@ -314,6 +328,7 @@ public class Player : HoG
                     if (!hitManilla)
                     {
                         SetComputerZoom(false);
+                        if (notebookZoom != false) GameManager.gm.notebookBehavior.ToggleNotebook();
                         SetNotebookZoom(false);
                         SetManillaZoom(-1, false);                        
                     }
@@ -324,6 +339,7 @@ public class Player : HoG
             else
             {
                 SetComputerZoom(false);
+                if (notebookZoom != false) GameManager.gm.notebookBehavior.ToggleNotebook();
                 SetNotebookZoom(false);
                 SetManillaZoom(-1, false);
             }

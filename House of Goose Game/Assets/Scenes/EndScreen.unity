@@ -4140,6 +4140,7 @@ GameObject:
   - component: {fileID: 1226160621}
   - component: {fileID: 1226160620}
   - component: {fileID: 1226160619}
+  - component: {fileID: 1226160623}
   m_Layer: 5
   m_Name: EndScreenCanvas
   m_TagString: Untagged
@@ -4231,6 +4232,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1226160623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226160618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aadbae0ea342eb84ab81a3f07321ef74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comments:
+  - {fileID: 11400000, guid: 3a194d033621f634ca1b686efade3bc6, type: 2}
+  - {fileID: 11400000, guid: 596ec364147e6c246974d636815647e4, type: 2}
+  - {fileID: 11400000, guid: 449d3e23f8e8560498612daca39328d5, type: 2}
+  - {fileID: 11400000, guid: d1388786d3cb985448ce234047578981, type: 2}
+  - {fileID: 11400000, guid: f896b5748d172a8428736176be78f757, type: 2}
+  reviewTextBoxes:
+  - {fileID: 1961398411}
+  - {fileID: 854470918}
+  - {fileID: 1058788169}
+  - {fileID: 1610343592}
+  - {fileID: 1421943489}
 --- !u!1 &1236553038
 GameObject:
   m_ObjectHideFlags: 0

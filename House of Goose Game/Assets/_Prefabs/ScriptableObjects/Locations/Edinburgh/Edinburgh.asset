@@ -13,13 +13,31 @@ MonoBehaviour:
   m_Name: Edinburgh
   m_EditorClassIdentifier: 
   _name: 0
-  _unlocked: 0
-  _peakSeason: 0
+  _unlocked: 1
+  _peakSeason: 3
   _downSeason: 0
-  _region: 0
-  _attributes: 
-  _lodging: []
-  _dining: []
-  _transit: []
-  _activities: []
-  _packages: []
+  _region: 3
+  _attributes: 0000000002000000
+  _lodging:
+  - {fileID: 11400000, guid: d7b067d69ea0e7941a491b972879a32b, type: 2}
+  - {fileID: 11400000, guid: 39364b2814d40724dbddf1471e7dfce2, type: 2}
+  - {fileID: 11400000, guid: e84dc14b40adc9e45a326574d2c20f7c, type: 2}
+  - {fileID: 11400000, guid: 4ca00df0981b16744977ba33820ee5e3, type: 2}
+  - {fileID: 11400000, guid: 5650ca44671fafb4d8f63a9d794e4ffe, type: 2}
+  _dining:
+  - {fileID: 11400000, guid: 5463882e02a5abd458ded10fd4ca3787, type: 2}
+  - {fileID: 11400000, guid: 1497ca1c2a6dbac42b7b9d9c12313716, type: 2}
+  - {fileID: 11400000, guid: 811071089a4ca8e45a6bfab534662def, type: 2}
+  _transit:
+  - {fileID: 11400000, guid: cd7396f288caadd4b8459e3640a5824f, type: 2}
+  - {fileID: 11400000, guid: 476d1a3d0b3062f4cb89c93917d783a5, type: 2}
+  - {fileID: 11400000, guid: c05883e883cbc6c4ca1ee463b6132796, type: 2}
+  _activities:
+  - {fileID: 11400000, guid: 2ba75951788630a4496b5326504f8ddb, type: 2}
+  - {fileID: 11400000, guid: 31df8129ed9525b4d9d5fed59896e08c, type: 2}
+  - {fileID: 11400000, guid: a84248ec17a92034d8435b3da96ac507, type: 2}
+  - {fileID: 11400000, guid: b6e9cc416a577824b95ff994127c1d09, type: 2}
+  - {fileID: 11400000, guid: caf443333ea6bd748b9a73bd3458f22d, type: 2}
+  _packages:
+  - {fileID: 11400000, guid: 8181136a70b5a5a46a5cd7c903f9ce05, type: 2}
+  - {fileID: 11400000, guid: 83f20b7b1cdf37242b8c58d29e6144f8, type: 2}

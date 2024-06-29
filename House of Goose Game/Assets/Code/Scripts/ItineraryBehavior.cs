@@ -22,7 +22,6 @@ public class ItineraryBehavior : HoG
     [SerializeField]
     TextMeshProUGUI _tripCostText;
 
-
     [SerializeField] List<Location> _allLocations;
 
     [System.Serializable]
@@ -43,9 +42,79 @@ public class ItineraryBehavior : HoG
 
     public void Start()
     {
+        if(TheClient == null)
+        {
+            TheClient = GameObject.Find("Game Controller").GetComponent<GameManager>().currentClient;
+        }
+
         _budgetText.text = TheClient.Budget.ToString();
-        _tripCostText.text = "000";
+        _tripCostText.text = "$0000";
+
+        SetDestinationList();
+
+        _destination = HoG.Locations.Edinburgh.ToString();
+
+        SetSeasonList();
+        SetAirplaneClassList();
+        SetPackagesList();
     }
+
+    // Setters
+    
+    public void SetDestinationList()
+    {
+        List<string> _allLocs = new List<string>();
+
+        foreach (HoG.Locations _location in System.Enum.GetValues(typeof(HoG.Locations)))
+        {
+            _allLocs.Add(_location.ToString());
+        }
+
+        _destinationDropdown.AddOptions(_allLocs);
+    }
+
+    public void SetSeasonList()
+    {
+        List<string> _allSeas = new List<string>();
+
+        foreach (HoG.Seasons _sea in System.Enum.GetValues(typeof(HoG.Seasons)))
+        {
+            _allSeas.Add(_sea.ToString());
+        }
+
+        _seasonDropdown.AddOptions(_allSeas);
+    }
+
+    public void SetAirplaneClassList()
+    {
+        List<string> _allAirplaneClasses = new List<string>();
+
+        foreach (HoG.AirplaneClass _class in System.Enum.GetValues(typeof(HoG.AirplaneClass)))
+        {
+            _allAirplaneClasses.Add(_class.ToString());
+        }
+
+        _airplaneClassDropdown.AddOptions(_allAirplaneClasses);
+    }
+
+    public void SetPackagesList()
+    {
+        List<string> _allPacks = new List<string>();
+
+        foreach (TripPackages _package in GetLocation().Packages)
+        {
+            foreach(string _packageName in _package.Activities)
+            {
+                _allPacks.Add(_packageName);
+            }
+        }
+
+        _packagesDropdown.AddOptions(_allPacks);
+    }
+
+
+
+    // Updaters
 
     public void UpdateDestination(TMP_Dropdown change)
     {
@@ -101,6 +170,69 @@ public class ItineraryBehavior : HoG
         }
     }
 
+    #region Day Plans
+
+    [SerializeField]
+    GameObject _dayPlanButtonsParent;
+    [SerializeField]
+    GameObject _numberedDayPrefab;
+    [SerializeField]
+    GameObject _newDayPlusButton;
+
+    [SerializeField]
+    GameObject _experiencePanelParent;
+    [SerializeField]
+    GameObject _experiencePanelPrefab;
+    [SerializeField]
+    List<GameObject> _dayPlans;
+
+    [SerializeField]
+    GameObject _activitiesButtonsParent;
+    [SerializeField]
+    GameObject _numberedActivityPrefab;
+    [SerializeField]
+    GameObject _newActivityPlusButton;
+
+    [SerializeField]
+    GameObject _activitiesParent;
+    [SerializeField]
+    GameObject _activitiesDropdownPrefab;
+
+    public void AddNewDayPlan()
+    {
+        GameObject _newDayPlan = Instantiate(_experiencePanelPrefab, _experiencePanelParent.transform);
+        GameObject _newNumberedButton = Instantiate(_numberedDayPrefab, _dayPlanButtonsParent.transform);
+
+        _newDayPlusButton.gameObject.transform.SetAsLastSibling();
+        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = _newDayPlusButton.gameObject.transform.GetSiblingIndex() + "";
+        _dayPlans.Add(_newDayPlan);
+        _newDayPlan.SetActive(false);
+
+        _newDayPlan.gameObject.transform.Find("NewActivityButton-Itinerary");
+    }
+
+    public void GoToDay(int index)
+    {
+        foreach(GameObject _dayPlan in _dayPlans)
+        {
+            _dayPlan.SetActive(false);
+        }
+        _dayPlans[index].SetActive(true);
+    }
+
+    public void AddNewActivityDropdown()
+    {
+        GameObject _newActivity = Instantiate(_activitiesDropdownPrefab, _activitiesParent.transform);
+        GameObject _newNumberedButton = Instantiate(_numberedActivityPrefab, _activitiesButtonsParent.transform);
+
+        _newActivityPlusButton.gameObject.transform.SetAsLastSibling();
+        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = _newActivityPlusButton.gameObject.transform.GetSiblingIndex() + 1 + "";
+    }
+
+    #endregion
+
+    //Getters
+
     public Location GetLocation()
     {
         foreach(Location _location in _allLocations)
@@ -123,6 +255,24 @@ public class ItineraryBehavior : HoG
         return _airplaneClass;
     }
 
+    public string GetDestination()
+    {
+        return _destination;
+    }
 
+    public string GetPackage()
+    {
+        return _packages;
+    }
+
+    public string[] GetActivities()
+    {
+        return _activities.ToArray();
+    }
+
+    public string[] GetPackageActivities()
+    {
+        return _packageActivities.ToArray();
+    }
 
 }
