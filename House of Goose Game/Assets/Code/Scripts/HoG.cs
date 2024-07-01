@@ -25,4 +25,8 @@ public class HoG : MonoBehaviour
 
     public enum AirplaneClass { None, First, Business, Economy };
 
+    public enum DiningQuality { OptOut, SingleDollar, DoubleDollar, TripleDollar }
+
+    public enum LodgingQuality { SingleDollar, DoubleDollar, TripleDollar, FourDollar, FiveDollar }
+
 }

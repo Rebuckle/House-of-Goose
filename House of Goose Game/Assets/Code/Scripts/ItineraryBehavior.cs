@@ -44,7 +44,7 @@ public class ItineraryBehavior : HoG
     {
         if(TheClient == null)
         {
-            TheClient = GameObject.Find("Game Controller").GetComponent<GameManager>().currentClient;
+            TheClient = FindFirstObjectByType<GameManager>().currentClient;
         }
 
         _budgetText.text = TheClient.Budget.ToString();
