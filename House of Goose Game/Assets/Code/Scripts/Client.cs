@@ -1,6 +1,7 @@
 using UnityEngine;
 using static HoG;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Client", menuName = "Scriptable Objects/Client")]
 public class Client : ScriptableObject
