@@ -448,11 +448,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed5fabbe66f253499e9b1aa9be9cec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentClient: {fileID: 11400000, guid: 20c27a30c37e36c4ab79f64fc0bfb080, type: 2}
+  currentClient: {fileID: 0}
+  _allClients:
+  - {fileID: 11400000, guid: d61c6df6902dbd6469dba01c695188b1, type: 2}
+  - {fileID: 11400000, guid: fd867fbcbbe199e459980c41b3d7d282, type: 2}
+  - {fileID: 11400000, guid: 3132baaa67fb9f14da8f0e42f7586879, type: 2}
+  - {fileID: 11400000, guid: fda408852c036d94495b48ab93a3ddf7, type: 2}
+  - {fileID: 11400000, guid: 92b3a8af0963cf040b9098d308ba341e, type: 2}
+  - {fileID: 11400000, guid: 5901e6d436e3d3a4c91856083075c2e6, type: 2}
   playerObj: {fileID: 1235990120}
   notebookBehavior: {fileID: 0}
   locationBehavior: {fileID: 0}
   dialogueManager: {fileID: 1686828000}
+  itineraryBehavior: {fileID: 0}
 --- !u!4 &1166843457
 Transform:
   m_ObjectHideFlags: 0
