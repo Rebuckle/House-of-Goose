@@ -71,26 +71,26 @@ public class NotebookBehavior : HoG
         {
             case NotebookStatus.Disabled:
                 {
-                    _summaryPage.transform.parent = _pagePool.gameObject.transform;
-                    _preferencePage.transform.parent = _pagePool.gameObject.transform;
-                    _dislikesPage.transform.parent = _pagePool.gameObject.transform;
-                    _likesPage.transform.parent = _pagePool.gameObject.transform;
+                    _summaryPage.transform.SetParent(_pagePool.gameObject.transform, false);
+                    _preferencePage.transform.SetParent(_pagePool.gameObject.transform, false);
+                    _dislikesPage.transform.SetParent(_pagePool.gameObject.transform, false);
+                    _likesPage.transform.SetParent(_pagePool.gameObject.transform, false);
                     break;
                 }
             case NotebookStatus.PagesOneTwo:
                 {
-                    _summaryPage.transform.parent = _leftSideCanvas.gameObject.transform;
-                    _preferencePage.transform.parent = _rightSideCanvas.gameObject.transform;
-                    _dislikesPage.transform.parent = _pagePool.gameObject.transform;
-                    _likesPage.transform.parent = _pagePool.gameObject.transform;
+                    _summaryPage.transform.SetParent(_leftSideCanvas.gameObject.transform, false);
+                    _preferencePage.transform.SetParent(_rightSideCanvas.gameObject.transform, false);
+                    _dislikesPage.transform.SetParent(_pagePool.gameObject.transform, false);
+                    _likesPage.transform.SetParent(_pagePool.gameObject.transform, false);
                     break;
                 }
             case NotebookStatus.PagesThreeFour:
                 {
-                    _summaryPage.transform.parent = _pagePool.gameObject.transform;
-                    _preferencePage.transform.parent = _pagePool.gameObject.transform;
-                    _likesPage.transform.parent = _leftSideCanvas.gameObject.transform;
-                    _dislikesPage.transform.parent = _rightSideCanvas.gameObject.transform;
+                    _summaryPage.transform.SetParent(_pagePool.gameObject.transform, false);
+                    _preferencePage.transform.SetParent(_pagePool.gameObject.transform, false);
+                    _likesPage.transform.SetParent(_leftSideCanvas.gameObject.transform, false);
+                    _dislikesPage.transform.SetParent(_rightSideCanvas.gameObject.transform, false);
                     break;
                 }
             default:
@@ -113,7 +113,6 @@ public class NotebookBehavior : HoG
         }
 
         FlipPages();
-        Debug.Log(_status);
     }//end Toggle Notebook
 
     #region Summary Page
