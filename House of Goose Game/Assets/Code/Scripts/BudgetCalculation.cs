@@ -17,19 +17,11 @@ public class BudgetCalculation : MonoBehaviour
     }
 
     public void CalculateBudget()
-    {
-        CalculateLodging();
-        CalculateDining();
-        CalculateActivity();
-        CalculateTransit();
-        CalculateSeason();
-
+    { 
         CalculateTripCost();
-
 
         CalculateRating();
         SeasonRating();
-
 
         CalculateCustomerServiceRating();
         PlayerPrefs.SetInt(TheClient.ClientName,CalculateStarRating());
@@ -65,17 +57,15 @@ public class BudgetCalculation : MonoBehaviour
     double transitPassCost = 0; //transit cost to buy daily pass
     bool optOutTransit = false; //client opted out of transit
 
-    string NorthAmerica = "North America";
-    string Africa = "Africa";
-    string Europe = "Europe";
-    string Asia = "Asia";
-    string Oceania = "Oceania";
-
     double classType = 0;
     double airfareCost = 0;
 
     //season variables
     double valueSeason = 1; //base number
+
+    // Update Methods
+
+    // Calculation Methods
 
     void CalculateLodging()
     {
@@ -194,89 +184,97 @@ public class BudgetCalculation : MonoBehaviour
         else if (TheItinerary.GetAirplaneClass() == "FirstClass")
             classType = 2.2;
 
-        if (TheClient.StartingRegion.ToString() == NorthAmerica)
+        if (TheClient.StartingRegion.ToString() == "NorthAmerica")
         {
-            if (TheItinerary.GetLocation().Region.ToString() == NorthAmerica)
+            if (TheItinerary.GetLocation().Region.ToString() == "NorthAmerica")
             {
                 airfareCost = 300 * TheClient.GroupSize * valueSeason * classType; //group size, season type, and class type adjusts ticket
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Europe)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Europe")
             {
                 airfareCost = 700 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Asia)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Asia")
             {
                 airfareCost = 1600 * TheClient.GroupSize * valueSeason * classType;
             }
         }
-        else if (TheClient.StartingRegion.ToString() == Africa)
+        else if (TheClient.StartingRegion.ToString() == "Africa")
         {
-            if (TheItinerary.GetLocation().Region.ToString() == NorthAmerica)
+            if (TheItinerary.GetLocation().Region.ToString() == "NorthAmerica")
             {
                 airfareCost = 1200 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Europe)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Europe")
             {
                 airfareCost = 1000 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Asia)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Asia")
             {
                 airfareCost = 1400 * TheClient.GroupSize * valueSeason * classType;
             }
         }
-        else if (TheClient.StartingRegion.ToString() == Europe)
+        else if (TheClient.StartingRegion.ToString() == "Europe")
         {
-            if (TheItinerary.GetLocation().Region.ToString() == NorthAmerica)
+            if (TheItinerary.GetLocation().Region.ToString() == "NorthAmerica")
             {
                 airfareCost = 700 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Europe)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Europe")
             {
                 airfareCost = 250 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Asia)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Asia")
             {
                 airfareCost = 900 * TheClient.GroupSize * valueSeason * classType;
             }
         }
-        else if (TheClient.StartingRegion.ToString() == Asia)
+        else if (TheClient.StartingRegion.ToString() == "Asia")
         {
-            if (TheItinerary.GetLocation().Region.ToString() == NorthAmerica)
+            if (TheItinerary.GetLocation().Region.ToString() == "NorthAmerica")
             {
                 airfareCost = 1600 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Europe)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Europe")
             {
                 airfareCost = 900 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Asia)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Asia")
             {
                 airfareCost = 300 * TheClient.GroupSize * valueSeason * classType;
             }
         }
-        else if (TheClient.StartingRegion.ToString() == Oceania)
+        else if (TheClient.StartingRegion.ToString() == "Oceania")
         {
-            if (TheItinerary.GetLocation().Region.ToString() == NorthAmerica)
+            if (TheItinerary.GetLocation().Region.ToString() == "NorthAmerica")
             {
                 airfareCost = 1300 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Europe)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Europe")
             {
                 airfareCost = 1100 * TheClient.GroupSize * valueSeason * classType;
             }
-            else if (TheItinerary.GetLocation().Region.ToString() == Asia)
+            else if (TheItinerary.GetLocation().Region.ToString() == "Asia")
             {
                 airfareCost = 600 * TheClient.GroupSize * valueSeason * classType;
             }
         }
     }
 
-    void CalculateTripCost()
+    public double CalculateTripCost()
     {
+        CalculateLodging();
+        CalculateDining();
+        CalculateActivity();
+        CalculateTransit();
+        CalculateSeason();
+
         //calculate woop woop
         tripCost = lodgingCost + diningCost + activityCost + transitCost + airfareCost;
 
         Debug.Log(tripCost);
+
+        return tripCost;
     }
 
     #endregion

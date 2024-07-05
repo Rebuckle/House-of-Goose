@@ -1,11 +1,15 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class ItineraryBehavior : HoG
 {
     [SerializeField]
     public Client TheClient;
+
+    [SerializeField]
+    BudgetCalculation BudgetCalculator;
 
     [SerializeField]
     TMP_Dropdown _destinationDropdown;
@@ -16,22 +20,11 @@ public class ItineraryBehavior : HoG
     [SerializeField]
     TMP_Dropdown _packagesDropdown;
     [SerializeField]
-    List<DayPlan> _allPlans;
-    [SerializeField]
     TextMeshProUGUI _budgetText;
     [SerializeField]
     TextMeshProUGUI _tripCostText;
 
     [SerializeField] List<Location> _allLocations;
-
-    [System.Serializable]
-    public class DayPlan
-    {
-        public List<TMP_Dropdown> _activities;
-        public TMP_Dropdown _transit;
-        public TMP_Dropdown _lodging;
-        public TMP_Dropdown _dining;
-    }
 
     string _destination;
     string _season;
@@ -39,6 +32,9 @@ public class ItineraryBehavior : HoG
     string _packages;
     List<string> _activities;
     List<string> _packageActivities;
+    List<string> _dinings;
+    List<string> _transits;
+    List<string> _lodgings;
 
     public void Start()
     {
@@ -48,7 +44,7 @@ public class ItineraryBehavior : HoG
         }
 
         _budgetText.text = TheClient.Budget.ToString();
-        _tripCostText.text = "$0000";
+        _tripCostText.text = "$00.00";
 
         SetDestinationList();
 
@@ -57,6 +53,20 @@ public class ItineraryBehavior : HoG
         SetSeasonList();
         SetAirplaneClassList();
         SetPackagesList();
+
+
+        _activities = new List<string>();
+        _packageActivities = new List<string>();
+        _dinings = new List<string>();
+        _transits = new List<string>();
+        _lodgings = new List<string>();
+
+        LoadActivities();
+        LoadDining();
+        LoadTransit();
+        LoadLodging();
+
+        AddNewDayPlan();
     }
 
     // Setters
@@ -112,9 +122,12 @@ public class ItineraryBehavior : HoG
         _packagesDropdown.AddOptions(_allPacks);
     }
 
-
-
     // Updaters
+
+    public void UpdateTripCost()
+    {
+        _tripCostText.text = "$"+ BudgetCalculator.CalculateTripCost();
+    }//end update trip cost
 
     public void UpdateDestination(TMP_Dropdown change)
     {
@@ -150,7 +163,6 @@ public class ItineraryBehavior : HoG
             {
                 foreach(string _activities in _tripPackage.Activities)
                 {
-
                     _packageActivities.Add(_activities);
                     UpdateActivities(change);
                 }
@@ -160,15 +172,22 @@ public class ItineraryBehavior : HoG
 
     public void UpdateActivities(TMP_Dropdown change)
     {
-        _activities.Clear();
-        foreach(DayPlan dayPlan in _allPlans)
+        foreach(GameObject _dayPlan in _dayPlans)
         {
-            foreach(TMP_Dropdown _dropdown in dayPlan._activities)
-            {
-                _activities.Add(_dropdown.value.ToString());
-            }
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().ActivitiesDropdown.ClearOptions();
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().ActivitiesDropdown.AddOptions(_activities);
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().ActivitiesDropdown.AddOptions(_packageActivities);
+
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().DiningDropdown.ClearOptions();
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().DiningDropdown.AddOptions(_dinings);
+
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().LodgingDropdown.ClearOptions();
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().LodgingDropdown.AddOptions(_lodgings);
+
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().TransitDropdown.ClearOptions();
+            _dayPlan.GetComponent<ExperiencePanelDropdowns>().TransitDropdown.AddOptions(_transits);
         }
-    }
+    }//end update activities
 
     #region Day Plans
 
@@ -186,50 +205,82 @@ public class ItineraryBehavior : HoG
     [SerializeField]
     List<GameObject> _dayPlans;
 
-    [SerializeField]
-    GameObject _activitiesButtonsParent;
-    [SerializeField]
-    GameObject _numberedActivityPrefab;
-    [SerializeField]
-    GameObject _newActivityPlusButton;
-
-    [SerializeField]
-    GameObject _activitiesParent;
-    [SerializeField]
-    GameObject _activitiesDropdownPrefab;
-
     public void AddNewDayPlan()
     {
         GameObject _newDayPlan = Instantiate(_experiencePanelPrefab, _experiencePanelParent.transform);
         GameObject _newNumberedButton = Instantiate(_numberedDayPrefab, _dayPlanButtonsParent.transform);
 
+        //Set up Numbered Buttons
+
         _newDayPlusButton.gameObject.transform.SetAsLastSibling();
-        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = _newDayPlusButton.gameObject.transform.GetSiblingIndex() + "";
+        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = (_newNumberedButton.gameObject.transform.parent.GetSiblingIndex() + 1) + "";
+        _newNumberedButton.GetComponent<Button>().onClick.AddListener(GetDayButton(_newNumberedButton.GetComponent<Button>()));
+        _newNumberedButton.GetComponent<Button>().onClick.AddListener(GoToDay);
         _dayPlans.Add(_newDayPlan);
-        _newDayPlan.SetActive(false);
+        if(_dayPlans.Count > 1 == true)
+        {
+            _newDayPlan.SetActive(false);
+        }
 
-        _newDayPlan.gameObject.transform.Find("NewActivityButton-Itinerary");
-    }
+        //Set up Day Plan
+        _newDayPlan.GetComponent<ExperiencePanelDropdowns>().ActivitiesDropdown.AddOptions(_activities);
+        _newDayPlan.GetComponent<ExperiencePanelDropdowns>().DiningDropdown.AddOptions(_dinings);
+        _newDayPlan.GetComponent<ExperiencePanelDropdowns>().LodgingDropdown.AddOptions(_lodgings);
+        _newDayPlan.GetComponent<ExperiencePanelDropdowns>().TransitDropdown.AddOptions(_transits);
+    }//end add new day plan
 
-    public void GoToDay(int index)
+    public void GoToDay()
     {
-        foreach(GameObject _dayPlan in _dayPlans)
+        int index = _getButton.gameObject.transform.parent.GetSiblingIndex();
+
+        foreach (GameObject _dayPlan in _dayPlans)
         {
             _dayPlan.SetActive(false);
         }
         _dayPlans[index].SetActive(true);
     }
 
-    public void AddNewActivityDropdown()
+    [SerializeField]
+    Button _getButton;
+    public void GetDayButton(Button _thisButton)
     {
-        GameObject _newActivity = Instantiate(_activitiesDropdownPrefab, _activitiesParent.transform);
-        GameObject _newNumberedButton = Instantiate(_numberedActivityPrefab, _activitiesButtonsParent.transform);
-
-        _newActivityPlusButton.gameObject.transform.SetAsLastSibling();
-        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = _newActivityPlusButton.gameObject.transform.GetSiblingIndex() + 1 + "";
+        _getButton = _thisButton;
     }
-
     #endregion
+
+    //Setters
+
+    void LoadActivities()
+    {
+        foreach (ActivityTags _activity in System.Enum.GetValues(typeof(HoG.ActivityTags)))
+        {
+            _activities.Add(_activity.ToString());
+        }
+    }//end load activities
+
+    void LoadTransit()
+    {
+        foreach (Transit _transit in System.Enum.GetValues(typeof(HoG.Transit)))
+        {
+            _transits.Add(_transit.ToString());
+        }
+    }//end load transit
+
+    void LoadDining()
+    {
+        foreach (DiningQuality _dining in System.Enum.GetValues(typeof(HoG.DiningQuality)))
+        {
+            _dinings.Add(_dining.ToString());
+        }
+    }//end load dining
+
+    void LoadLodging()
+    {
+        foreach (LodgingQuality _activity in System.Enum.GetValues(typeof(HoG.LodgingQuality)))
+        {
+            _lodgings.Add(_activity.ToString());
+        }
+    }//end load activities
 
     //Getters
 
