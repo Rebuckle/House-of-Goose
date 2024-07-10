@@ -61,6 +61,10 @@ public class ItineraryBehavior : HoG
         _transits = new List<string>();
         _lodgings = new List<string>();
 
+
+        _dayPlans = new List<GameObject>();
+        _numberedButtons = new List<GameObject>();
+
         LoadActivities();
         LoadDining();
         LoadTransit();
@@ -189,8 +193,6 @@ public class ItineraryBehavior : HoG
         }
     }//end update activities
 
-    #region Day Plans
-
     [SerializeField]
     GameObject _dayPlanButtonsParent;
     [SerializeField]
@@ -202,8 +204,8 @@ public class ItineraryBehavior : HoG
     GameObject _experiencePanelParent;
     [SerializeField]
     GameObject _experiencePanelPrefab;
-    [SerializeField]
     List<GameObject> _dayPlans;
+    List<GameObject> _numberedButtons;
 
     public void AddNewDayPlan()
     {
@@ -213,14 +215,19 @@ public class ItineraryBehavior : HoG
         //Set up Numbered Buttons
 
         _newDayPlusButton.gameObject.transform.SetAsLastSibling();
-        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = (_newNumberedButton.gameObject.transform.parent.GetSiblingIndex() + 1) + "";
-        _newNumberedButton.GetComponent<Button>().onClick.AddListener(GetDayButton(_newNumberedButton.GetComponent<Button>()));
-        _newNumberedButton.GetComponent<Button>().onClick.AddListener(GoToDay);
+        _numberedButtons.Add(_newNumberedButton);
+        _newNumberedButton.GetComponentInChildren<TextMeshProUGUI>().text = (_numberedButtons.IndexOf(_newNumberedButton) + 1) + "";
+        
+        _newNumberedButton.name = "Button " + (_numberedButtons.IndexOf(_newNumberedButton) + 1);
+        
+        _newNumberedButton.GetComponent<Button>().onClick.AddListener(delegate { GoToDay(_numberedButtons.IndexOf(_newNumberedButton)); } );
+        
         _dayPlans.Add(_newDayPlan);
         if(_dayPlans.Count > 1 == true)
         {
             _newDayPlan.SetActive(false);
         }
+        _newDayPlan.name = "Day Plan " + _dayPlans.IndexOf(_newDayPlan);
 
         //Set up Day Plan
         _newDayPlan.GetComponent<ExperiencePanelDropdowns>().ActivitiesDropdown.AddOptions(_activities);
@@ -229,24 +236,14 @@ public class ItineraryBehavior : HoG
         _newDayPlan.GetComponent<ExperiencePanelDropdowns>().TransitDropdown.AddOptions(_transits);
     }//end add new day plan
 
-    public void GoToDay()
+    public void GoToDay(int index)
     {
-        int index = _getButton.gameObject.transform.parent.GetSiblingIndex();
-
         foreach (GameObject _dayPlan in _dayPlans)
         {
             _dayPlan.SetActive(false);
         }
         _dayPlans[index].SetActive(true);
     }
-
-    [SerializeField]
-    Button _getButton;
-    public void GetDayButton(Button _thisButton)
-    {
-        _getButton = _thisButton;
-    }
-    #endregion
 
     //Setters
 
